@@ -1,16 +1,16 @@
 webpackJsonp([36],{
 
-/***/ 1845:
+/***/ 1920:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreGradesCoursesPageModule", function() { return CoreGradesCoursesPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreGradesGradePageModule", function() { return CoreGradesGradePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__courses__ = __webpack_require__(1970);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__grade__ = __webpack_require__(2052);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__ = __webpack_require__(14);
 // (C) Copyright 2015 Martin Dougiamas
 //
@@ -37,40 +37,40 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var CoreGradesCoursesPageModule = /** @class */ (function () {
-    function CoreGradesCoursesPageModule() {
+var CoreGradesGradePageModule = /** @class */ (function () {
+    function CoreGradesGradePageModule() {
     }
-    CoreGradesCoursesPageModule = __decorate([
+    CoreGradesGradePageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_3__courses__["a" /* CoreGradesCoursesPage */]
+                __WEBPACK_IMPORTED_MODULE_3__grade__["a" /* CoreGradesGradePage */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* CoreComponentsModule */],
                 __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__courses__["a" /* CoreGradesCoursesPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__grade__["a" /* CoreGradesGradePage */]),
                 __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ],
         })
-    ], CoreGradesCoursesPageModule);
-    return CoreGradesCoursesPageModule;
+    ], CoreGradesGradePageModule);
+    return CoreGradesGradePageModule;
 }());
 
-//# sourceMappingURL=courses.module.js.map
+//# sourceMappingURL=grade.module.js.map
 
 /***/ }),
 
-/***/ 1970:
+/***/ 2052:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreGradesCoursesPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreGradesGradePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_grades__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_grades__ = __webpack_require__(100);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_utils_dom__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_split_view_split_view__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_helper__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_helper__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_sites__ = __webpack_require__(2);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -100,48 +100,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Page that displays courses grades (main menu option).
+ * Page that displays activity grade.
  */
-var CoreGradesCoursesPage = /** @class */ (function () {
-    function CoreGradesCoursesPage(gradesProvider, domUtils, gradesHelper) {
+var CoreGradesGradePage = /** @class */ (function () {
+    function CoreGradesGradePage(gradesProvider, domUtils, gradesHelper, navParams, sitesProvider) {
         this.gradesProvider = gradesProvider;
         this.domUtils = domUtils;
         this.gradesHelper = gradesHelper;
-        this.grades = [];
-        this.gradesLoaded = false;
+        this.gradeLoaded = false;
+        this.courseId = navParams.get('courseId');
+        this.userId = navParams.get('userId') || sitesProvider.getCurrentSiteUserId();
+        this.gradeId = navParams.get('gradeId');
     }
     /**
      * View loaded.
      */
-    CoreGradesCoursesPage.prototype.ionViewDidLoad = function () {
+    CoreGradesGradePage.prototype.ionViewDidLoad = function () {
         var _this = this;
-        if (this.courseId) {
-            // There is the course to load, open the course in a new state.
-            this.gotoCourseGrades(this.courseId);
-        }
-        this.fetchData().then(function () {
-            if (!_this.courseId && _this.splitviewCtrl.isOn() && _this.grades.length > 0) {
-                _this.gotoCourseGrades(_this.grades[0].courseid);
-            }
-            // Add log in Moodle.
-            return _this.gradesProvider.logCoursesGradesView();
-        }).finally(function () {
-            _this.gradesLoaded = true;
+        this.fetchData().finally(function () {
+            _this.gradeLoaded = true;
         });
     };
     /**
      * Fetch all the data required for the view.
      *
-     * @return {Promise<any>}     Resolved when done.
+     * @return {Promise<any>} Resolved when done.
      */
-    CoreGradesCoursesPage.prototype.fetchData = function () {
+    CoreGradesGradePage.prototype.fetchData = function () {
         var _this = this;
-        return this.gradesProvider.getCoursesGrades().then(function (grades) {
-            return _this.gradesHelper.getGradesCourseData(grades).then(function (grades) {
-                _this.grades = grades;
-            });
+        return this.gradesHelper.getGradeItem(this.courseId, this.gradeId, this.userId).then(function (grade) {
+            _this.grade = grade;
         }).catch(function (error) {
-            _this.domUtils.showErrorModalDefault(error, 'Error loading grades');
+            _this.domUtils.showErrorModalDefault(error, 'Error loading grade item');
         });
     };
     /**
@@ -149,41 +139,29 @@ var CoreGradesCoursesPage = /** @class */ (function () {
      *
      * @param {any} refresher Refresher.
      */
-    CoreGradesCoursesPage.prototype.refreshGrades = function (refresher) {
+    CoreGradesGradePage.prototype.refreshGrade = function (refresher) {
         var _this = this;
-        this.gradesProvider.invalidateCoursesGradesData().finally(function () {
+        this.gradesProvider.invalidateCourseGradesData(this.courseId, this.userId).finally(function () {
             _this.fetchData().finally(function () {
                 refresher.complete();
             });
         });
     };
-    /**
-     * Navigate to the grades of the selected course.
-     * @param {number} courseId  Course Id where to navigate.
-     */
-    CoreGradesCoursesPage.prototype.gotoCourseGrades = function (courseId) {
-        this.courseId = courseId;
-        this.splitviewCtrl.push('CoreGradesCoursePage', { courseId: courseId, userId: this.userId });
-    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */]),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */])
-    ], CoreGradesCoursesPage.prototype, "content", void 0);
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_4__components_split_view_split_view__["a" /* CoreSplitViewComponent */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_4__components_split_view_split_view__["a" /* CoreSplitViewComponent */])
-    ], CoreGradesCoursesPage.prototype, "splitviewCtrl", void 0);
-    CoreGradesCoursesPage = __decorate([
+    ], CoreGradesGradePage.prototype, "content", void 0);
+    CoreGradesGradePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-core-grades-courses',template:/*ion-inline-start:"/home/travis/build/crazyserver/moodlemobile2/src/core/grades/pages/courses/courses.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ \'core.grades.grades\' | translate }}</ion-title>\n    </ion-navbar>\n</ion-header>\n<core-split-view>\n    <ion-content>\n        <ion-refresher [enabled]="gradesLoaded" (ionRefresh)="refreshGrades($event)">\n            <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n        </ion-refresher>\n        <core-loading [hideUntil]="gradesLoaded">\n            <core-empty-box *ngIf="grades && grades.length == 0" icon="stats" [message]="\'core.grades.nogradesreturned\' | translate">\n            </core-empty-box>\n\n            <ion-list *ngIf="grades && grades.length > 0">\n                <a ion-item text-wrap *ngFor="let grade of grades" [title]="grade.courseFullName" (click)="gotoCourseGrades(grade.courseid)" [class.core-split-item-selected]="grade.courseid == courseId">\n                    <h2><core-format-text [text]="grade.courseFullName"></core-format-text></h2>\n                    <ion-badge item-end color="light">{{grade.grade}}</ion-badge>\n                </a>\n            </ion-list>\n        </core-loading>\n    </ion-content>\n</core-split-view>'/*ion-inline-end:"/home/travis/build/crazyserver/moodlemobile2/src/core/grades/pages/courses/courses.html"*/,
+            selector: 'page-core-grades-grade',template:/*ion-inline-start:"/home/travis/build/moodlehq/moodlemobile2/src/core/grades/pages/grade/grade.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ \'core.grades.grade\' | translate }}</ion-title>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <ion-refresher [enabled]="gradeLoaded" (ionRefresh)="refreshGrade($event)">\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n    </ion-refresher>\n    <core-loading [hideUntil]="gradeLoaded">\n        <core-empty-box *ngIf="!grade" icon="stats" [message]="\'core.grades.nogradesreturned\' | translate"></core-empty-box>\n\n        <ion-list *ngIf="grade">\n            <a ion-item *ngIf="grade.itemname && grade.link" text-wrap detail-push [href]="grade.link" core-link capture="true">\n                <ion-icon *ngIf="grade.icon" name="{{grade.icon}}" item-start></ion-icon>\n                <img *ngIf="grade.image" [src]="grade.image" item-start/>\n                <h2><core-format-text [text]="grade.itemname"></core-format-text></h2>\n            </a>\n\n            <ion-item *ngIf="grade.itemname && !grade.link" text-wrap >\n                <ion-icon *ngIf="grade.icon" name="{{grade.icon}}" item-start></ion-icon>\n                <img *ngIf="grade.image" [src]="grade.image" item-start/>\n                <h2><core-format-text [text]="grade.itemname"></core-format-text></h2>\n            </ion-item>\n\n            <ion-item text-wrap *ngIf="grade.weight">\n                <h2>{{ \'core.grades.weight\' | translate}}</h2>\n                <p><core-format-text [text]="grade.weight"></core-format-text></p>\n            </ion-item>\n\n            <ion-item text-wrap *ngIf="grade.grade">\n                <h2>{{ \'core.grades.grade\' | translate}}</h2>\n                <p><core-format-text [text]="grade.grade"></core-format-text></p>\n            </ion-item>\n\n            <ion-item text-wrap *ngIf="grade.range">\n                <h2>{{ \'core.grades.range\' | translate}}</h2>\n                <p><core-format-text [text]="grade.range"></core-format-text></p>\n            </ion-item>\n\n            <ion-item text-wrap *ngIf="grade.percentage">\n                <h2>{{ \'core.grades.percentage\' | translate}}</h2>\n                <p><core-format-text [text]="grade.percentage"></core-format-text></p>\n            </ion-item>\n\n            <ion-item text-wrap *ngIf="grade.lettergrade">\n                <h2>{{ \'core.grades.lettergrade\' | translate}}</h2>\n                <p><core-format-text [text]="grade.lettergrade"></core-format-text></p>\n            </ion-item>\n\n            <ion-item text-wrap *ngIf="grade.rank">\n                <h2>{{ \'core.grades.rank\' | translate}}</h2>\n                <p><core-format-text [text]="grade.rank"></core-format-text></p>\n            </ion-item>\n\n            <ion-item text-wrap *ngIf="grade.average">\n                <h2>{{ \'core.grades.average\' | translate}}</h2>\n                <p><core-format-text [text]="grade.average"></core-format-text></p>\n            </ion-item>\n\n            <ion-item text-wrap *ngIf="grade.feedback">\n                <h2>{{ \'core.grades.feedback\' | translate}}</h2>\n                <p><core-format-text [fullTitle]="\'core.grades.feedback\' | translate" maxHeight="60" fullOnClick="true" [text]="grade.feedback"></core-format-text></p>\n            </ion-item>\n\n            <ion-item text-wrap *ngIf="grade.contributiontocoursetotal">\n                <h2>{{ \'core.grades.contributiontocoursetotal\' | translate}}</h2>\n                <p><core-format-text [text]="grade.contributiontocoursetotal"></core-format-text></p>\n            </ion-item>\n        </ion-list>\n    </core-loading>\n</ion-content>\n'/*ion-inline-end:"/home/travis/build/moodlehq/moodlemobile2/src/core/grades/pages/grade/grade.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_grades__["a" /* CoreGradesProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_utils_dom__["a" /* CoreDomUtilsProvider */],
-            __WEBPACK_IMPORTED_MODULE_5__providers_helper__["a" /* CoreGradesHelperProvider */]])
-    ], CoreGradesCoursesPage);
-    return CoreGradesCoursesPage;
+            __WEBPACK_IMPORTED_MODULE_4__providers_helper__["a" /* CoreGradesHelperProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_5__providers_sites__["a" /* CoreSitesProvider */]])
+    ], CoreGradesGradePage);
+    return CoreGradesGradePage;
 }());
 
-//# sourceMappingURL=courses.js.map
+//# sourceMappingURL=grade.js.map
 
 /***/ })
 

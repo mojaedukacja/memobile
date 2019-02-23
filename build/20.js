@@ -1,17 +1,18 @@
 webpackJsonp([20],{
 
-/***/ 1861:
+/***/ 1936:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreSettingsGeneralPageModule", function() { return CoreSettingsGeneralPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreSettingsSpaceUsagePageModule", function() { return CoreSettingsSpaceUsagePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__general__ = __webpack_require__(1986);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__space_usage__ = __webpack_require__(2068);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pipes_pipes_module__ = __webpack_require__(62);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -37,44 +38,43 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var CoreSettingsGeneralPageModule = /** @class */ (function () {
-    function CoreSettingsGeneralPageModule() {
+
+var CoreSettingsSpaceUsagePageModule = /** @class */ (function () {
+    function CoreSettingsSpaceUsagePageModule() {
     }
-    CoreSettingsGeneralPageModule = __decorate([
+    CoreSettingsSpaceUsagePageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_3__general__["a" /* CoreSettingsGeneralPage */]
+                __WEBPACK_IMPORTED_MODULE_3__space_usage__["a" /* CoreSettingsSpaceUsagePage */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* CoreComponentsModule */],
                 __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__general__["a" /* CoreSettingsGeneralPage */]),
+                __WEBPACK_IMPORTED_MODULE_6__pipes_pipes_module__["a" /* CorePipesModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__space_usage__["a" /* CoreSettingsSpaceUsagePage */]),
                 __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ],
         })
-    ], CoreSettingsGeneralPageModule);
-    return CoreSettingsGeneralPageModule;
+    ], CoreSettingsSpaceUsagePageModule);
+    return CoreSettingsSpaceUsagePageModule;
 }());
 
-//# sourceMappingURL=general.module.js.map
+//# sourceMappingURL=space-usage.module.js.map
 
 /***/ }),
 
-/***/ 1986:
+/***/ 2068:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreSettingsGeneralPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreSettingsSpaceUsagePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_app__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__core_constants__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_config__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_file__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_events__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_lang__ = __webpack_require__(93);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_utils_dom__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_local_notifications__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__configconstants__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_app__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_filepool__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_sites__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_utils_text__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_utils_dom__ = __webpack_require__(8);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -104,74 +104,144 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-
 /**
- * Page that displays the general settings.
+ * Page that displays the space usage settings.
  */
-var CoreSettingsGeneralPage = /** @class */ (function () {
-    function CoreSettingsGeneralPage(appProvider, configProvider, fileProvider, eventsProvider, langProvider, domUtils, localNotificationsProvider) {
-        var _this = this;
-        this.configProvider = configProvider;
-        this.eventsProvider = eventsProvider;
-        this.langProvider = langProvider;
+var CoreSettingsSpaceUsagePage = /** @class */ (function () {
+    function CoreSettingsSpaceUsagePage(filePoolProvider, sitesProvider, textUtils, translate, domUtils, appProvider) {
+        this.filePoolProvider = filePoolProvider;
+        this.sitesProvider = sitesProvider;
+        this.textUtils = textUtils;
+        this.translate = translate;
         this.domUtils = domUtils;
-        this.languages = {};
-        this.languageCodes = [];
-        this.languages = __WEBPACK_IMPORTED_MODULE_9__configconstants__["a" /* CoreConfigConstants */].languages;
-        this.languageCodes = Object.keys(this.languages);
-        langProvider.getCurrentLanguage().then(function (currentLanguage) {
-            _this.selectedLanguage = currentLanguage;
-        });
-        this.rteSupported = this.domUtils.isRichTextEditorSupported();
-        if (this.rteSupported) {
-            this.configProvider.get(__WEBPACK_IMPORTED_MODULE_2__core_constants__["a" /* CoreConstants */].SETTINGS_RICH_TEXT_EDITOR, true).then(function (richTextEditorEnabled) {
-                _this.richTextEditor = !!richTextEditorEnabled;
-            });
-        }
-        if (localStorage && localStorage.getItem && localStorage.setItem) {
-            this.showReport = true;
-            this.reportInBackground = parseInt(localStorage.getItem(__WEBPACK_IMPORTED_MODULE_2__core_constants__["a" /* CoreConstants */].SETTINGS_REPORT_IN_BACKGROUND), 10) === 1;
-        }
-        else {
-            this.showReport = false;
-        }
+        this.usageLoaded = false;
+        this.sites = [];
+        this.currentSiteId = '';
+        this.totalUsage = 0;
+        this.currentSiteId = this.sitesProvider.getCurrentSiteId();
     }
     /**
-     * Called when a new language is selected.
+     * View loaded.
      */
-    CoreSettingsGeneralPage.prototype.languageChanged = function () {
+    CoreSettingsSpaceUsagePage.prototype.ionViewDidLoad = function () {
         var _this = this;
-        this.langProvider.changeCurrentLanguage(this.selectedLanguage).finally(function () {
-            _this.eventsProvider.trigger(__WEBPACK_IMPORTED_MODULE_5__providers_events__["a" /* CoreEventsProvider */].LANGUAGE_CHANGED);
+        this.fetchData().finally(function () {
+            _this.usageLoaded = true;
         });
     };
     /**
-     * Called when the rich text editor is enabled or disabled.
+     * Convenience function to calculate each site's usage, and the total usage.
+     *
+     * @return {Promise<any>} Resolved when done.
      */
-    CoreSettingsGeneralPage.prototype.richTextEditorChanged = function () {
-        this.configProvider.set(__WEBPACK_IMPORTED_MODULE_2__core_constants__["a" /* CoreConstants */].SETTINGS_RICH_TEXT_EDITOR, this.richTextEditor ? 1 : 0);
+    CoreSettingsSpaceUsagePage.prototype.calculateSizeUsage = function () {
+        var _this = this;
+        return this.sitesProvider.getSortedSites().then(function (sites) {
+            _this.sites = sites;
+            // Get space usage.
+            var promises = _this.sites.map(function (siteEntry) {
+                return _this.sitesProvider.getSite(siteEntry.id).then(function (site) {
+                    return site.getSpaceUsage().then(function (size) {
+                        siteEntry.spaceUsage = size;
+                    });
+                });
+            });
+            return Promise.all(promises);
+        });
     };
     /**
-     * Called when the report in background setting is enabled or disabled.
+     * Convenience function to calculate total usage.
      */
-    CoreSettingsGeneralPage.prototype.reportInBackgroundChanged = function () {
-        localStorage.setItem(__WEBPACK_IMPORTED_MODULE_2__core_constants__["a" /* CoreConstants */].SETTINGS_REPORT_IN_BACKGROUND, this.reportInBackground ? '1' : '0');
+    CoreSettingsSpaceUsagePage.prototype.calculateTotalUsage = function () {
+        var total = 0;
+        this.sites.forEach(function (site) {
+            if (site.spaceUsage) {
+                total += parseInt(site.spaceUsage, 10);
+            }
+        });
+        this.totalUsage = total;
     };
-    CoreSettingsGeneralPage = __decorate([
+    /**
+     * Convenience function to calculate space usage.
+     *
+     * @return {Promise<any>} Resolved when done.
+     */
+    CoreSettingsSpaceUsagePage.prototype.fetchData = function () {
+        var _this = this;
+        var promises = [
+            this.calculateSizeUsage().then(function () { return _this.calculateTotalUsage(); }),
+        ];
+        return Promise.all(promises);
+    };
+    /**
+     * Refresh the data.
+     *
+     * @param {any} refresher Refresher.
+     */
+    CoreSettingsSpaceUsagePage.prototype.refreshData = function (refresher) {
+        this.fetchData().finally(function () {
+            refresher.complete();
+        });
+    };
+    /**
+     * Convenience function to update site size, along with total usage.
+     *
+     * @param {any} site Site object with space usage.
+     * @param {number} newUsage New space usage of the site in bytes.
+     */
+    CoreSettingsSpaceUsagePage.prototype.updateSiteUsage = function (site, newUsage) {
+        var oldUsage = site.spaceUsage;
+        site.spaceUsage = newUsage;
+        this.totalUsage -= oldUsage - newUsage;
+    };
+    /**
+     * Deletes files of a site.
+     *
+     * @param {any} siteData Site object with space usage.
+     */
+    CoreSettingsSpaceUsagePage.prototype.deleteSiteFiles = function (siteData) {
+        var _this = this;
+        this.textUtils.formatText(siteData.siteName).then(function (siteName) {
+            var title = _this.translate.instant('core.settings.deletesitefilestitle');
+            var message = _this.translate.instant('core.settings.deletesitefiles', { sitename: siteName });
+            _this.domUtils.showConfirm(message, title).then(function () {
+                return _this.sitesProvider.getSite(siteData.id);
+            }).then(function (site) {
+                site.deleteFolder().then(function () {
+                    _this.filePoolProvider.clearAllPackagesStatus(site.id);
+                    _this.filePoolProvider.clearFilepool(site.id);
+                    _this.updateSiteUsage(siteData, 0);
+                }).catch(function (error) {
+                    if (error && error.code === FileError.NOT_FOUND_ERR) {
+                        // Not found, set size 0.
+                        _this.filePoolProvider.clearAllPackagesStatus(site.id);
+                        _this.updateSiteUsage(siteData, 0);
+                    }
+                    else {
+                        // Error, recalculate the site usage.
+                        _this.domUtils.showErrorModal('core.settings.errordeletesitefiles', true);
+                        site.getSpaceUsage().then(function (size) {
+                            _this.updateSiteUsage(siteData, size);
+                        });
+                    }
+                });
+            }).catch(function () {
+                // Ignore cancelled confirmation modal.
+            });
+        });
+    };
+    CoreSettingsSpaceUsagePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-core-settings-general',template:/*ion-inline-start:"/home/travis/build/crazyserver/moodlemobile2/src/core/settings/pages/general/general.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ \'core.settings.general\' | translate }}</ion-title>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <ion-item text-wrap>\n        <ion-label><h2>{{ \'core.settings.language\' | translate }}</h2></ion-label>\n        <ion-select [(ngModel)]="selectedLanguage" (ngModelChange)="languageChanged()" interface="popover">\n            <ion-option *ngFor="let code of languageCodes" [value]="code">{{ languages[code] }}</ion-option>\n        </ion-select>\n    </ion-item>\n    <ion-item text-wrap *ngIf="rteSupported">\n        <ion-label>\n            <h2>{{ \'core.settings.enablerichtexteditor\' | translate }}</h2>\n            <p>{{ \'core.settings.enablerichtexteditordescription\' | translate }}</p>\n        </ion-label>\n        <ion-toggle [(ngModel)]="richTextEditor" (ngModelChange)="richTextEditorChanged()"></ion-toggle>\n    </ion-item>\n    <ion-item text-wrap *ngIf="showReport">\n        <ion-label><h2>{{ \'core.settings.reportinbackground\' | translate }}</h2></ion-label>\n        <ion-toggle [(ngModel)]="reportInBackground" (ngModelChange)="reportInBackgroundChanged()"></ion-toggle>\n    </ion-item>\n</ion-content>\n'/*ion-inline-end:"/home/travis/build/crazyserver/moodlemobile2/src/core/settings/pages/general/general.html"*/,
+            selector: 'page-core-settings-space-usage',template:/*ion-inline-start:"/home/travis/build/moodlehq/moodlemobile2/src/core/settings/pages/space-usage/space-usage.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ \'core.settings.spaceusage\' | translate }}</ion-title>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <ion-refresher [enabled]="usageLoaded" (ionRefresh)="refreshData($event)">\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n    </ion-refresher>\n    <core-loading [hideUntil]="usageLoaded">\n        <ion-item *ngFor="let site of sites" [class.core-primary-selected-item]="site.id == currentSiteId">\n            <h2><core-format-text [text]="site.siteName"></core-format-text></h2>\n            <p>{{ site.fullName }}</p>\n            <p item-end>{{ site.spaceUsage | coreBytesToSize }}</p>\n            <button ion-button icon-only clear color="danger" item-end (click)="deleteSiteFiles(site)" [hidden]="!site.spaceUsage > \'0\'" [attr.aria-label]="\'core.settings.deletesitefilestitle\' | translate">\n                <ion-icon name="trash"></ion-icon>\n            </button>\n        </ion-item>\n        <ion-item-divider>\n            <p>{{ \'core.settings.total\' | translate }}</p>\n            <p item-end>{{ totalUsage | coreBytesToSize }}</p>\n        </ion-item-divider>\n    </core-loading>\n</ion-content>\n'/*ion-inline-end:"/home/travis/build/moodlehq/moodlemobile2/src/core/settings/pages/space-usage/space-usage.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__providers_app__["a" /* CoreAppProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_config__["a" /* CoreConfigProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_file__["a" /* CoreFileProvider */],
-            __WEBPACK_IMPORTED_MODULE_5__providers_events__["a" /* CoreEventsProvider */], __WEBPACK_IMPORTED_MODULE_6__providers_lang__["a" /* CoreLangProvider */],
-            __WEBPACK_IMPORTED_MODULE_7__providers_utils_dom__["a" /* CoreDomUtilsProvider */],
-            __WEBPACK_IMPORTED_MODULE_8__providers_local_notifications__["a" /* CoreLocalNotificationsProvider */]])
-    ], CoreSettingsGeneralPage);
-    return CoreSettingsGeneralPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__providers_filepool__["a" /* CoreFilepoolProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_sites__["a" /* CoreSitesProvider */], __WEBPACK_IMPORTED_MODULE_5__providers_utils_text__["a" /* CoreTextUtilsProvider */],
+            __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */], __WEBPACK_IMPORTED_MODULE_6__providers_utils_dom__["a" /* CoreDomUtilsProvider */], __WEBPACK_IMPORTED_MODULE_2__providers_app__["a" /* CoreAppProvider */]])
+    ], CoreSettingsSpaceUsagePage);
+    return CoreSettingsSpaceUsagePage;
 }());
 
-//# sourceMappingURL=general.js.map
+//# sourceMappingURL=space-usage.js.map
 
 /***/ })
 

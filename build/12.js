@@ -1,17 +1,17 @@
 webpackJsonp([12],{
 
-/***/ 1869:
+/***/ 1944:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreSitePluginsPluginPageModule", function() { return CoreSitePluginsPluginPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreUserParticipantsPageModule", function() { return CoreUserParticipantsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__plugin_page__ = __webpack_require__(1994);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_components_module__ = __webpack_require__(929);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(394);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__participants__ = __webpack_require__(2076);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -37,40 +37,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-/**
- * Module to lazy load the page.
- */
-var CoreSitePluginsPluginPageModule = /** @class */ (function () {
-    function CoreSitePluginsPluginPageModule() {
+var CoreUserParticipantsPageModule = /** @class */ (function () {
+    function CoreUserParticipantsPageModule() {
     }
-    CoreSitePluginsPluginPageModule = __decorate([
+    CoreUserParticipantsPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_4__plugin_page__["a" /* CoreSitePluginsPluginPage */]
+                __WEBPACK_IMPORTED_MODULE_5__participants__["a" /* CoreUserParticipantsPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_5__components_components_module__["a" /* CoreSitePluginsComponentsModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_4__plugin_page__["a" /* CoreSitePluginsPluginPage */]),
+                __WEBPACK_IMPORTED_MODULE_3__components_components_module__["a" /* CoreUserComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__["a" /* CoreDirectivesModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_5__participants__["a" /* CoreUserParticipantsPage */]),
                 __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
-            ]
+            ],
         })
-    ], CoreSitePluginsPluginPageModule);
-    return CoreSitePluginsPluginPageModule;
+    ], CoreUserParticipantsPageModule);
+    return CoreUserParticipantsPageModule;
 }());
 
-//# sourceMappingURL=plugin-page.module.js.map
+//# sourceMappingURL=participants.module.js.map
 
 /***/ }),
 
-/***/ 1994:
+/***/ 2076:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreSitePluginsPluginPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreUserParticipantsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_plugin_content_plugin_content__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -95,43 +91,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
 /**
- * Page to render a site plugin page.
+ * Page that displays the list of course participants.
  */
-var CoreSitePluginsPluginPage = /** @class */ (function () {
-    function CoreSitePluginsPluginPage(params) {
-        this.title = params.get('title');
-        this.component = params.get('component');
-        this.method = params.get('method');
-        this.args = params.get('args');
-        this.initResult = params.get('initResult');
-        this.jsData = params.get('jsData');
+var CoreUserParticipantsPage = /** @class */ (function () {
+    function CoreUserParticipantsPage(navParams) {
+        this.courseId = navParams.get('courseId');
     }
-    /**
-     * Refresh the data.
-     *
-     * @param {any} refresher Refresher.
-     */
-    CoreSitePluginsPluginPage.prototype.refreshData = function (refresher) {
-        this.content.refreshContent(false).finally(function () {
-            refresher.complete();
-        });
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__components_plugin_content_plugin_content__["a" /* CoreSitePluginsPluginContentComponent */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__components_plugin_content_plugin_content__["a" /* CoreSitePluginsPluginContentComponent */])
-    ], CoreSitePluginsPluginPage.prototype, "content", void 0);
-    CoreSitePluginsPluginPage = __decorate([
+    CoreUserParticipantsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-core-site-plugins-plugin',template:/*ion-inline-start:"/home/travis/build/crazyserver/moodlemobile2/src/core/siteplugins/pages/plugin-page/plugin-page.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ title | translate }}</ion-title>\n\n        <ion-buttons end>\n            <!-- If the site plugin defines some buttons using core-nav-buttons, they will be added here. -->\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <ion-refresher [enabled]="content && content.dataLoaded" (ionRefresh)="refreshData($event)">\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n    </ion-refresher>\n    <core-site-plugins-plugin-content [component]="component" [method]="method" [args]="args" [initResult]="initResult" [data]="jsData"></core-site-plugins-plugin-content>\n</ion-content>\n'/*ion-inline-end:"/home/travis/build/crazyserver/moodlemobile2/src/core/siteplugins/pages/plugin-page/plugin-page.html"*/,
+            selector: 'page-core-user-participants',template:/*ion-inline-start:"/home/travis/build/moodlehq/moodlemobile2/src/core/user/pages/participants/participants.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ \'core.user.participants\' | translate }}</ion-title>\n    </ion-navbar>\n</ion-header>\n<core-user-participants [courseId]="courseId"></core-user-participants>'/*ion-inline-end:"/home/travis/build/moodlehq/moodlemobile2/src/core/user/pages/participants/participants.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */]])
-    ], CoreSitePluginsPluginPage);
-    return CoreSitePluginsPluginPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */]])
+    ], CoreUserParticipantsPage);
+    return CoreUserParticipantsPage;
 }());
 
-//# sourceMappingURL=plugin-page.js.map
+//# sourceMappingURL=participants.js.map
 
 /***/ })
 

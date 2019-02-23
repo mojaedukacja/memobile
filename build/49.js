@@ -1,18 +1,17 @@
 webpackJsonp([49],{
 
-/***/ 1831:
+/***/ 1906:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreCommentsViewerPageModule", function() { return CoreCommentsViewerPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreCourseSectionSelectorPageModule", function() { return CoreCourseSectionSelectorPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__viewer__ = __webpack_require__(1957);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_components_module__ = __webpack_require__(384);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__section_selector__ = __webpack_require__(2039);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -38,43 +37,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-var CoreCommentsViewerPageModule = /** @class */ (function () {
-    function CoreCommentsViewerPageModule() {
+var CoreCourseSectionSelectorPageModule = /** @class */ (function () {
+    function CoreCourseSectionSelectorPageModule() {
     }
-    CoreCommentsViewerPageModule = __decorate([
+    CoreCourseSectionSelectorPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_3__viewer__["a" /* CoreCommentsViewerPage */]
+                __WEBPACK_IMPORTED_MODULE_5__section_selector__["a" /* CoreCourseSectionSelectorPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* CoreComponentsModule */],
-                __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_6__components_components_module__["a" /* CoreCommentsComponentsModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__viewer__["a" /* CoreCommentsViewerPage */]),
+                __WEBPACK_IMPORTED_MODULE_3__components_components_module__["a" /* CoreComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__["a" /* CoreDirectivesModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_5__section_selector__["a" /* CoreCourseSectionSelectorPage */]),
                 __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ],
         })
-    ], CoreCommentsViewerPageModule);
-    return CoreCommentsViewerPageModule;
+    ], CoreCourseSectionSelectorPageModule);
+    return CoreCourseSectionSelectorPageModule;
 }());
 
-//# sourceMappingURL=viewer.module.js.map
+//# sourceMappingURL=section-selector.module.js.map
 
 /***/ }),
 
-/***/ 1957:
+/***/ 2039:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreCommentsViewerPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreCourseSectionSelectorPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_sites__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_utils_dom__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_user_providers_user__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_comments__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_helper__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_course__ = __webpack_require__(10);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -101,98 +95,61 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-
 /**
- * Page that displays comments.
+ * Page that displays course section selector.
  */
-var CoreCommentsViewerPage = /** @class */ (function () {
-    function CoreCommentsViewerPage(navParams, sitesProvider, userProvider, domUtils, translate, commentsProvider) {
-        this.userProvider = userProvider;
-        this.domUtils = domUtils;
-        this.translate = translate;
-        this.commentsProvider = commentsProvider;
-        this.comments = [];
-        this.commentsLoaded = false;
-        this.contextLevel = navParams.get('contextLevel');
-        this.instanceId = navParams.get('instanceId');
-        this.component = navParams.get('component');
-        this.itemId = navParams.get('itemId');
-        this.area = navParams.get('area') || '';
-        this.page = navParams.get('page') || 0;
-        this.title = navParams.get('title') || this.translate.instant('core.comments');
+var CoreCourseSectionSelectorPage = /** @class */ (function () {
+    function CoreCourseSectionSelectorPage(navParams, courseHelper, viewCtrl) {
+        this.viewCtrl = viewCtrl;
+        this.stealthModulesSectionId = __WEBPACK_IMPORTED_MODULE_3__providers_course__["a" /* CoreCourseProvider */].STEALTH_MODULES_SECTION_ID;
+        this.sections = navParams.get('sections');
+        this.selected = navParams.get('selected');
+        var course = navParams.get('course');
+        if (course && course.enablecompletion && course.courseformatoptions && course.courseformatoptions.coursedisplay == 1) {
+            this.sections.forEach(function (section) {
+                var complete = 0, total = 0;
+                section.modules && section.modules.forEach(function (module) {
+                    if (module.uservisible && typeof module.completiondata != 'undefined' &&
+                        module.completiondata.tracking > __WEBPACK_IMPORTED_MODULE_3__providers_course__["a" /* CoreCourseProvider */].COMPLETION_TRACKING_NONE) {
+                        total++;
+                        if (module.completiondata.state == __WEBPACK_IMPORTED_MODULE_3__providers_course__["a" /* CoreCourseProvider */].COMPLETION_COMPLETE ||
+                            module.completiondata.state == __WEBPACK_IMPORTED_MODULE_3__providers_course__["a" /* CoreCourseProvider */].COMPLETION_COMPLETE_PASS) {
+                            complete++;
+                        }
+                    }
+                });
+                if (total > 0) {
+                    section.progress = complete / total * 100;
+                }
+            });
+        }
     }
     /**
-     * View loaded.
+     * Close the modal.
      */
-    CoreCommentsViewerPage.prototype.ionViewDidLoad = function () {
-        var _this = this;
-        this.fetchComments().finally(function () {
-            _this.commentsLoaded = true;
-        });
+    CoreCourseSectionSelectorPage.prototype.closeModal = function () {
+        this.viewCtrl.dismiss();
     };
     /**
-     * Fetches the comments.
+     * Select a section.
      *
-     * @return {Promise<any>} Resolved when done.
+     * @param {any} section Selected section object.
      */
-    CoreCommentsViewerPage.prototype.fetchComments = function () {
-        var _this = this;
-        // Get comments data.
-        return this.commentsProvider.getComments(this.contextLevel, this.instanceId, this.component, this.itemId, this.area, this.page).then(function (comments) {
-            _this.comments = comments;
-            _this.comments.sort(function (a, b) { return b.timecreated - a.timecreated; });
-            _this.comments.forEach(function (comment) {
-                // Get the user profile image.
-                _this.userProvider.getProfile(comment.userid, undefined, true).then(function (user) {
-                    comment.profileimageurl = user.profileimageurl;
-                });
-            });
-        }).catch(function (error) {
-            if (error) {
-                if (_this.component == 'assignsubmission_comments') {
-                    _this.domUtils.showAlertTranslated('core.notice', 'core.commentsnotworking');
-                }
-                else {
-                    _this.domUtils.showErrorModal(error);
-                }
-            }
-            else {
-                _this.domUtils.showErrorModal(_this.translate.instant('core.error') + ': get_comments');
-            }
-            return Promise.reject(null);
-        });
+    CoreCourseSectionSelectorPage.prototype.selectSection = function (section) {
+        if (section.uservisible !== false) {
+            this.viewCtrl.dismiss(section);
+        }
     };
-    /**
-     * Refresh the comments.
-     *
-     * @param {any} refresher Refresher.
-     */
-    CoreCommentsViewerPage.prototype.refreshComments = function (refresher) {
-        var _this = this;
-        this.commentsProvider.invalidateCommentsData(this.contextLevel, this.instanceId, this.component, this.itemId, this.area, this.page).finally(function () {
-            return _this.fetchComments().finally(function () {
-                refresher.complete();
-            });
-        });
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */])
-    ], CoreCommentsViewerPage.prototype, "content", void 0);
-    CoreCommentsViewerPage = __decorate([
+    CoreCourseSectionSelectorPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-core-comments-viewer',template:/*ion-inline-start:"/home/travis/build/crazyserver/moodlemobile2/src/core/comments/pages/viewer/viewer.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title><core-format-text [text]="title"></core-format-text></ion-title>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <ion-refresher [enabled]="commentsLoaded" (ionRefresh)="refreshComments($event)">\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n    </ion-refresher>\n    <core-loading [hideUntil]="commentsLoaded">\n        <core-empty-box *ngIf="!comments || !comments.length" icon="chatbubbles" [message]="\'core.nocomments\' | translate"></core-empty-box>\n\n        <ion-card *ngFor="let comment of comments">\n            <ion-item text-wrap>\n                <ion-avatar item-start>\n                    <img [src]="comment.profileimageurl" onError="this.src=\'assets/img/user-avatar.png\'" core-external-content core-user-link [userId]="comment.userid" [alt]="\'core.pictureof\' | translate:{$a: comment.fullname}" role="presentation">\n                </ion-avatar>\n                <h2>{{ comment.fullname }}</h2>\n                <p>{{ comment.time }}</p>\n            </ion-item>\n            <ion-item text-wrap>\n                <core-format-text clean="true" [text]="comment.content"></core-format-text>\n            </ion-item>\n        </ion-card>\n    </core-loading>\n</ion-content>\n'/*ion-inline-end:"/home/travis/build/crazyserver/moodlemobile2/src/core/comments/pages/viewer/viewer.html"*/,
+            selector: 'page-core-course-section-selector',template:/*ion-inline-start:"/home/travis/build/moodlehq/moodlemobile2/src/core/course/pages/section-selector/section-selector.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ \'core.course.sections\' | translate }}</ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only (click)="closeModal()" [attr.aria-label]="\'core.close\' | translate">\n                <ion-icon name="close"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <ng-container *ngFor="let section of sections">\n        <a ion-item *ngIf="!section.hiddenbynumsections && section.id != stealthModulesSectionId" text-wrap (click)="selectSection(section)" [class.core-primary-selected-item]="selected.id == section.id" [class.item-dimmed]="section.visible === 0 || section.uservisible === false" detail-none>\n            <core-icon name="fa-folder" item-start></core-icon>\n            <h2><core-format-text [text]="section.formattedName || section.name"></core-format-text></h2>\n            <core-progress-bar *ngIf="section.progress >= 0" [progress]="section.progress"></core-progress-bar>\n            <ion-badge color="secondary" *ngIf="section.visible === 0 && section.uservisible !== false">{{ \'core.course.hiddenfromstudents\' | translate }}</ion-badge>\n            <ion-badge color="secondary" *ngIf="section.availabilityinfo"><core-format-text  [text]=" section.availabilityinfo"></core-format-text></ion-badge>\n        </a>\n    </ng-container>\n</ion-content>\n'/*ion-inline-end:"/home/travis/build/moodlehq/moodlemobile2/src/core/course/pages/section-selector/section-selector.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_sites__["a" /* CoreSitesProvider */], __WEBPACK_IMPORTED_MODULE_5__core_user_providers_user__["a" /* CoreUserProvider */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_utils_dom__["a" /* CoreDomUtilsProvider */], __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */],
-            __WEBPACK_IMPORTED_MODULE_6__providers_comments__["a" /* CoreCommentsProvider */]])
-    ], CoreCommentsViewerPage);
-    return CoreCommentsViewerPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_helper__["a" /* CoreCourseHelperProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["E" /* ViewController */]])
+    ], CoreCourseSectionSelectorPage);
+    return CoreCourseSectionSelectorPage;
 }());
 
-//# sourceMappingURL=viewer.js.map
+//# sourceMappingURL=section-selector.js.map
 
 /***/ })
 

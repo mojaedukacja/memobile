@@ -1,18 +1,17 @@
 webpackJsonp([18],{
 
-/***/ 1863:
+/***/ 1938:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreSettingsSpaceUsagePageModule", function() { return CoreSettingsSpaceUsagePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreSharedFilesChooseSitePageModule", function() { return CoreSharedFilesChooseSitePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__space_usage__ = __webpack_require__(1988);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__choose_site__ = __webpack_require__(2070);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pipes_pipes_module__ = __webpack_require__(67);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -38,43 +37,40 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-var CoreSettingsSpaceUsagePageModule = /** @class */ (function () {
-    function CoreSettingsSpaceUsagePageModule() {
+var CoreSharedFilesChooseSitePageModule = /** @class */ (function () {
+    function CoreSharedFilesChooseSitePageModule() {
     }
-    CoreSettingsSpaceUsagePageModule = __decorate([
+    CoreSharedFilesChooseSitePageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_3__space_usage__["a" /* CoreSettingsSpaceUsagePage */]
+                __WEBPACK_IMPORTED_MODULE_2__choose_site__["a" /* CoreSharedFilesChooseSitePage */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* CoreComponentsModule */],
                 __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_6__pipes_pipes_module__["a" /* CorePipesModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__space_usage__["a" /* CoreSettingsSpaceUsagePage */]),
-                __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
-            ],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__choose_site__["a" /* CoreSharedFilesChooseSitePage */]),
+                __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["b" /* TranslateModule */].forChild()
+            ]
         })
-    ], CoreSettingsSpaceUsagePageModule);
-    return CoreSettingsSpaceUsagePageModule;
+    ], CoreSharedFilesChooseSitePageModule);
+    return CoreSharedFilesChooseSitePageModule;
 }());
 
-//# sourceMappingURL=space-usage.module.js.map
+//# sourceMappingURL=choose-site.module.js.map
 
 /***/ }),
 
-/***/ 1988:
+/***/ 2070:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreSettingsSpaceUsagePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreSharedFilesChooseSitePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_app__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_filepool__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_sites__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_utils_text__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_utils_dom__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_file__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_sites__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_utils_dom__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_helper__ = __webpack_require__(408);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -103,145 +99,72 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 /**
- * Page that displays the space usage settings.
+ * Modal to display the list of sites to choose one to store a shared file.
  */
-var CoreSettingsSpaceUsagePage = /** @class */ (function () {
-    function CoreSettingsSpaceUsagePage(filePoolProvider, sitesProvider, textUtils, translate, domUtils, appProvider) {
-        this.filePoolProvider = filePoolProvider;
+var CoreSharedFilesChooseSitePage = /** @class */ (function () {
+    function CoreSharedFilesChooseSitePage(navCtrl, navParams, sharedFilesHelper, sitesProvider, domUtils, fileProvider) {
+        this.navCtrl = navCtrl;
+        this.sharedFilesHelper = sharedFilesHelper;
         this.sitesProvider = sitesProvider;
-        this.textUtils = textUtils;
-        this.translate = translate;
         this.domUtils = domUtils;
-        this.usageLoaded = false;
-        this.sites = [];
-        this.currentSiteId = '';
-        this.totalUsage = 0;
-        this.currentSiteId = this.sitesProvider.getCurrentSiteId();
+        this.fileProvider = fileProvider;
+        this.filePath = navParams.get('filePath');
+        this.isInbox = navParams.get('isInbox');
     }
     /**
-     * View loaded.
+     * Component being initialized.
      */
-    CoreSettingsSpaceUsagePage.prototype.ionViewDidLoad = function () {
+    CoreSharedFilesChooseSitePage.prototype.ngOnInit = function () {
         var _this = this;
-        this.fetchData().finally(function () {
-            _this.usageLoaded = true;
+        if (!this.filePath) {
+            this.domUtils.showErrorModal('Error reading file.');
+            this.navCtrl.pop();
+            return;
+        }
+        var fileAndDir = this.fileProvider.getFileAndDirectoryFromPath(this.filePath);
+        this.fileName = fileAndDir.name;
+        // Get the file.
+        this.fileProvider.getExternalFile(this.filePath).then(function (fe) {
+            _this.fileEntry = fe;
+            _this.fileName = _this.fileEntry.name;
+        }).catch(function () {
+            _this.domUtils.showErrorModal('Error reading file.');
+            _this.navCtrl.pop();
         });
-    };
-    /**
-     * Convenience function to calculate each site's usage, and the total usage.
-     *
-     * @return {Promise<any>} Resolved when done.
-     */
-    CoreSettingsSpaceUsagePage.prototype.calculateSizeUsage = function () {
-        var _this = this;
-        return this.sitesProvider.getSortedSites().then(function (sites) {
+        // Get the sites.
+        this.sitesProvider.getSites().then(function (sites) {
             _this.sites = sites;
-            // Get space usage.
-            var promises = _this.sites.map(function (siteEntry) {
-                return _this.sitesProvider.getSite(siteEntry.id).then(function (site) {
-                    return site.getSpaceUsage().then(function (size) {
-                        siteEntry.spaceUsage = size;
-                    });
-                });
-            });
-            return Promise.all(promises);
+        }).finally(function () {
+            _this.loaded = true;
         });
     };
     /**
-     * Convenience function to calculate total usage.
-     */
-    CoreSettingsSpaceUsagePage.prototype.calculateTotalUsage = function () {
-        var total = 0;
-        this.sites.forEach(function (site) {
-            if (site.spaceUsage) {
-                total += parseInt(site.spaceUsage, 10);
-            }
-        });
-        this.totalUsage = total;
-    };
-    /**
-     * Convenience function to calculate space usage.
+     * Store the file in a certain site.
      *
-     * @return {Promise<any>} Resolved when done.
+     * @param {string} siteId Site ID.
      */
-    CoreSettingsSpaceUsagePage.prototype.fetchData = function () {
+    CoreSharedFilesChooseSitePage.prototype.storeInSite = function (siteId) {
         var _this = this;
-        var promises = [
-            this.calculateSizeUsage().then(function () { return _this.calculateTotalUsage(); }),
-        ];
-        return Promise.all(promises);
-    };
-    /**
-     * Refresh the data.
-     *
-     * @param {any} refresher Refresher.
-     */
-    CoreSettingsSpaceUsagePage.prototype.refreshData = function (refresher) {
-        this.fetchData().finally(function () {
-            refresher.complete();
+        this.loaded = false;
+        this.sharedFilesHelper.storeSharedFileInSite(this.fileEntry, siteId, this.isInbox).then(function () {
+            _this.navCtrl.pop();
+        }).finally(function () {
+            _this.loaded = true;
         });
     };
-    /**
-     * Convenience function to update site size, along with total usage.
-     *
-     * @param {any} site Site object with space usage.
-     * @param {number} newUsage New space usage of the site in bytes.
-     */
-    CoreSettingsSpaceUsagePage.prototype.updateSiteUsage = function (site, newUsage) {
-        var oldUsage = site.spaceUsage;
-        site.spaceUsage = newUsage;
-        this.totalUsage -= oldUsage - newUsage;
-    };
-    /**
-     * Deletes files of a site.
-     *
-     * @param {any} siteData Site object with space usage.
-     */
-    CoreSettingsSpaceUsagePage.prototype.deleteSiteFiles = function (siteData) {
-        var _this = this;
-        this.textUtils.formatText(siteData.siteName).then(function (siteName) {
-            var title = _this.translate.instant('core.settings.deletesitefilestitle');
-            var message = _this.translate.instant('core.settings.deletesitefiles', { sitename: siteName });
-            _this.domUtils.showConfirm(message, title).then(function () {
-                return _this.sitesProvider.getSite(siteData.id);
-            }).then(function (site) {
-                site.deleteFolder().then(function () {
-                    _this.filePoolProvider.clearAllPackagesStatus(site.id);
-                    _this.filePoolProvider.clearFilepool(site.id);
-                    _this.updateSiteUsage(siteData, 0);
-                }).catch(function (error) {
-                    if (error && error.code === FileError.NOT_FOUND_ERR) {
-                        // Not found, set size 0.
-                        _this.filePoolProvider.clearAllPackagesStatus(site.id);
-                        _this.updateSiteUsage(siteData, 0);
-                    }
-                    else {
-                        // Error, recalculate the site usage.
-                        _this.domUtils.showErrorModal('core.settings.errordeletesitefiles', true);
-                        site.getSpaceUsage().then(function (size) {
-                            _this.updateSiteUsage(siteData, size);
-                        });
-                    }
-                });
-            }).catch(function () {
-                // Ignore cancelled confirmation modal.
-            });
-        });
-    };
-    CoreSettingsSpaceUsagePage = __decorate([
+    CoreSharedFilesChooseSitePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-core-settings-space-usage',template:/*ion-inline-start:"/home/travis/build/crazyserver/moodlemobile2/src/core/settings/pages/space-usage/space-usage.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ \'core.settings.spaceusage\' | translate }}</ion-title>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <ion-refresher [enabled]="usageLoaded" (ionRefresh)="refreshData($event)">\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n    </ion-refresher>\n    <core-loading [hideUntil]="usageLoaded">\n        <ion-item *ngFor="let site of sites" [class.core-primary-item]="site.id == currentSiteId">\n            <h2><core-format-text [text]="site.siteName"></core-format-text></h2>\n            <p>{{ site.fullName }}</p>\n            <p item-end>{{ site.spaceUsage | coreBytesToSize }}</p>\n            <button ion-button icon-only clear color="danger" item-end (click)="deleteSiteFiles(site)" [hidden]="!site.spaceUsage > \'0\'" [attr.aria-label]="\'core.settings.deletesitefilestitle\' | translate">\n                <ion-icon name="trash"></ion-icon>\n            </button>\n        </ion-item>\n        <ion-item-divider color="light">\n            <p>{{ \'core.settings.total\' | translate }}</p>\n            <p item-end>{{ totalUsage | coreBytesToSize }}</p>\n        </ion-item-divider>\n    </core-loading>\n</ion-content>\n'/*ion-inline-end:"/home/travis/build/crazyserver/moodlemobile2/src/core/settings/pages/space-usage/space-usage.html"*/,
+            selector: 'page-core-shared-files-choose-site',template:/*ion-inline-start:"/home/travis/build/moodlehq/moodlemobile2/src/core/sharedfiles/pages/choose-site/choose-site.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ \'core.sharedfiles.sharedfiles\' | translate }}</ion-title>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <core-loading [hideUntil]="loaded">\n        <ion-list>\n            <ion-item text-wrap>\n                <p class="item-heading">{{ \'core.sharedfiles.chooseaccountstorefile\' | translate }}</p>\n                <p>{{fileName}}</p>\n            </ion-item>\n            <a ion-item *ngFor="let site of sites" (click)="storeInSite(site.id)">\n                <img [src]="site.avatar" item-start>\n                <h2>{{site.fullName}}</h2>\n                <p><core-format-text clean="true" [text]="site.siteName"></core-format-text></p>\n                <p>{{site.siteUrl}}</p>\n            </a>\n        </ion-list>\n    </core-loading>\n</ion-content>\n\n\n\n'/*ion-inline-end:"/home/travis/build/moodlehq/moodlemobile2/src/core/sharedfiles/pages/choose-site/choose-site.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__providers_filepool__["a" /* CoreFilepoolProvider */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_sites__["a" /* CoreSitesProvider */], __WEBPACK_IMPORTED_MODULE_5__providers_utils_text__["a" /* CoreTextUtilsProvider */],
-            __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */], __WEBPACK_IMPORTED_MODULE_6__providers_utils_dom__["a" /* CoreDomUtilsProvider */], __WEBPACK_IMPORTED_MODULE_2__providers_app__["a" /* CoreAppProvider */]])
-    ], CoreSettingsSpaceUsagePage);
-    return CoreSettingsSpaceUsagePage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_5__providers_helper__["a" /* CoreSharedFilesHelperProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_sites__["a" /* CoreSitesProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_utils_dom__["a" /* CoreDomUtilsProvider */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_file__["a" /* CoreFileProvider */]])
+    ], CoreSharedFilesChooseSitePage);
+    return CoreSharedFilesChooseSitePage;
 }());
 
-//# sourceMappingURL=space-usage.js.map
+//# sourceMappingURL=choose-site.js.map
 
 /***/ })
 

@@ -1,18 +1,18 @@
 webpackJsonp([5],{
 
-/***/ 1812:
+/***/ 1898:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonModQuizPlayerPageModule", function() { return AddonModQuizPlayerPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonModWorkshopSubmissionPageModule", function() { return AddonModWorkshopSubmissionPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_question_components_components_module__ = __webpack_require__(925);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__player__ = __webpack_require__(1933);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_components_module__ = __webpack_require__(395);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__submission__ = __webpack_require__(2028);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -39,49 +39,52 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AddonModQuizPlayerPageModule = /** @class */ (function () {
-    function AddonModQuizPlayerPageModule() {
+var AddonModWorkshopSubmissionPageModule = /** @class */ (function () {
+    function AddonModWorkshopSubmissionPageModule() {
     }
-    AddonModQuizPlayerPageModule = __decorate([
+    AddonModWorkshopSubmissionPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_6__player__["a" /* AddonModQuizPlayerPage */],
+                __WEBPACK_IMPORTED_MODULE_6__submission__["a" /* AddonModWorkshopSubmissionPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_3__components_components_module__["a" /* CoreComponentsModule */],
                 __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_5__core_question_components_components_module__["a" /* CoreQuestionComponentsModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_6__player__["a" /* AddonModQuizPlayerPage */]),
+                __WEBPACK_IMPORTED_MODULE_3__components_components_module__["a" /* CoreComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_5__components_components_module__["a" /* AddonModWorkshopComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_6__submission__["a" /* AddonModWorkshopSubmissionPage */]),
                 __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ],
         })
-    ], AddonModQuizPlayerPageModule);
-    return AddonModQuizPlayerPageModule;
+    ], AddonModWorkshopSubmissionPageModule);
+    return AddonModWorkshopSubmissionPageModule;
 }());
 
-//# sourceMappingURL=player.module.js.map
+//# sourceMappingURL=submission.module.js.map
 
 /***/ }),
 
-/***/ 1933:
+/***/ 2028:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModQuizPlayerPage; });
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModWorkshopSubmissionPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_events__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_logger__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_events__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_sites__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_sync__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_utils_dom__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_utils_time__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_question_providers_helper__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_quiz__ = __webpack_require__(92);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_quiz_sync__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_helper__ = __webpack_require__(245);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__classes_auto_save__ = __webpack_require__(1934);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_utils_text__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_course_providers_course__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_user_providers_user__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_grades_providers_helper__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_assessment_strategy_assessment_strategy__ = __webpack_require__(974);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_workshop__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_helper__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_offline__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_sync__ = __webpack_require__(256);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -104,6 +107,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
 
 
 
@@ -119,726 +128,469 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Page that allows attempting a quiz.
+ * Page that displays a workshop submission.
  */
-var AddonModQuizPlayerPage = /** @class */ (function () {
-    function AddonModQuizPlayerPage(navParams, logger, translate, eventsProvider, sitesProvider, syncProvider, domUtils, popoverCtrl, timeUtils, quizProvider, quizHelper, quizSync, questionHelper, cdr, modalCtrl, navCtrl) {
+var AddonModWorkshopSubmissionPage = /** @class */ (function () {
+    function AddonModWorkshopSubmissionPage(navParams, sitesProvider, workshopProvider, workshopOffline, syncProvider, workshopHelper, navCtrl, textUtils, domUtils, fb, translate, eventsProvider, courseProvider, content, gradesHelper, userProvider) {
+        var _this = this;
+        this.workshopProvider = workshopProvider;
+        this.workshopOffline = workshopOffline;
+        this.syncProvider = syncProvider;
+        this.workshopHelper = workshopHelper;
+        this.navCtrl = navCtrl;
+        this.textUtils = textUtils;
+        this.domUtils = domUtils;
+        this.fb = fb;
         this.translate = translate;
         this.eventsProvider = eventsProvider;
-        this.sitesProvider = sitesProvider;
-        this.syncProvider = syncProvider;
-        this.domUtils = domUtils;
-        this.timeUtils = timeUtils;
-        this.quizProvider = quizProvider;
-        this.quizHelper = quizHelper;
-        this.quizSync = quizSync;
-        this.questionHelper = questionHelper;
-        this.cdr = cdr;
-        this.navCtrl = navCtrl;
-        this.component = __WEBPACK_IMPORTED_MODULE_10__providers_quiz__["a" /* AddonModQuizProvider */].COMPONENT; // Component to link the files to.
-        this.preflightData = {}; // Preflight data to attempt the quiz.
-        this.forceLeave = false; // If true, don't perform any check when leaving the view.
-        this.reloadNavigaton = false; // Whether navigation needs to be reloaded because some data was sent to server.
-        this.quizId = navParams.get('quizId');
+        this.courseProvider = courseProvider;
+        this.content = content;
+        this.gradesHelper = gradesHelper;
+        this.userProvider = userProvider;
+        this.loaded = false;
+        this.ownAssessment = false;
+        this.canAddFeedback = false;
+        this.canEdit = false;
+        this.canDelete = false;
+        this.originalEvaluation = {
+            published: '',
+            text: '',
+            grade: ''
+        };
+        this.hasOffline = false;
+        this.component = __WEBPACK_IMPORTED_MODULE_13__providers_workshop__["a" /* AddonModWorkshopProvider */].COMPONENT;
+        this.forceLeave = false;
+        this.isDestroyed = false;
+        this.module = navParams.get('module');
+        this.workshop = navParams.get('workshop');
+        this.access = navParams.get('access');
         this.courseId = navParams.get('courseId');
-        this.moduleUrl = navParams.get('moduleUrl');
-        // Block the quiz so it cannot be synced.
-        this.syncProvider.blockOperation(__WEBPACK_IMPORTED_MODULE_10__providers_quiz__["a" /* AddonModQuizProvider */].COMPONENT, this.quizId);
-        // Create the auto save instance.
-        this.autoSave = new __WEBPACK_IMPORTED_MODULE_13__classes_auto_save__["a" /* AddonModQuizAutoSave */]('addon-mod_quiz-player-form', '#addon-mod_quiz-connection-error-button', logger, popoverCtrl, questionHelper, quizProvider);
-        // Create the navigation modal.
-        this.navigationModal = modalCtrl.create('AddonModQuizNavigationModalPage', {
-            page: this
-        });
+        this.profile = navParams.get('profile');
+        this.submissionInfo = navParams.get('submission') || {};
+        this.assessment = navParams.get('assessment') || null;
+        this.title = this.module.name;
+        this.workshopId = this.module.instance;
+        this.currentUserId = sitesProvider.getCurrentSiteUserId();
+        this.siteId = sitesProvider.getCurrentSiteId();
+        this.submissionId = this.submissionInfo.submissionid || this.submissionInfo.id;
+        this.userId = this.submissionInfo.userid || null;
+        this.strategy = (this.assessment && this.assessment.strategy) || (this.workshop && this.workshop.strategy);
+        this.assessmentId = this.assessment && (this.assessment.assessmentid || this.assessment.id);
+        this.assessmentUserId = this.assessment && (this.assessment.reviewerid || this.assessment.userid);
+        this.feedbackForm = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["c" /* FormGroup */]({});
+        this.feedbackForm.addControl('published', this.fb.control(''));
+        this.feedbackForm.addControl('grade', this.fb.control(''));
+        this.feedbackForm.addControl('text', this.fb.control(''));
+        this.obsAssessmentSaved = this.eventsProvider.on(__WEBPACK_IMPORTED_MODULE_13__providers_workshop__["a" /* AddonModWorkshopProvider */].ASSESSMENT_SAVED, function (data) {
+            _this.eventReceived(data);
+        }, this.siteId);
+        // Refresh workshop on sync.
+        this.syncObserver = this.eventsProvider.on(__WEBPACK_IMPORTED_MODULE_16__providers_sync__["a" /* AddonModWorkshopSyncProvider */].AUTO_SYNCED, function (data) {
+            // Update just when all database is synced.
+            _this.eventReceived(data);
+        }, this.siteId);
     }
     /**
      * Component being initialized.
      */
-    AddonModQuizPlayerPage.prototype.ngOnInit = function () {
+    AddonModWorkshopSubmissionPage.prototype.ngOnInit = function () {
         var _this = this;
-        // Start the player when the page is loaded.
-        this.start();
-        // Listen for errors on auto-save.
-        this.autoSaveErrorSubscription = this.autoSave.onError().subscribe(function (error) {
-            _this.autoSaveError = error;
-            _this.cdr.detectChanges();
+        this.fetchSubmissionData().then(function () {
+            _this.workshopProvider.logViewSubmission(_this.submissionId).then(function () {
+                _this.courseProvider.checkModuleCompletion(_this.courseId, _this.module.completiondata);
+            }).catch(function () {
+                // Ignore errors.
+            });
         });
-    };
-    /**
-     * Component being destroyed.
-     */
-    AddonModQuizPlayerPage.prototype.ngOnDestroy = function () {
-        // Stop auto save.
-        this.autoSave.cancelAutoSave();
-        this.autoSave.stopCheckChangesProcess();
-        this.autoSaveErrorSubscription && this.autoSaveErrorSubscription.unsubscribe();
-        // Unblock the quiz so it can be synced.
-        this.syncProvider.unblockOperation(__WEBPACK_IMPORTED_MODULE_10__providers_quiz__["a" /* AddonModQuizProvider */].COMPONENT, this.quizId);
     };
     /**
      * Check if we can leave the page or not.
      *
      * @return {boolean|Promise<void>} Resolved if we can leave it, rejected if not.
      */
-    AddonModQuizPlayerPage.prototype.ionViewCanLeave = function () {
-        var _this = this;
-        if (this.forceLeave) {
+    AddonModWorkshopSubmissionPage.prototype.ionViewCanLeave = function () {
+        var assessmentHasChanged = this.assessmentStrategy && this.assessmentStrategy.hasDataChanged();
+        if (this.forceLeave || (!this.hasEvaluationChanged() && !assessmentHasChanged)) {
             return true;
         }
-        if (this.questions && this.questions.length && !this.showSummary) {
-            // Save answers.
-            var modal_1 = this.domUtils.showModalLoading('core.sending', true);
-            return this.processAttempt(false, false).catch(function () {
-                // Save attempt failed. Show confirmation.
-                modal_1.dismiss();
-                return _this.domUtils.showConfirm(_this.translate.instant('addon.mod_quiz.confirmleavequizonerror'));
-            }).finally(function () {
-                modal_1.dismiss();
-            });
-        }
-        return Promise.resolve();
+        // Show confirmation if some data has been modified.
+        return this.domUtils.showConfirm(this.translate.instant('core.confirmcanceledit'));
     };
     /**
-     * Abort the quiz.
+     * Goto edit submission page.
      */
-    AddonModQuizPlayerPage.prototype.abortQuiz = function () {
-        this.quizAborted = true;
+    AddonModWorkshopSubmissionPage.prototype.editSubmission = function () {
+        var params = {
+            module: module,
+            access: this.access,
+            courseid: this.courseId,
+            submissionId: this.submission.id
+        };
+        this.navCtrl.push('AddonModWorkshopEditSubmissionPage', params);
     };
     /**
-     * A behaviour button in a question was clicked (Check, Redo, ...).
+     * Function called when we receive an event of submission changes.
      *
-     * @param {any} button Clicked button.
+     * @param {any} data Event data received.
      */
-    AddonModQuizPlayerPage.prototype.behaviourButtonClicked = function (button) {
-        var _this = this;
-        // Confirm that the user really wants to do it.
-        this.domUtils.showConfirm(this.translate.instant('core.areyousure')).then(function () {
-            var modal = _this.domUtils.showModalLoading('core.sending', true), answers = _this.getAnswers();
-            // Add the clicked button data.
-            answers[button.name] = button.value;
-            // Behaviour checks are always in online.
-            return _this.quizProvider.processAttempt(_this.quiz, _this.attempt, answers, _this.preflightData).then(function () {
-                _this.reloadNavigaton = true; // Data sent to server, navigation should be reloaded.
-                // Reload the current page.
-                var scrollElement = _this.content.getScrollElement(), scrollTop = scrollElement.scrollTop || 0, scrollLeft = scrollElement.scrollLeft || 0;
-                _this.loaded = false;
-                _this.domUtils.scrollToTop(_this.content); // Scroll top so the spinner is seen.
-                return _this.loadPage(_this.attempt.currentpage).finally(function () {
-                    _this.loaded = true;
-                    _this.domUtils.scrollTo(_this.content, scrollLeft, scrollTop);
-                });
-            }).finally(function () {
-                modal.dismiss();
-            });
-        }).catch(function (error) {
-            _this.domUtils.showErrorModalDefault(error, 'Error performing action.');
-        });
+    AddonModWorkshopSubmissionPage.prototype.eventReceived = function (data) {
+        if (this.workshopId === data.workshopId) {
+            this.domUtils.scrollToTop(this.content);
+            this.loaded = false;
+            this.refreshAllData();
+        }
     };
     /**
-     * Change the current page. If slot is supplied, try to scroll to that question.
+     * Fetch the submission data.
      *
-     * @param {number} page Page to load. -1 means summary.
-     * @param {boolean} [fromModal] Whether the page was selected using the navigation modal.
-     * @param {number} [slot] Slot of the question to scroll to.
+     * @return {Promise<void>} Resolved when done.
      */
-    AddonModQuizPlayerPage.prototype.changePage = function (page, fromModal, slot) {
+    AddonModWorkshopSubmissionPage.prototype.fetchSubmissionData = function () {
         var _this = this;
-        if (page != -1 && (this.attempt.state == __WEBPACK_IMPORTED_MODULE_10__providers_quiz__["a" /* AddonModQuizProvider */].ATTEMPT_OVERDUE || this.attempt.finishedOffline)) {
-            // We can't load a page if overdue or the local attempt is finished.
-            return;
-        }
-        else if (page == this.attempt.currentpage && !this.showSummary && typeof slot != 'undefined') {
-            // Navigating to a question in the current page.
-            this.scrollToQuestion(slot);
-            return;
-        }
-        else if ((page == this.attempt.currentpage && !this.showSummary) || (fromModal && this.quiz.isSequential && page != -1)) {
-            // If the user is navigating to the current page we do nothing.
-            // Also, in sequential quizzes we don't allow navigating using the modal except for finishing the quiz (summary).
-            return;
-        }
-        else if (page === -1 && this.showSummary) {
-            // Summary already shown.
-            return;
-        }
-        this.loaded = false;
-        this.domUtils.scrollToTop(this.content);
-        // First try to save the attempt data. We only save it if we're not seeing the summary.
-        var promise = this.showSummary ? Promise.resolve() : this.processAttempt(false, false);
-        promise.then(function () {
-            if (!_this.showSummary) {
-                _this.reloadNavigaton = true; // Data sent to server, navigation should be reloaded.
+        return this.workshopHelper.getSubmissionById(this.workshopId, this.submissionId).then(function (submissionData) {
+            var promises = [];
+            _this.submission = submissionData;
+            _this.submission.attachmentfiles = submissionData.attachmentfiles || [];
+            _this.submission.submissiongrade = _this.submissionInfo && _this.submissionInfo.submissiongrade;
+            _this.submission.gradinggrade = _this.submissionInfo && _this.submissionInfo.gradinggrade;
+            _this.submission.submissiongradeover = _this.submissionInfo && _this.submissionInfo.submissiongradeover;
+            _this.userId = submissionData.authorid || _this.userId;
+            _this.canEdit = _this.currentUserId == _this.userId && _this.access.cansubmit && _this.access.modifyingsubmissionallowed;
+            _this.canDelete = _this.access.candeletesubmissions;
+            _this.canAddFeedback = !_this.assessmentId && _this.workshop.phase > __WEBPACK_IMPORTED_MODULE_13__providers_workshop__["a" /* AddonModWorkshopProvider */].PHASE_ASSESSMENT &&
+                _this.workshop.phase < __WEBPACK_IMPORTED_MODULE_13__providers_workshop__["a" /* AddonModWorkshopProvider */].PHASE_CLOSED && _this.access.canoverridegrades;
+            _this.ownAssessment = false;
+            if (_this.access.canviewallassessments) {
+                // Get new data, different that came from stateParams.
+                promises.push(_this.workshopProvider.getSubmissionAssessments(_this.workshopId, _this.submissionId)
+                    .then(function (subAssessments) {
+                    // Only allow the student to delete their own submission if it's still editable and hasn't been assessed.
+                    if (_this.canDelete) {
+                        _this.canDelete = !subAssessments.length;
+                    }
+                    _this.submissionInfo.reviewedby = subAssessments;
+                    _this.submissionInfo.reviewedby.forEach(function (assessment) {
+                        assessment.userid = assessment.reviewerid;
+                        assessment = _this.workshopHelper.realGradeValue(_this.workshop, assessment);
+                        if (_this.currentUserId == assessment.userid) {
+                            _this.ownAssessment = assessment;
+                            assessment.ownAssessment = true;
+                        }
+                    });
+                }));
             }
-            // Attempt data successfully saved, load the page or summary.
-            var subPromise;
-            // Stop checking for changes during page change.
-            _this.autoSave.stopCheckChangesProcess();
-            if (page === -1) {
-                subPromise = _this.loadSummary();
+            else if (_this.currentUserId == _this.userId && _this.assessmentId) {
+                // Get new data, different that came from stateParams.
+                promises.push(_this.workshopProvider.getAssessment(_this.workshopId, _this.assessmentId).then(function (assessment) {
+                    // Only allow the student to delete their own submission if it's still editable and hasn't been assessed.
+                    if (_this.canDelete) {
+                        _this.canDelete = !assessment;
+                    }
+                    assessment.userid = assessment.reviewerid;
+                    assessment = _this.workshopHelper.realGradeValue(_this.workshop, assessment);
+                    if (_this.currentUserId == assessment.userid) {
+                        _this.ownAssessment = assessment;
+                        assessment.ownAssessment = true;
+                    }
+                    _this.submissionInfo.reviewedby = [assessment];
+                }));
             }
-            else {
-                subPromise = _this.loadPage(page);
+            if (_this.canAddFeedback || _this.workshop.phase == __WEBPACK_IMPORTED_MODULE_13__providers_workshop__["a" /* AddonModWorkshopProvider */].PHASE_CLOSED) {
+                _this.evaluate = {
+                    published: submissionData.published,
+                    text: submissionData.feedbackauthor || ''
+                };
             }
-            return subPromise.catch(function (error) {
-                // If the user isn't seeing the summary, start the check again.
-                if (!_this.showSummary) {
-                    _this.autoSave.startCheckChangesProcess(_this.quiz, _this.attempt, _this.preflightData, _this.offline);
+            if (_this.canAddFeedback) {
+                if (!_this.isDestroyed) {
+                    // Block the workshop.
+                    _this.syncProvider.blockOperation(_this.component, _this.workshopId);
                 }
-                _this.domUtils.showErrorModalDefault(error, 'addon.mod_quiz.errorgetquestions', true);
+                var defaultGrade_1 = _this.translate.instant('addon.mod_workshop.notoverridden');
+                promises.push(_this.gradesHelper.makeGradesMenu(_this.workshop.grade, _this.workshopId, defaultGrade_1, -1)
+                    .then(function (grades) {
+                    _this.evaluationGrades = grades;
+                    _this.evaluate.grade = {
+                        label: _this.gradesHelper.getGradeLabelFromValue(grades, _this.submissionInfo.submissiongradeover) ||
+                            defaultGrade_1,
+                        value: _this.submissionInfo.submissiongradeover || -1
+                    };
+                    return _this.workshopOffline.getEvaluateSubmission(_this.workshopId, _this.submissionId)
+                        .then(function (offlineSubmission) {
+                        _this.hasOffline = true;
+                        _this.evaluate.published = offlineSubmission.published;
+                        _this.evaluate.text = offlineSubmission.feedbacktext;
+                        _this.evaluate.grade = {
+                            label: _this.gradesHelper.getGradeLabelFromValue(grades, offlineSubmission.gradeover) || defaultGrade_1,
+                            value: offlineSubmission.gradeover || -1
+                        };
+                    }).catch(function () {
+                        _this.hasOffline = false;
+                        // Ignore errors.
+                    }).finally(function () {
+                        _this.originalEvaluation.published = _this.evaluate.published;
+                        _this.originalEvaluation.text = _this.evaluate.text;
+                        _this.originalEvaluation.grade = _this.evaluate.grade.value;
+                        _this.feedbackForm.controls['published'].setValue(_this.evaluate.published);
+                        _this.feedbackForm.controls['grade'].setValue(_this.evaluate.grade.value);
+                        _this.feedbackForm.controls['text'].setValue(_this.evaluate.text);
+                    });
+                }));
+            }
+            else if (_this.workshop.phase == __WEBPACK_IMPORTED_MODULE_13__providers_workshop__["a" /* AddonModWorkshopProvider */].PHASE_CLOSED && submissionData.gradeoverby) {
+                promises.push(_this.userProvider.getProfile(submissionData.gradeoverby, _this.courseId, true).then(function (profile) {
+                    _this.evaluateByProfile = profile;
+                }));
+            }
+            if (_this.assessmentId && !_this.access.assessingallowed && _this.assessment.feedbackreviewer &&
+                _this.assessment.gradinggradeoverby) {
+                promises.push(_this.userProvider.getProfile(_this.assessment.gradinggradeoverby, _this.courseId, true)
+                    .then(function (profile) {
+                    _this.evaluateGradingByProfile = profile;
+                }));
+            }
+            return Promise.all(promises);
+        }).then(function () {
+            return _this.workshopOffline.getSubmissions(_this.workshopId).then(function (submissionsActions) {
+                var actions = _this.workshopHelper.filterSubmissionActions(submissionsActions, _this.submissionId);
+                return _this.workshopHelper.applyOfflineData(_this.submission, actions).then(function (submission) {
+                    _this.submission = submission;
+                });
             });
-        }, function (error) {
-            _this.domUtils.showErrorModalDefault(error, 'addon.mod_quiz.errorsaveattempt', true);
+        }).catch(function (message) {
+            _this.domUtils.showErrorModalDefault(message, 'core.course.errorgetmodule', true);
         }).finally(function () {
             _this.loaded = true;
-            if (typeof slot != 'undefined') {
-                // Scroll to the question. Give some time to the questions to render.
-                setTimeout(function () {
-                    _this.scrollToQuestion(slot);
-                }, 2000);
-            }
         });
     };
     /**
-     * Convenience function to get the quiz data.
-     *
-     * @return {Promise<any>} Promise resolved when done.
+     * Force leaving the page, without checking for changes.
      */
-    AddonModQuizPlayerPage.prototype.fetchData = function () {
+    AddonModWorkshopSubmissionPage.prototype.forceLeavePage = function () {
+        this.forceLeave = true;
+        this.navCtrl.pop();
+    };
+    /**
+     * Check if data has changed.
+     *
+     * @return {boolean} True if changed, false otherwise.
+     */
+    AddonModWorkshopSubmissionPage.prototype.hasEvaluationChanged = function () {
+        if (!this.loaded || !this.access.canoverridegrades) {
+            return false;
+        }
+        var inputData = this.feedbackForm.value;
+        if (this.originalEvaluation.published != inputData.published) {
+            return true;
+        }
+        if (this.originalEvaluation.text != inputData.text) {
+            return true;
+        }
+        if (this.originalEvaluation.grade != inputData.grade) {
+            return true;
+        }
+        return false;
+    };
+    /**
+     * Convenience function to refresh all the data.
+     *
+     * @return {Promise<any>} Resolved when done.
+     */
+    AddonModWorkshopSubmissionPage.prototype.refreshAllData = function () {
         var _this = this;
-        // Wait for any ongoing sync to finish. We won't sync a quiz while it's being played.
-        return this.quizSync.waitForSync(this.quizId).then(function () {
-            // Sync finished, now get the quiz.
-            return _this.quizProvider.getQuizById(_this.courseId, _this.quizId);
-        }).then(function (quizData) {
-            _this.quiz = quizData;
-            _this.quiz.isSequential = _this.quizProvider.isNavigationSequential(_this.quiz);
-            if (_this.quizProvider.isQuizOffline(_this.quiz)) {
-                // Quiz supports offline.
-                return true;
-            }
-            else {
-                // Quiz doesn't support offline right now, but maybe it did and then the setting was changed.
-                // If we have an unfinished offline attempt then we'll use offline mode.
-                return _this.quizProvider.isLastAttemptOfflineUnfinished(_this.quiz);
-            }
-        }).then(function (offlineMode) {
-            _this.offline = offlineMode;
-            if (_this.quiz.timelimit > 0) {
-                _this.quiz.readableTimeLimit = _this.timeUtils.formatTime(_this.quiz.timelimit);
-            }
-            // Get access information for the quiz.
-            return _this.quizProvider.getQuizAccessInformation(_this.quiz.id, _this.offline, true);
-        }).then(function (info) {
-            _this.quizAccessInfo = info;
-            // Get user attempts to determine last attempt.
-            return _this.quizProvider.getUserAttempts(_this.quiz.id, 'all', true, _this.offline, true);
-        }).then(function (attempts) {
-            if (!attempts.length) {
-                // There are no attempts, start a new one.
-                _this.newAttempt = true;
-            }
-            else {
-                var promises = [];
-                // Get the last attempt. If it's finished, start a new one.
-                _this.lastAttempt = attempts[attempts.length - 1];
-                _this.newAttempt = _this.quizProvider.isAttemptFinished(_this.lastAttempt.state);
-                // Load quiz last sync time.
-                promises.push(_this.quizSync.getSyncTime(_this.quiz.id).then(function (time) {
-                    _this.quiz.syncTime = time;
-                    _this.quiz.syncTimeReadable = _this.quizSync.getReadableTimeFromTimestamp(time);
-                }));
-                // Load flag to show if attempts are finished but not synced.
-                promises.push(_this.quizProvider.loadFinishedOfflineData(attempts));
-                return Promise.all(promises);
-            }
-        }).catch(function (error) {
-            _this.domUtils.showErrorModalDefault(error, 'addon.mod_quiz.errorgetquiz', true);
+        var promises = [];
+        promises.push(this.workshopProvider.invalidateSubmissionData(this.workshopId, this.submissionId));
+        promises.push(this.workshopProvider.invalidateSubmissionsData(this.workshopId));
+        promises.push(this.workshopProvider.invalidateSubmissionAssesmentsData(this.workshopId, this.submissionId));
+        if (this.assessmentId) {
+            promises.push(this.workshopProvider.invalidateAssessmentFormData(this.workshopId, this.assessmentId));
+            promises.push(this.workshopProvider.invalidateAssessmentData(this.workshopId, this.assessmentId));
+        }
+        return Promise.all(promises).finally(function () {
+            _this.eventsProvider.trigger(__WEBPACK_IMPORTED_MODULE_13__providers_workshop__["a" /* AddonModWorkshopProvider */].ASSESSMENT_INVALIDATED, _this.siteId);
+            return _this.fetchSubmissionData();
         });
     };
     /**
-     * Finish an attempt, either by timeup or because the user clicked to finish it.
+     * Pull to refresh.
      *
-     * @param {boolean} [userFinish] Whether the user clicked to finish the attempt.
-     * @param {boolean} [timeUp] Whether the quiz time is up.
-     * @return {Promise<void>} Promise resolved when done.
+     * @param {any} refresher Refresher.
      */
-    AddonModQuizPlayerPage.prototype.finishAttempt = function (userFinish, timeUp) {
+    AddonModWorkshopSubmissionPage.prototype.refreshSubmission = function (refresher) {
+        if (this.loaded) {
+            this.refreshAllData().finally(function () {
+                refresher.complete();
+            });
+        }
+    };
+    /**
+     * Save the assessment.
+     */
+    AddonModWorkshopSubmissionPage.prototype.saveAssessment = function () {
         var _this = this;
-        var promise;
-        // Show confirm if the user clicked the finish button and the quiz is in progress.
-        if (!timeUp && this.attempt.state == __WEBPACK_IMPORTED_MODULE_10__providers_quiz__["a" /* AddonModQuizProvider */].ATTEMPT_IN_PROGRESS) {
-            promise = this.domUtils.showConfirm(this.translate.instant('addon.mod_quiz.confirmclose'));
+        if (this.assessmentStrategy && this.assessmentStrategy.hasDataChanged()) {
+            this.assessmentStrategy.saveAssessment().then(function () {
+                _this.forceLeavePage();
+            }).catch(function () {
+                // Error, stay on the page.
+            });
         }
         else {
-            promise = Promise.resolve();
+            // Nothing to save, just go back.
+            this.forceLeavePage();
         }
-        return promise.then(function () {
-            var modal = _this.domUtils.showModalLoading('core.sending', true);
-            return _this.processAttempt(userFinish, timeUp).then(function () {
-                // Trigger an event to notify the attempt was finished.
-                _this.eventsProvider.trigger(__WEBPACK_IMPORTED_MODULE_10__providers_quiz__["a" /* AddonModQuizProvider */].ATTEMPT_FINISHED_EVENT, {
-                    quizId: _this.quizId,
-                    attemptId: _this.attempt.id,
-                    synced: !_this.offline
-                }, _this.sitesProvider.getCurrentSiteId());
-                // Leave the player.
-                _this.forceLeave = true;
-                _this.navCtrl.pop();
+    };
+    /**
+     * Save the submission evaluation.
+     */
+    AddonModWorkshopSubmissionPage.prototype.saveEvaluation = function () {
+        var _this = this;
+        // Check if data has changed.
+        if (this.hasEvaluationChanged()) {
+            this.sendEvaluation().then(function () {
+                _this.forceLeavePage();
+            });
+        }
+        else {
+            // Nothing to save, just go back.
+            this.forceLeavePage();
+        }
+    };
+    /**
+     * Sends the evaluation to be saved on the server.
+     *
+     * @return {Promise<any>} Resolved when done.
+     */
+    AddonModWorkshopSubmissionPage.prototype.sendEvaluation = function () {
+        var _this = this;
+        var modal = this.domUtils.showModalLoading('core.sending', true);
+        var inputData = this.feedbackForm.value;
+        inputData.grade = inputData.grade >= 0 ? inputData.grade : '';
+        // Add some HTML to the message if needed.
+        inputData.text = this.textUtils.formatHtmlLines(inputData.text);
+        // Try to send it to server.
+        return this.workshopProvider.evaluateSubmission(this.workshopId, this.submissionId, this.courseId, inputData.text, inputData.published, inputData.grade).then(function () {
+            var data = {
+                workshopId: _this.workshopId,
+                cmId: _this.module.cmid,
+                submissionId: _this.submissionId
+            };
+            return _this.workshopProvider.invalidateSubmissionData(_this.workshopId, _this.submissionId).finally(function () {
+                _this.eventsProvider.trigger(__WEBPACK_IMPORTED_MODULE_13__providers_workshop__["a" /* AddonModWorkshopProvider */].SUBMISSION_CHANGED, data, _this.siteId);
+            });
+        }).catch(function (message) {
+            _this.domUtils.showErrorModalDefault(message, 'Cannot save submission evaluation');
+        }).finally(function () {
+            modal.dismiss();
+        });
+    };
+    /**
+     * Perform the submission delete action.
+     */
+    AddonModWorkshopSubmissionPage.prototype.deleteSubmission = function () {
+        var _this = this;
+        this.domUtils.showConfirm(this.translate.instant('addon.mod_workshop.submissiondeleteconfirm')).then(function () {
+            var modal = _this.domUtils.showModalLoading('core.deleting', true);
+            var success = false;
+            _this.workshopProvider.deleteSubmission(_this.workshopId, _this.submissionId, _this.courseId).then(function () {
+                success = true;
+                return _this.workshopProvider.invalidateSubmissionData(_this.workshopId, _this.submissionId);
+            }).catch(function (error) {
+                _this.domUtils.showErrorModalDefault(error, 'Cannot delete submission');
             }).finally(function () {
                 modal.dismiss();
-            });
-        }).catch(function (error) {
-            _this.domUtils.showErrorModalDefault(error, 'addon.mod_quiz.errorsaveattempt', true);
-        });
-    };
-    /**
-     * Get the input answers.
-     *
-     * @return {any} Object with the answers.
-     */
-    AddonModQuizPlayerPage.prototype.getAnswers = function () {
-        return this.questionHelper.getAnswersFromForm(document.forms['addon-mod_quiz-player-form']);
-    };
-    /**
-     * Initializes the timer if enabled.
-     */
-    AddonModQuizPlayerPage.prototype.initTimer = function () {
-        if (this.attemptAccessInfo.endtime > 0) {
-            // Quiz has an end time. Check if time left should be shown.
-            if (this.quizProvider.shouldShowTimeLeft(this.quizAccessInfo.activerulenames, this.attempt, this.attemptAccessInfo.endtime)) {
-                this.endTime = this.attemptAccessInfo.endtime;
-            }
-            else {
-                delete this.endTime;
-            }
-        }
-    };
-    /**
-     * Load a page questions.
-     *
-     * @param {number} page The page to load.
-     * @return {Promise<void>} Promise resolved when done.
-     */
-    AddonModQuizPlayerPage.prototype.loadPage = function (page) {
-        var _this = this;
-        return this.quizProvider.getAttemptData(this.attempt.id, page, this.preflightData, this.offline, true).then(function (data) {
-            // Update attempt, status could change during the execution.
-            _this.attempt = data.attempt;
-            _this.attempt.currentpage = page;
-            _this.questions = data.questions;
-            _this.nextPage = data.nextpage;
-            _this.previousPage = _this.quiz.isSequential ? -1 : page - 1;
-            _this.showSummary = false;
-            _this.questions.forEach(function (question) {
-                // Get the readable mark for each question.
-                question.readableMark = _this.quizHelper.getQuestionMarkFromHtml(question.html);
-                // Extract the question info box.
-                _this.questionHelper.extractQuestionInfoBox(question, '.info');
-                // Set the preferred behaviour.
-                question.preferredBehaviour = _this.quiz.preferredbehaviour;
-                // Check if the question is blocked. If it is, treat it as a description question.
-                if (_this.quizProvider.isQuestionBlocked(question)) {
-                    question.type = 'description';
+                if (success) {
+                    var data = {
+                        workshopId: _this.workshopId,
+                        cmId: _this.module.cmid,
+                        submissionId: _this.submissionId
+                    };
+                    _this.eventsProvider.trigger(__WEBPACK_IMPORTED_MODULE_13__providers_workshop__["a" /* AddonModWorkshopProvider */].SUBMISSION_CHANGED, data, _this.siteId);
+                    _this.forceLeavePage();
                 }
             });
-            // Mark the page as viewed. We'll ignore errors in this call.
-            _this.quizProvider.logViewAttempt(_this.attempt.id, page, _this.preflightData, _this.offline).catch(function (error) {
-                // Ignore errors.
-            });
-            // Start looking for changes.
-            _this.autoSave.startCheckChangesProcess(_this.quiz, _this.attempt, _this.preflightData, _this.offline);
         });
     };
     /**
-     * Load attempt summary.
+     * Undo the submission delete action.
      *
-     * @return {Promise<void>} Promise resolved when done.
+     * @return {Promise<any>} Resolved when done.
      */
-    AddonModQuizPlayerPage.prototype.loadSummary = function () {
+    AddonModWorkshopSubmissionPage.prototype.undoDeleteSubmission = function () {
         var _this = this;
-        this.summaryQuestions = [];
-        return this.quizProvider.getAttemptSummary(this.attempt.id, this.preflightData, this.offline, true, true).then(function (qs) {
-            _this.showSummary = true;
-            _this.summaryQuestions = qs;
-            _this.canReturn = _this.attempt.state == __WEBPACK_IMPORTED_MODULE_10__providers_quiz__["a" /* AddonModQuizProvider */].ATTEMPT_IN_PROGRESS && !_this.attempt.finishedOffline;
-            _this.preventSubmitMessages = _this.quizProvider.getPreventSubmitMessages(_this.summaryQuestions);
-            _this.attempt.dueDateWarning = _this.quizProvider.getAttemptDueDateWarning(_this.quiz, _this.attempt);
-            // Log summary as viewed.
-            _this.quizProvider.logViewAttemptSummary(_this.attempt.id, _this.preflightData).catch(function (error) {
-                // Ignore errors.
-            });
+        return this.workshopOffline.deleteSubmissionAction(this.workshopId, this.submissionId, 'delete').finally(function () {
+            var data = {
+                workshopId: _this.workshopId,
+                cmId: _this.module.cmid,
+                submissionId: _this.submissionId
+            };
+            _this.eventsProvider.trigger(__WEBPACK_IMPORTED_MODULE_13__providers_workshop__["a" /* AddonModWorkshopProvider */].SUBMISSION_CHANGED, data, _this.siteId);
+            return _this.refreshAllData();
         });
     };
     /**
-     * Load data to navigate the questions using the navigation modal.
-     *
-     * @return {Promise<void>} Promise resolved when done.
+     * Component being destroyed.
      */
-    AddonModQuizPlayerPage.prototype.loadNavigation = function () {
-        var _this = this;
-        // We use the attempt summary to build the navigation because it contains all the questions.
-        return this.quizProvider.getAttemptSummary(this.attempt.id, this.preflightData, this.offline, true, true)
-            .then(function (questions) {
-            questions.forEach(function (question) {
-                question.stateClass = _this.questionHelper.getQuestionStateClass(question.state);
-            });
-            _this.navigation = questions;
-        });
-    };
-    /**
-     * Open the navigation modal.
-     *
-     * @return {Promise<any>} Promise resolved when done.
-     */
-    AddonModQuizPlayerPage.prototype.openNavigation = function () {
-        var _this = this;
-        var promise;
-        if (this.reloadNavigaton) {
-            // Some data has changed, reload the navigation.
-            var modal_2 = this.domUtils.showModalLoading();
-            promise = this.loadNavigation().catch(function () {
-                // Ignore errors.
-            }).then(function () {
-                modal_2.dismiss();
-                _this.reloadNavigaton = false;
-            });
-        }
-        else {
-            promise = Promise.resolve();
-        }
-        return promise.finally(function () {
-            _this.navigationModal.present();
-        });
-    };
-    // Prepare the answers to be sent for the attempt.
-    AddonModQuizPlayerPage.prototype.prepareAnswers = function () {
-        return this.questionHelper.prepareAnswers(this.questions, this.getAnswers(), this.offline);
-    };
-    /**
-     * Process attempt.
-     *
-     * @param {boolean} [userFinish] Whether the user clicked to finish the attempt.
-     * @param {boolean} [timeUp] Whether the quiz time is up.
-     * @return {Promise<any>} Promise resolved when done.
-     */
-    AddonModQuizPlayerPage.prototype.processAttempt = function (userFinish, timeUp) {
-        var _this = this;
-        // Get the answers to send.
-        return this.prepareAnswers().then(function (answers) {
-            // Send the answers.
-            return _this.quizProvider.processAttempt(_this.quiz, _this.attempt, answers, _this.preflightData, userFinish, timeUp, _this.offline);
-        }).then(function () {
-            // Answers saved, cancel auto save.
-            _this.autoSave.cancelAutoSave();
-            _this.autoSave.hideAutoSaveError();
-        });
-    };
-    /**
-     * Scroll to a certain question.
-     *
-     * @param {number} slot Slot of the question to scroll to.
-     */
-    AddonModQuizPlayerPage.prototype.scrollToQuestion = function (slot) {
-        this.domUtils.scrollToElementBySelector(this.content, '#addon-mod_quiz-question-' + slot);
-    };
-    /**
-     * Show connection error.
-     *
-     * @param {Event} ev Click event.
-     */
-    AddonModQuizPlayerPage.prototype.showConnectionError = function (ev) {
-        this.autoSave.showAutoSaveError(ev);
-    };
-    /**
-     * Convenience function to start the player.
-     */
-    AddonModQuizPlayerPage.prototype.start = function () {
-        var _this = this;
-        var promise;
-        this.loaded = false;
-        if (this.quizDataLoaded) {
-            // Quiz data has been loaded, try to start or continue.
-            promise = this.startOrContinueAttempt();
-        }
-        else {
-            // Fetch data.
-            promise = this.fetchData().then(function () {
-                _this.quizDataLoaded = true;
-                return _this.startOrContinueAttempt();
-            });
-        }
-        promise.finally(function () {
-            _this.loaded = true;
-        });
-    };
-    /**
-     * Start or continue an attempt.
-     *
-     * @return {Promise<any>} [description]
-     */
-    AddonModQuizPlayerPage.prototype.startOrContinueAttempt = function () {
-        var _this = this;
-        var attempt = this.newAttempt ? undefined : this.lastAttempt;
-        // Get the preflight data and start attempt if needed.
-        return this.quizHelper.getAndCheckPreflightData(this.quiz, this.quizAccessInfo, this.preflightData, attempt, this.offline, false, 'addon.mod_quiz.startattempt').then(function (attempt) {
-            // Re-fetch attempt access information with the right attempt (might have changed because a new attempt was created).
-            return _this.quizProvider.getAttemptAccessInformation(_this.quiz.id, attempt.id, _this.offline, true).then(function (info) {
-                _this.attemptAccessInfo = info;
-                _this.attempt = attempt;
-                return _this.loadNavigation();
-            }).then(function () {
-                if (_this.attempt.state != __WEBPACK_IMPORTED_MODULE_10__providers_quiz__["a" /* AddonModQuizProvider */].ATTEMPT_OVERDUE && !_this.attempt.finishedOffline) {
-                    // Attempt not overdue and not finished in offline, load page.
-                    return _this.loadPage(_this.attempt.currentpage).then(function () {
-                        _this.initTimer();
-                    });
-                }
-                else {
-                    // Attempt is overdue or finished in offline, we can only load the summary.
-                    return _this.loadSummary();
-                }
-            });
-        }).catch(function (error) {
-            _this.domUtils.showErrorModalDefault(error, 'addon.mod_quiz.errorgetquestions', true);
-        });
-    };
-    /**
-     * Quiz time has finished.
-     */
-    AddonModQuizPlayerPage.prototype.timeUp = function () {
-        if (this.timeUpCalled) {
-            return;
-        }
-        this.timeUpCalled = true;
-        this.finishAttempt(false, true);
+    AddonModWorkshopSubmissionPage.prototype.ngOnDestroy = function () {
+        this.isDestroyed = true;
+        this.syncObserver && this.syncObserver.off();
+        this.obsAssessmentSaved && this.obsAssessmentSaved.off();
+        // Restore original back functions.
+        this.syncProvider.unblockOperation(this.component, this.workshopId);
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */])
-    ], AddonModQuizPlayerPage.prototype, "content", void 0);
-    AddonModQuizPlayerPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_12__components_assessment_strategy_assessment_strategy__["a" /* AddonModWorkshopAssessmentStrategyComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_12__components_assessment_strategy_assessment_strategy__["a" /* AddonModWorkshopAssessmentStrategyComponent */])
+    ], AddonModWorkshopSubmissionPage.prototype, "assessmentStrategy", void 0);
+    AddonModWorkshopSubmissionPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-addon-mod-quiz-player',template:/*ion-inline-start:"/home/travis/build/crazyserver/moodlemobile2/src/addon/mod/quiz/pages/player/player.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title><core-format-text *ngIf="quiz" [text]="quiz.name"></core-format-text></ion-title>\n\n        <ion-buttons end>\n            <button id="addon-mod_quiz-connection-error-button" ion-button icon-only [hidden]="!autoSaveError" (click)="showConnectionError($event)" [attr.aria-label]="\'core.error\' | translate">\n                <ion-icon name="alert"></ion-icon>\n            </button>\n            <button *ngIf="navigation && navigation.length" ion-button icon-only [attr.aria-label]="\'addon.mod_quiz.opentoc\' | translate" (click)="openNavigation()">\n                <ion-icon name="bookmark"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <!-- Navigation arrows and time left. -->\n    <ion-toolbar *ngIf="loaded && endTime && questions && questions.length && !quizAborted && !showSummary" color="light" ion-fixed>\n        <ion-title>\n            <core-timer [endTime]="endTime" (finished)="timeUp()" [timerText]="\'addon.mod_quiz.timeleft\' | translate" align="center"></core-timer>\n        </ion-title>\n        <ion-buttons end>\n            <a ion-button icon-only *ngIf="previousPage >= 0" (click)="changePage(previousPage)" [title]="\'core.previous\' | translate">\n                <ion-icon name="arrow-back" md="ios-arrow-back"></ion-icon>\n            </a>\n            <a ion-button icon-only *ngIf="nextPage >= -1" (click)="changePage(nextPage)" [title]="\'core.next\' | translate">\n                <ion-icon name="arrow-forward" md="ios-arrow-forward"></ion-icon>\n            </a>\n        </ion-buttons>\n    </ion-toolbar>\n    <core-loading [hideUntil]="loaded" [class.core-has-fixed-timer]="endTime">\n        <!-- Navigation arrows and time left. -->\n        <ion-toolbar *ngIf="!endTime && questions && questions.length && !quizAborted && !showSummary" color="light">\n            <ion-buttons end>\n                <a ion-button icon-only *ngIf="previousPage >= 0" (click)="changePage(previousPage)" [title]="\'core.previous\' | translate">\n                    <ion-icon name="arrow-back" md="ios-arrow-back"></ion-icon>\n                </a>\n                <a ion-button icon-only *ngIf="nextPage >= -1" (click)="changePage(nextPage)" [title]="\'core.next\' | translate">\n                    <ion-icon name="arrow-forward" md="ios-arrow-forward"></ion-icon>\n                </a>\n            </ion-buttons>\n        </ion-toolbar>\n        <!-- Button to start attempting. -->\n        <div padding *ngIf="!attempt">\n            <button ion-button block (click)="start()">{{ \'addon.mod_quiz.startattempt\' | translate }}</button>\n        </div>\n\n        <!-- Questions -->\n        <form name="addon-mod_quiz-player-form" *ngIf="questions && questions.length && !quizAborted && !showSummary">\n            <div *ngFor="let question of questions">\n                <ion-card id="addon-mod_quiz-question-{{question.slot}}">\n                    <!-- "Header" of the question. -->\n                    <ion-item-divider color="light">\n                        <h2 *ngIf="question.number" class="inline">{{ \'core.question.questionno\' | translate:{$a: question.number} }}</h2>\n                        <h2 *ngIf="!question.number" class="inline">{{ \'core.question.information\' | translate }}</h2>\n                        <ion-note text-wrap item-end *ngIf="question.status || question.readableMark">\n                            <p *ngIf="question.status" class="block">{{question.status}}</p>\n                            <p *ngIf="question.readableMark"><core-format-text [text]="question.readableMark"></core-format-text></p>\n                        </ion-note>\n                    </ion-item-divider>\n                    <!-- Body of the question. -->\n                    <core-question text-wrap [question]="question" [component]="component" [componentId]="quiz.coursemodule" [attemptId]="attempt.id" [offlineEnabled]="offline" (onAbort)="abortQuiz()" (buttonClicked)="behaviourButtonClicked($event)"></core-question>\n                </ion-card>\n            </div>\n        </form>\n\n        <!-- Go to next or previous page. -->\n        <ion-grid text-wrap *ngIf="questions && questions.length && !quizAborted && !showSummary">\n            <ion-row>\n                <ion-col *ngIf="previousPage >= 0" >\n                    <button ion-button block icon-start color="light" (click)="changePage(previousPage)">\n                        <ion-icon name="arrow-back" md="ios-arrow-back"></ion-icon>\n                        {{ \'core.previous\' | translate }}\n                    </button>\n                </ion-col>\n                <ion-col *ngIf="nextPage >= -1">\n                    <button ion-button block icon-end (click)="changePage(nextPage)">\n                        {{ \'core.next\' | translate }}\n                        <ion-icon name="arrow-forward" md="ios-arrow-forward"></ion-icon>\n                    </button>\n                </ion-col>\n            </ion-row>\n        </ion-grid>\n\n        <!-- Summary -->\n        <ion-card *ngIf="!quizAborted && showSummary && summaryQuestions && summaryQuestions.length" class="addon-mod_quiz-table">\n            <ion-card-header text-wrap>\n                <h2>{{ \'addon.mod_quiz.summaryofattempt\' | translate }}</h2>\n            </ion-card-header>\n            <!-- "Header" of the summary table. -->\n            <ion-item text-wrap>\n                <ion-row align-items-center>\n                    <ion-col col-3 text-center><b>{{ \'addon.mod_quiz.question\' | translate }}</b></ion-col>\n                    <ion-col col-9 text-center><b>{{ \'addon.mod_quiz.status\' | translate }}</b></ion-col>\n                </ion-row>\n            </ion-item>\n            <!-- Lift of questions of the summary table. -->\n            <ng-container *ngFor="let question of summaryQuestions">\n                <a ion-item (click)="changePage(question.page, false, question.slot)" *ngIf="question.number" [attr.aria-label]="\'core.question.questionno\' | translate:{$a: question.number}" [attr.detail-push]="!quiz.isSequential && canReturn ? true : null">\n                    <ion-row align-items-center>\n                        <ion-col col-3 text-center>{{ question.number }}</ion-col>\n                        <ion-col col-9 text-center>{{ question.status }}</ion-col>\n                    </ion-row>\n                </a>\n            </ng-container>\n            <!-- Button to return to last page seen. -->\n            <ion-item *ngIf="canReturn">\n                <a ion-button block (click)="changePage(attempt.currentpage)">{{ \'addon.mod_quiz.returnattempt\' | translate }}</a>\n            </ion-item>\n            <!-- Due date warning. -->\n            <ion-item text-wrap *ngIf="attempt.dueDateWarning">\n                {{ attempt.dueDateWarning }}\n            </ion-item>\n            <!-- Time left (if quiz is timed). -->\n            <core-timer *ngIf="endTime" [endTime]="endTime" (finished)="timeUp()" [timerText]="\'addon.mod_quiz.timeleft\' | translate"></core-timer>\n            <!-- List of messages explaining why the quiz cannot be submitted. -->\n            <ion-item text-wrap *ngIf="preventSubmitMessages.length">\n                <p class="item-heading">{{ \'addon.mod_quiz.cannotsubmitquizdueto\' | translate }}</p>\n                <p *ngFor="let message of preventSubmitMessages">{{message}}</p>\n                <a ion-button block icon-end [href]="moduleUrl" core-link>\n                    <ion-icon name="open"></ion-icon>\n                    {{ \'core.openinbrowser\' | translate }}\n                </a>\n            </ion-item>\n            <!-- Button to submit the quiz. -->\n            <ion-item *ngIf="!attempt.finishedOffline && !preventSubmitMessages.length">\n                <a ion-button block (click)="finishAttempt(true)">{{ \'addon.mod_quiz.submitallandfinish\' | translate }}</a>\n            </ion-item>\n        </ion-card>\n\n        <!-- Quiz aborted -->\n        <ion-card *ngIf="attempt && (((!questions || !questions.length) && !showSummary) || quizAborted)">\n            <ion-item text-wrap>\n                <p>{{ \'addon.mod_quiz.errorparsequestions\' | translate }}</p>\n            </ion-item>\n            <ion-item>\n                <a ion-button block icon-end [href]="moduleUrl" core-link>\n                    <ion-icon name="open"></ion-icon>\n                    {{ \'core.openinbrowser\' | translate }}\n                </a>\n            </ion-item>\n        </ion-card>\n    </core-loading>\n</ion-content>\n'/*ion-inline-end:"/home/travis/build/crazyserver/moodlemobile2/src/addon/mod/quiz/pages/player/player.html"*/,
+            selector: 'page-addon-mod-workshop-submission-page',template:/*ion-inline-start:"/home/travis/build/moodlehq/moodlemobile2/src/addon/mod/workshop/pages/submission/submission.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title><core-format-text [text]="title"></core-format-text></ion-title>\n        <ion-buttons end [hidden]="!loaded">\n            <button *ngIf="assessmentId" ion-button clear (click)="saveAssessment()" [attr.aria-label]="\'core.save\' | translate">\n                {{ \'core.save\' | translate }}\n            </button>\n            <button *ngIf="canAddFeedback" ion-button clear (click)="saveEvaluation()" [attr.aria-label]="\'core.save\' | translate">\n                {{ \'core.save\' | translate }}\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <ion-refresher [enabled]="loaded" (ionRefresh)="refreshSubmission($event)">\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n    </ion-refresher>\n    <core-loading [hideUntil]="loaded">\n        <ion-list *ngIf="submission">\n            <addon-mod-workshop-submission [submission]="submission" [courseId]="courseId" [module]="module" [workshop]="workshop" [access]="access"></addon-mod-workshop-submission>\n            <ion-item text-wrap *ngIf="canEdit || canDelete">\n                <button ion-button block icon-start *ngIf="canEdit" (click)="editSubmission()">\n                    <ion-icon name="create"></ion-icon>\n                    {{ \'addon.mod_workshop.editsubmission\' | translate }}\n                </button>\n                <button ion-button block icon-start *ngIf="!submission.deleted && canDelete" color="danger" (click)="deleteSubmission()">\n                    <ion-icon name="trash"></ion-icon>\n                    {{ \'addon.mod_workshop.deletesubmission\' | translate }}\n                </button>\n                <button ion-button block icon-start outline *ngIf="submission.deleted && canDelete" color="danger" (click)="undoDeleteSubmission()">\n                    <ion-icon name="undo"></ion-icon>\n                    {{ \'core.restore\' | translate }}\n                </button>\n            </ion-item>\n        </ion-list>\n\n        <ion-list *ngIf="!canAddFeedback && evaluate && evaluate.text">\n            <ion-item text-wrap>\n                <ion-avatar core-user-avatar *ngIf="evaluateByProfile" [user]="evaluateByProfile" item-start [courseId]="courseId" [userId]="evaluateByProfile.id"></ion-avatar>\n                <h2 *ngIf="evaluateByProfile && evaluateByProfile.fullname">{{ \'addon.mod_workshop.feedbackby\' | translate : {$a: evaluateByProfile.fullname} }}</h2>\n                <core-format-text [text]="evaluate.text"></core-format-text>\n            </ion-item>\n        </ion-list>\n\n        <ion-list *ngIf="ownAssessment && !assessment">\n            <ion-item text-wrap>\n                <h2>{{ \'addon.mod_workshop.yourassessment\' | translate }}</h2>\n            </ion-item>\n            <addon-mod-workshop-assessment [submission]="submission" [assessment]="ownAssessment" [courseId]="courseId" summary="true" [access]="access" [module]="module" [workshop]="workshop"></addon-mod-workshop-assessment>\n        </ion-list>\n\n        <ion-list *ngIf="submissionInfo && submissionInfo.reviewedby && submissionInfo.reviewedby.length && !assessment">\n            <ion-item text-wrap>\n                <h2>{{ \'addon.mod_workshop.receivedgrades\' | translate }}</h2>\n            </ion-item>\n            <ng-container *ngFor="let reviewer of submissionInfo.reviewedby">\n                <addon-mod-workshop-assessment *ngIf="!reviewer.ownAssessment" [submission]="submission" [assessment]="reviewer" [courseId]="courseId" summary="true" [access]="access" [workshop]="workshop"></addon-mod-workshop-assessment>\n            </ng-container>\n        </ion-list>\n\n        <ion-list *ngIf="submissionInfo && submissionInfo.reviewerof && submissionInfo.reviewerof.length && !assessment">\n            <ion-item text-wrap>\n                <h2>{{ \'addon.mod_workshop.givengrades\' | translate }}</h2>\n            </ion-item>\n            <addon-mod-workshop-assessment *ngFor="let reviewer of submissionInfo.reviewerof" [assessment]="reviewer" [courseId]="courseId" summary="true" [workshop]="workshop" [access]="access"></addon-mod-workshop-assessment>\n        </ion-list>\n\n        <form ion-list [formGroup]="feedbackForm" *ngIf="canAddFeedback">\n            <ion-item text-wrap>\n                <h2>{{ \'addon.mod_workshop.feedbackauthor\' | translate }}</h2>\n            </ion-item>\n            <ion-item text-wrap *ngIf="access.canpublishsubmissions">\n                <ion-label>{{ \'addon.mod_workshop.publishsubmission\' | translate }}</ion-label>\n                <ion-toggle formControlName="published"></ion-toggle>\n                <p class="item-help">{{ \'addon.mod_workshop.publishsubmission_help\' | translate }}</p>\n            </ion-item>\n\n            <ion-item text-wrap>\n                <h2>{{ \'addon.mod_workshop.gradecalculated\' | translate }}</h2>\n                <p>{{ submission.submissiongrade }}</p>\n            </ion-item>\n            <ion-item text-wrap>\n                <ion-label stacked>{{ \'addon.mod_workshop.gradeover\' | translate }}</ion-label>\n                <ion-select formControlName="grade" interface="action-sheet">\n                    <ion-option *ngFor="let grade of evaluationGrades" [value]="grade.value">{{grade.label}}</ion-option>\n                </ion-select>\n            </ion-item>\n            <ion-item>\n                <ion-label stacked>{{ \'addon.mod_workshop.feedbackauthor\' | translate }}</ion-label>\n                <core-rich-text-editor item-content [control]="feedbackForm.controls[\'text\']" formControlName="text"></core-rich-text-editor>\n            </ion-item>\n        </form>\n\n        <addon-mod-workshop-assessment-strategy *ngIf="assessmentId" [workshop]="workshop" [access]="access" [assessmentId]="assessmentId" [userId]="assessmentUserId" [strategy]="strategy" [edit]="access.assessingallowed"></addon-mod-workshop-assessment-strategy>\n\n        <ion-list *ngIf="assessmentId && !access.assessingallowed && assessment.feedbackreviewer">\n            <ion-item text-wrap>\n                <ion-avatar core-user-avatar *ngIf="evaluateGradingByProfile" [user]="evaluateGradingByProfile" item-start [courseId]="courseId" [userId]="evaluateGradingByProfile.id"></ion-avatar>\n                <h2 *ngIf="evaluateGradingByProfile && evaluateGradingByProfile.fullname">{{ \'addon.mod_workshop.feedbackby\' | translate : {$a: evaluateGradingByProfile.fullname} }}</h2>\n                <core-format-text [text]="assessment.feedbackreviewer"></core-format-text>\n            </ion-item>\n        </ion-list>\n    </core-loading>\n</ion-content>\n'/*ion-inline-end:"/home/travis/build/moodlehq/moodlemobile2/src/addon/mod/workshop/pages/submission/submission.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */], __WEBPACK_IMPORTED_MODULE_4__providers_logger__["a" /* CoreLoggerProvider */], __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_events__["a" /* CoreEventsProvider */], __WEBPACK_IMPORTED_MODULE_5__providers_sites__["a" /* CoreSitesProvider */],
-            __WEBPACK_IMPORTED_MODULE_6__providers_sync__["a" /* CoreSyncProvider */], __WEBPACK_IMPORTED_MODULE_7__providers_utils_dom__["a" /* CoreDomUtilsProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["v" /* PopoverController */],
-            __WEBPACK_IMPORTED_MODULE_8__providers_utils_time__["a" /* CoreTimeUtilsProvider */], __WEBPACK_IMPORTED_MODULE_10__providers_quiz__["a" /* AddonModQuizProvider */],
-            __WEBPACK_IMPORTED_MODULE_12__providers_helper__["a" /* AddonModQuizHelperProvider */], __WEBPACK_IMPORTED_MODULE_11__providers_quiz_sync__["a" /* AddonModQuizSyncProvider */],
-            __WEBPACK_IMPORTED_MODULE_9__core_question_providers_helper__["a" /* CoreQuestionHelperProvider */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* ChangeDetectorRef */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */]])
-    ], AddonModQuizPlayerPage);
-    return AddonModQuizPlayerPage;
+        __param(13, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* Optional */])()),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_5__providers_sites__["a" /* CoreSitesProvider */], __WEBPACK_IMPORTED_MODULE_13__providers_workshop__["a" /* AddonModWorkshopProvider */],
+            __WEBPACK_IMPORTED_MODULE_15__providers_offline__["a" /* AddonModWorkshopOfflineProvider */], __WEBPACK_IMPORTED_MODULE_6__providers_sync__["a" /* CoreSyncProvider */],
+            __WEBPACK_IMPORTED_MODULE_14__providers_helper__["a" /* AddonModWorkshopHelperProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_8__providers_utils_text__["a" /* CoreTextUtilsProvider */], __WEBPACK_IMPORTED_MODULE_7__providers_utils_dom__["a" /* CoreDomUtilsProvider */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */],
+            __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */], __WEBPACK_IMPORTED_MODULE_4__providers_events__["a" /* CoreEventsProvider */],
+            __WEBPACK_IMPORTED_MODULE_9__core_course_providers_course__["a" /* CoreCourseProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */],
+            __WEBPACK_IMPORTED_MODULE_11__core_grades_providers_helper__["a" /* CoreGradesHelperProvider */], __WEBPACK_IMPORTED_MODULE_10__core_user_providers_user__["a" /* CoreUserProvider */]])
+    ], AddonModWorkshopSubmissionPage);
+    return AddonModWorkshopSubmissionPage;
 }());
 
-//# sourceMappingURL=player.js.map
+//# sourceMappingURL=submission.js.map
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2029)(module)))
 
 /***/ }),
 
-/***/ 1934:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ 2029:
+/***/ (function(module, exports) {
 
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModQuizAutoSave; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_connection_error_connection_error__ = __webpack_require__(948);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs__);
-// (C) Copyright 2015 Martin Dougiamas
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+module.exports = function(originalModule) {
+	if(!originalModule.webpackPolyfill) {
+		var module = Object.create(originalModule);
+		// module.parent = undefined by default
+		if(!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function() {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function() {
+				return module.i;
+			}
+		});
+		Object.defineProperty(module, "exports", {
+			enumerable: true,
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
+};
 
-
-/**
- * Class to support auto-save in quiz. Every certain seconds, it will check if there are changes in the current page answers
- * and, if so, it will save them automatically.
- */
-var AddonModQuizAutoSave = /** @class */ (function () {
-    /**
-     * Constructor.
-     *
-     * @param {string} formName Name of the form where the answers are stored.
-     * @param {string} buttonSelector Selector to find the button to show the connection error.
-     * @param {CoreLoggerProvider} loggerProvider CoreLoggerProvider instance.
-     * @param {PopoverController} popoverCtrl PopoverController instance.
-     * @param {CoreQuestionHelperProvider} questionHelper CoreQuestionHelperProvider instance.
-     * @param {AddonModQuizProvider} quizProvider AddonModQuizProvider instance.
-     */
-    function AddonModQuizAutoSave(formName, buttonSelector, loggerProvider, popoverCtrl, questionHelper, quizProvider) {
-        var _this = this;
-        this.formName = formName;
-        this.buttonSelector = buttonSelector;
-        this.popoverCtrl = popoverCtrl;
-        this.questionHelper = questionHelper;
-        this.quizProvider = quizProvider;
-        this.CHECK_CHANGES_INTERVAL = 5000;
-        this.popoverShown = false; // Whether the popover is shown.
-        this.logger = loggerProvider.getInstance('AddonModQuizAutoSave');
-        // Create the popover.
-        this.popover = this.popoverCtrl.create(__WEBPACK_IMPORTED_MODULE_0__components_connection_error_connection_error__["a" /* AddonModQuizConnectionErrorComponent */]);
-        this.popover.onDidDismiss(function () {
-            _this.popoverShown = false;
-        });
-        // Create the observable to notify if an error happened.
-        this.errorObservable = new __WEBPACK_IMPORTED_MODULE_1_rxjs__["BehaviorSubject"](false);
-    }
-    /**
-     * Cancel a pending auto save.
-     */
-    AddonModQuizAutoSave.prototype.cancelAutoSave = function () {
-        clearTimeout(this.autoSaveTimeout);
-        this.autoSaveTimeout = undefined;
-    };
-    /**
-     * Check if the answers have changed in a page.
-     *
-     * @param {any} quiz Quiz.
-     * @param {any} attempt Attempt.
-     * @param {any} preflightData Preflight data.
-     * @param {boolean} [offline] Whether the quiz is being attempted in offline mode.
-     */
-    AddonModQuizAutoSave.prototype.checkChanges = function (quiz, attempt, preflightData, offline) {
-        if (this.autoSaveTimeout) {
-            // We already have an auto save pending, no need to check changes.
-            return;
-        }
-        var answers = this.getAnswers();
-        if (!this.previousAnswers) {
-            // Previous answers isn't set, set it now.
-            this.previousAnswers = answers;
-        }
-        else {
-            // Check if answers have changed.
-            var equal = true;
-            for (var name_1 in answers) {
-                if (this.previousAnswers[name_1] != answers[name_1]) {
-                    equal = false;
-                    break;
-                }
-            }
-            if (!equal) {
-                this.setAutoSaveTimer(quiz, attempt, preflightData, offline);
-            }
-            this.previousAnswers = answers;
-        }
-    };
-    /**
-     * Get answers from a form.
-     *
-     * @return {any} Answers.
-     */
-    AddonModQuizAutoSave.prototype.getAnswers = function () {
-        return this.questionHelper.getAnswersFromForm(document.forms[this.formName]);
-    };
-    /**
-     * Hide the auto save error.
-     */
-    AddonModQuizAutoSave.prototype.hideAutoSaveError = function () {
-        this.errorObservable.next(false);
-        this.popover.dismiss();
-    };
-    /**
-     * Returns an observable that will notify when an error happens or stops.
-     * It will send true when there's an error, and false when the error has been ammended.
-     *
-     * @return {BehaviorSubject<boolean>} Observable.
-     */
-    AddonModQuizAutoSave.prototype.onError = function () {
-        return this.errorObservable;
-    };
-    /**
-     * Schedule an auto save process if it's not scheduled already.
-     *
-     * @param {any} quiz Quiz.
-     * @param {any} attempt Attempt.
-     * @param {any} preflightData Preflight data.
-     * @param {boolean} [offline] Whether the quiz is being attempted in offline mode.
-     */
-    AddonModQuizAutoSave.prototype.setAutoSaveTimer = function (quiz, attempt, preflightData, offline) {
-        var _this = this;
-        // Don't schedule if already shceduled or quiz is almost closed.
-        if (quiz.autosaveperiod && !this.autoSaveTimeout && !this.quizProvider.isAttemptTimeNearlyOver(quiz, attempt)) {
-            // Schedule save.
-            this.autoSaveTimeout = setTimeout(function () {
-                var answers = _this.getAnswers();
-                _this.cancelAutoSave();
-                _this.previousAnswers = answers; // Update previous answers to match what we're sending to the server.
-                _this.quizProvider.saveAttempt(quiz, attempt, answers, preflightData, offline).then(function () {
-                    // Save successful, we can hide the connection error if it was shown.
-                    _this.hideAutoSaveError();
-                }).catch(function (error) {
-                    // Error auto-saving. Show error and set timer again.
-                    _this.logger.warn('Error auto-saving data.', error);
-                    // If there was no error already, show the error message.
-                    if (!_this.errorObservable.getValue()) {
-                        _this.errorObservable.next(true);
-                        _this.showAutoSaveError();
-                    }
-                    // Try again.
-                    _this.setAutoSaveTimer(quiz, attempt, preflightData, offline);
-                });
-            }, quiz.autosaveperiod * 1000);
-        }
-    };
-    /**
-     * Show an error popover due to an auto save error.
-     */
-    AddonModQuizAutoSave.prototype.showAutoSaveError = function (ev) {
-        // Don't show popover if it was already shown.
-        if (!this.popoverShown) {
-            this.popoverShown = true;
-            // If no event is provided, simulate it targeting the button.
-            this.popover.present({
-                ev: ev || { target: document.querySelector(this.buttonSelector) }
-            });
-        }
-    };
-    /**
-     * Start a process to periodically check changes in answers.
-     *
-     * @param {any} quiz Quiz.
-     * @param {any} attempt Attempt.
-     * @param {any} preflightData Preflight data.
-     * @param {boolean} [offline] Whether the quiz is being attempted in offline mode.
-     */
-    AddonModQuizAutoSave.prototype.startCheckChangesProcess = function (quiz, attempt, preflightData, offline) {
-        var _this = this;
-        if (this.checkChangesInterval || !quiz.autosaveperiod) {
-            // We already have the interval in place or the quiz has autosave disabled.
-            return;
-        }
-        this.previousAnswers = undefined;
-        // Load initial answers in 2.5 seconds so the first check interval finds them already loaded.
-        this.loadPreviousAnswersTimeout = setTimeout(function () {
-            _this.checkChanges(quiz, attempt, preflightData, offline);
-        }, 2500);
-        // Check changes every certain time.
-        this.checkChangesInterval = setInterval(function () {
-            _this.checkChanges(quiz, attempt, preflightData, offline);
-        }, this.CHECK_CHANGES_INTERVAL);
-    };
-    /**
-     * Stops the periodical check for changes.
-     */
-    AddonModQuizAutoSave.prototype.stopCheckChangesProcess = function () {
-        clearTimeout(this.loadPreviousAnswersTimeout);
-        clearInterval(this.checkChangesInterval);
-        this.loadPreviousAnswersTimeout = undefined;
-        this.checkChangesInterval = undefined;
-    };
-    return AddonModQuizAutoSave;
-}());
-
-//# sourceMappingURL=auto-save.js.map
 
 /***/ })
 

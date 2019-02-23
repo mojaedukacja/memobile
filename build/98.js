@@ -1,17 +1,18 @@
 webpackJsonp([98],{
 
-/***/ 1778:
+/***/ 1853:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonModAssignSubmissionListPageModule", function() { return AddonModAssignSubmissionListPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonModChatChatPageModule", function() { return AddonModChatChatPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__submission_list__ = __webpack_require__(1899);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pipes_pipes_module__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__chat__ = __webpack_require__(1981);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -37,44 +38,48 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AddonModAssignSubmissionListPageModule = /** @class */ (function () {
-    function AddonModAssignSubmissionListPageModule() {
+
+var AddonModChatChatPageModule = /** @class */ (function () {
+    function AddonModChatChatPageModule() {
     }
-    AddonModAssignSubmissionListPageModule = __decorate([
+    AddonModChatChatPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_5__submission_list__["a" /* AddonModAssignSubmissionListPage */],
+                __WEBPACK_IMPORTED_MODULE_6__chat__["a" /* AddonModChatChatPage */],
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_3__components_components_module__["a" /* CoreComponentsModule */],
                 __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_5__submission_list__["a" /* AddonModAssignSubmissionListPage */]),
+                __WEBPACK_IMPORTED_MODULE_5__pipes_pipes_module__["a" /* CorePipesModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_6__chat__["a" /* AddonModChatChatPage */]),
                 __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ],
         })
-    ], AddonModAssignSubmissionListPageModule);
-    return AddonModAssignSubmissionListPageModule;
+    ], AddonModChatChatPageModule);
+    return AddonModChatChatPageModule;
 }());
 
-//# sourceMappingURL=submission-list.module.js.map
+//# sourceMappingURL=chat.module.js.map
 
 /***/ }),
 
-/***/ 1899:
+/***/ 1981:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModAssignSubmissionListPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModChatChatPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_app__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_events__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_sites__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_utils_dom__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_assign__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_assign_offline__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_helper__ = __webpack_require__(111);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_split_view_split_view__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_logger__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_sites__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_utils_dom__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_utils_text__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_chat__ = __webpack_require__(396);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_network__ = __webpack_require__(119);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_moment__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_moment__);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -107,212 +112,293 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
- * Page that displays a list of submissions of an assignment.
+ * Page that displays a chat session.
  */
-var AddonModAssignSubmissionListPage = /** @class */ (function () {
-    function AddonModAssignSubmissionListPage(navParams, sitesProvider, eventsProvider, domUtils, translate, assignProvider, assignOfflineProvider, assignHelper) {
+var AddonModChatChatPage = /** @class */ (function () {
+    function AddonModChatChatPage(navParams, logger, network, zone, navCtrl, chatProvider, appProvider, sitesProvider, modalCtrl, domUtils, textUtils, eventsProvider) {
         var _this = this;
+        this.navCtrl = navCtrl;
+        this.chatProvider = chatProvider;
+        this.appProvider = appProvider;
+        this.modalCtrl = modalCtrl;
         this.domUtils = domUtils;
-        this.translate = translate;
-        this.assignProvider = assignProvider;
-        this.assignOfflineProvider = assignOfflineProvider;
-        this.assignHelper = assignHelper;
-        this.moduleId = navParams.get('moduleId');
+        this.textUtils = textUtils;
+        this.eventsProvider = eventsProvider;
+        this.loaded = false;
+        this.messages = [];
+        this.lastTime = 0;
+        this.oldContentHeight = 0;
+        this.viewDestroyed = false;
+        this.pollingRunning = false;
+        this.chatId = navParams.get('chatId');
         this.courseId = navParams.get('courseId');
-        this.selectedStatus = navParams.get('status');
-        if (this.selectedStatus) {
-            if (this.selectedStatus == __WEBPACK_IMPORTED_MODULE_6__providers_assign__["a" /* AddonModAssignProvider */].NEED_GRADING) {
-                this.title = this.translate.instant('addon.mod_assign.numberofsubmissionsneedgrading');
-            }
-            else {
-                this.title = this.translate.instant('addon.mod_assign.submissionstatus_' + this.selectedStatus);
-            }
-        }
-        else {
-            this.title = this.translate.instant('addon.mod_assign.numberofparticipants');
-        }
-        // Update data if some grade changes.
-        this.gradedObserver = eventsProvider.on(__WEBPACK_IMPORTED_MODULE_6__providers_assign__["a" /* AddonModAssignProvider */].GRADED_EVENT, function (data) {
-            if (_this.assign && data.assignmentId == _this.assign.id && data.userId == sitesProvider.getCurrentSiteUserId()) {
-                // Grade changed, refresh the data.
-                _this.loaded = false;
-                _this.refreshAllData().finally(function () {
-                    _this.loaded = true;
-                });
-            }
-        }, sitesProvider.getCurrentSiteId());
+        this.title = navParams.get('title');
+        this.logger = logger.getInstance('AddonModChoiceChoicePage');
+        this.currentUserBeep = 'beep ' + sitesProvider.getCurrentSiteUserId();
+        this.isOnline = this.appProvider.isOnline();
+        this.onlineObserver = network.onchange().subscribe(function (online) {
+            // Execute the callback in the Angular zone, so change detection doesn't stop working.
+            zone.run(function () {
+                _this.isOnline = _this.appProvider.isOnline();
+            });
+        });
     }
     /**
-     * Component being initialized.
+     * View loaded.
      */
-    AddonModAssignSubmissionListPage.prototype.ngOnInit = function () {
+    AddonModChatChatPage.prototype.ionViewDidLoad = function () {
         var _this = this;
-        this.fetchAssignment().finally(function () {
-            if (!_this.selectedSubmissionId && _this.splitviewCtrl.isOn() && _this.submissions.length > 0) {
-                // Take first and load it.
-                _this.loadSubmission(_this.submissions[0]);
-            }
+        this.loginUser().then(function () {
+            return _this.fetchMessages().then(function () {
+                _this.startPolling();
+            }).catch(function (error) {
+                _this.domUtils.showErrorModalDefault(error, 'addon.mod_chat.errorwhileretrievingmessages', true);
+                _this.navCtrl.pop();
+            });
+        }).catch(function (error) {
+            _this.domUtils.showErrorModalDefault(error, 'addon.mod_chat.errorwhileconnecting', true);
+            _this.navCtrl.pop();
+        }).finally(function () {
             _this.loaded = true;
         });
+        // Recalculate footer position when keyboard is shown or hidden.
+        this.keyboardObserver = this.eventsProvider.on(__WEBPACK_IMPORTED_MODULE_3__providers_events__["a" /* CoreEventsProvider */].KEYBOARD_CHANGE, function (kbHeight) {
+            _this.content.resize();
+        });
     };
     /**
-     * Fetch assignment data.
+     * Runs when the page has fully entered and is now the active page.
+     * This event will fire, whether it was the first load or a cached page.
+     */
+    AddonModChatChatPage.prototype.ionViewDidEnter = function () {
+        this.startPolling();
+    };
+    /**
+     * Runs when the page is about to leave and no longer be the active page.
+     */
+    AddonModChatChatPage.prototype.ionViewWillLeave = function () {
+        this.stopPolling();
+    };
+    /**
+     * Display the chat users modal.
+     */
+    AddonModChatChatPage.prototype.showChatUsers = function () {
+        var _this = this;
+        var modal = this.modalCtrl.create('AddonModChatUsersPage', { sessionId: this.sessionId });
+        modal.onDidDismiss(function (data) {
+            if (data && data.talkTo) {
+                _this.newMessage = "To " + data.talkTo + ": ";
+            }
+            if (data && data.beepTo) {
+                _this.sendMessage('', data.beepTo);
+            }
+        });
+        modal.present();
+    };
+    /**
+     * Convenience function to login the user.
+     *
+     * @return {Promise<any>} Resolved when done.
+     */
+    AddonModChatChatPage.prototype.loginUser = function () {
+        var _this = this;
+        return this.chatProvider.loginUser(this.chatId).then(function (sessionId) {
+            _this.sessionId = sessionId;
+        });
+    };
+    /**
+     * Convenience function to fetch chat messages.
      *
      * @return {Promise<any>} Promise resolved when done.
      */
-    AddonModAssignSubmissionListPage.prototype.fetchAssignment = function () {
+    AddonModChatChatPage.prototype.fetchMessages = function () {
         var _this = this;
-        var participants, submissionsData;
-        // Get assignment data.
-        return this.assignProvider.getAssignment(this.courseId, this.moduleId).then(function (assign) {
-            _this.title = assign.name || _this.title;
-            _this.assign = assign;
-            _this.haveAllParticipants = true;
-            // Get assignment submissions.
-            return _this.assignProvider.getSubmissions(assign.id);
-        }).then(function (data) {
-            if (!data.canviewsubmissions) {
-                // User shouldn't be able to reach here.
-                return Promise.reject(null);
-            }
-            submissionsData = data;
-            // Get the participants.
-            return _this.assignHelper.getParticipants(_this.assign).then(function (parts) {
-                _this.haveAllParticipants = true;
-                participants = parts;
-            }).catch(function () {
-                _this.haveAllParticipants = false;
-            });
-        }).then(function () {
-            // We want to show the user data on each submission.
-            return _this.assignProvider.getSubmissionsUserData(submissionsData.submissions, _this.courseId, _this.assign.id, _this.assign.blindmarking && !_this.assign.revealidentities, participants);
-        }).then(function (submissions) {
-            // Filter the submissions to get only the ones with the right status and add some extra data.
-            var getNeedGrading = _this.selectedStatus == __WEBPACK_IMPORTED_MODULE_6__providers_assign__["a" /* AddonModAssignProvider */].NEED_GRADING, searchStatus = getNeedGrading ? __WEBPACK_IMPORTED_MODULE_6__providers_assign__["a" /* AddonModAssignProvider */].SUBMISSION_STATUS_SUBMITTED : _this.selectedStatus, promises = [];
-            _this.submissions = [];
-            submissions.forEach(function (submission) {
-                if (!searchStatus || searchStatus == submission.status) {
-                    promises.push(_this.assignOfflineProvider.getSubmissionGrade(_this.assign.id, submission.userid).catch(function () {
-                        // Ignore errors.
-                    }).then(function (data) {
-                        var promise, notSynced = false;
-                        // Load offline grades.
-                        if (data && submission.timemodified < data.timemodified) {
-                            notSynced = true;
-                        }
-                        if (getNeedGrading) {
-                            // Only show the submissions that need to be graded.
-                            promise = _this.assignProvider.needsSubmissionToBeGraded(submission, _this.assign.id);
-                        }
-                        else {
-                            promise = Promise.resolve(true);
-                        }
-                        return promise.then(function (add) {
-                            if (!add) {
-                                return;
-                            }
-                            submission.statusColor = _this.assignProvider.getSubmissionStatusColor(submission.status);
-                            submission.gradingColor = _this.assignProvider.getSubmissionGradingStatusColor(submission.gradingstatus);
-                            // Show submission status if not submitted for grading.
-                            if (submission.statusColor != 'success' || !submission.gradingstatus) {
-                                submission.statusTranslated = _this.translate.instant('addon.mod_assign.submissionstatus_' +
-                                    submission.status);
-                            }
-                            else {
-                                submission.statusTranslated = false;
-                            }
-                            if (notSynced) {
-                                submission.gradingStatusTranslationId = 'addon.mod_assign.gradenotsynced';
-                                submission.gradingColor = '';
-                            }
-                            else if (submission.statusColor != 'danger' || submission.gradingColor != 'danger') {
-                                // Show grading status if one of the statuses is not done.
-                                submission.gradingStatusTranslationId =
-                                    _this.assignProvider.getSubmissionGradingStatusTranslationId(submission.gradingstatus);
-                            }
-                            else {
-                                submission.gradingStatusTranslationId = false;
-                            }
-                            _this.submissions.push(submission);
-                        });
-                    }));
+        return this.chatProvider.getLatestMessages(this.sessionId, this.lastTime).then(function (messagesInfo) {
+            _this.lastTime = messagesInfo.chatnewlasttime || 0;
+            return _this.chatProvider.getMessagesUserData(messagesInfo.messages, _this.courseId).then(function (messages) {
+                _this.messages = _this.messages.concat(messages);
+                if (messages.length) {
+                    // New messages or beeps, scroll to bottom.
+                    setTimeout(function () { return _this.scrollToBottom(); });
                 }
             });
-            return Promise.all(promises);
-        }).catch(function (error) {
-            _this.domUtils.showErrorModalDefault(error, 'Error getting assigment data.');
         });
     };
     /**
-     * Load a certain submission.
-     *
-     * @param {any} submission The submission to load.
+     * Start the polling to get chat messages periodically.
      */
-    AddonModAssignSubmissionListPage.prototype.loadSubmission = function (submission) {
-        if (this.selectedSubmissionId === submission.id && this.splitviewCtrl.isOn()) {
-            // Already selected.
+    AddonModChatChatPage.prototype.startPolling = function () {
+        var _this = this;
+        // We already have the polling in place.
+        if (this.polling) {
             return;
         }
-        this.selectedSubmissionId = submission.id;
-        this.splitviewCtrl.push('AddonModAssignSubmissionReviewPage', {
-            courseId: this.courseId,
-            moduleId: this.moduleId,
-            submitId: submission.submitid,
-            blindId: submission.blindid
-        });
+        // Start polling.
+        this.polling = setInterval(function () {
+            _this.fetchMessagesInterval().catch(function () {
+                // Ignore errors.
+            });
+        }, __WEBPACK_IMPORTED_MODULE_8__providers_chat__["a" /* AddonModChatProvider */].POLL_INTERVAL);
     };
     /**
-     * Refresh all the data.
-     *
-     * @return {Promise<any>} Promise resolved when done.
+     * Stop polling for messages.
      */
-    AddonModAssignSubmissionListPage.prototype.refreshAllData = function () {
-        var _this = this;
-        var promises = [];
-        promises.push(this.assignProvider.invalidateAssignmentData(this.courseId));
-        if (this.assign) {
-            promises.push(this.assignProvider.invalidateAllSubmissionData(this.assign.id));
-            promises.push(this.assignProvider.invalidateAssignmentUserMappingsData(this.assign.id));
-            promises.push(this.assignProvider.invalidateListParticipantsData(this.assign.id));
+    AddonModChatChatPage.prototype.stopPolling = function () {
+        if (this.polling) {
+            this.logger.debug('Cancelling polling for messages');
+            clearInterval(this.polling);
         }
-        return Promise.all(promises).finally(function () {
-            return _this.fetchAssignment();
-        });
     };
     /**
-     * Refresh the list.
+     * Convenience function to be called every certain time to fetch chat messages.
      *
-     * @param {any} refresher Refresher.
+     * @return {Promise<any>} Promised resolved when done.
      */
-    AddonModAssignSubmissionListPage.prototype.refreshList = function (refresher) {
-        this.refreshAllData().finally(function () {
-            refresher.complete();
+    AddonModChatChatPage.prototype.fetchMessagesInterval = function () {
+        var _this = this;
+        this.logger.debug('Polling for messages');
+        if (!this.isOnline || this.pollingRunning) {
+            // Obviously we cannot check for new messages when the app is offline.
+            return Promise.reject(null);
+        }
+        this.pollingRunning = true;
+        return this.fetchMessages().catch(function () {
+            // Try to login, it might have failed because the session expired.
+            return _this.loginUser().then(function () {
+                return _this.fetchMessages();
+            }).catch(function (error) {
+                // Fail again. Stop polling if needed.
+                if (_this.polling) {
+                    clearInterval(_this.polling);
+                    _this.polling = undefined;
+                }
+                _this.domUtils.showErrorModalDefault(error, 'addon.mod_chat.errorwhileretrievingmessages', true);
+                return Promise.reject(null);
+            });
+        }).finally(function () {
+            _this.pollingRunning = false;
         });
     };
     /**
-     * Component being destroyed.
+     * Check if the date should be displayed between messages (when the day changes at midnight for example).
+     *
+     * @param  {any} message     New message object.
+     * @param  {any} prevMessage Previous message object.
+     * @return {boolean} True if messages are from diferent days, false othetwise.
      */
-    AddonModAssignSubmissionListPage.prototype.ngOnDestroy = function () {
-        this.gradedObserver && this.gradedObserver.off();
+    AddonModChatChatPage.prototype.showDate = function (message, prevMessage) {
+        if (!prevMessage) {
+            return true;
+        }
+        // Check if day has changed.
+        return !__WEBPACK_IMPORTED_MODULE_10_moment__(message.timestamp * 1000).isSame(prevMessage.timestamp * 1000, 'day');
+    };
+    /**
+     * Send a message to the chat.
+     *
+     * @param {string} text     Text of the nessage.
+     * @param {number} [beep=0] ID of the user to beep.
+     */
+    AddonModChatChatPage.prototype.sendMessage = function (text, beep) {
+        var _this = this;
+        if (beep === void 0) { beep = 0; }
+        if (!this.isOnline) {
+            // Silent error, the view should prevent this.
+            return;
+        }
+        else if (beep === 0 && !text.trim()) {
+            // Silent error.
+            return;
+        }
+        text = this.textUtils.replaceNewLines(text, '<br>');
+        var modal = this.domUtils.showModalLoading('core.sending', true);
+        this.chatProvider.sendMessage(this.sessionId, text, beep).then(function () {
+            // Update messages to show the sent message.
+            _this.fetchMessagesInterval().catch(function () {
+                // Ignore errors.
+            });
+        }).catch(function (error) {
+            /* Only close the keyboard if an error happens, we want the user to be able to send multiple
+              messages without the keyboard being closed. */
+            _this.appProvider.closeKeyboard();
+            _this.domUtils.showErrorModalDefault(error, 'addon.mod_chat.errorwhilesendingmessage', true);
+        }).finally(function () {
+            modal.dismiss();
+        });
+    };
+    AddonModChatChatPage.prototype.reconnect = function () {
+        var _this = this;
+        var modal = this.domUtils.showModalLoading();
+        // Call startPolling would take a while for the first execution, so we'll execute it manually to check if it works now.
+        return this.fetchMessagesInterval().then(function () {
+            // It works, start the polling again.
+            _this.startPolling();
+        }).catch(function () {
+            // Ignore errors.
+        }).finally(function () {
+            modal.dismiss();
+        });
+    };
+    /**
+     * Scroll bottom when render has finished.
+     */
+    AddonModChatChatPage.prototype.scrollToBottom = function () {
+        var _this = this;
+        // Need a timeout to leave time to the view to be rendered.
+        setTimeout(function () {
+            if (!_this.viewDestroyed) {
+                _this.domUtils.scrollToBottom(_this.content, 0);
+            }
+        });
+    };
+    /**
+     * Content or scroll has been resized. For content, only call it if it's been added on top.
+     */
+    AddonModChatChatPage.prototype.resizeContent = function () {
+        var _this = this;
+        var top = this.content.getContentDimensions().scrollTop;
+        this.content.resize();
+        // Wait for new content height to be calculated.
+        setTimeout(function () {
+            // Visible content size changed, maintain the bottom position.
+            if (!_this.viewDestroyed && _this.content && _this.domUtils.getContentHeight(_this.content) != _this.oldContentHeight) {
+                if (!top) {
+                    top = _this.content.getContentDimensions().scrollTop;
+                }
+                top += _this.oldContentHeight - _this.domUtils.getContentHeight(_this.content);
+                _this.oldContentHeight = _this.domUtils.getContentHeight(_this.content);
+                _this.content.scrollTo(0, top, 0);
+            }
+        });
+    };
+    /**
+     * Page destroyed.
+     */
+    AddonModChatChatPage.prototype.ngOnDestroy = function () {
+        this.onlineObserver && this.onlineObserver.unsubscribe();
+        this.keyboardObserver && this.keyboardObserver.off();
+        this.stopPolling();
+        this.viewDestroyed = true;
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_9__components_split_view_split_view__["a" /* CoreSplitViewComponent */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_9__components_split_view_split_view__["a" /* CoreSplitViewComponent */])
-    ], AddonModAssignSubmissionListPage.prototype, "splitviewCtrl", void 0);
-    AddonModAssignSubmissionListPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */])
+    ], AddonModChatChatPage.prototype, "content", void 0);
+    AddonModChatChatPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-addon-mod-assign-submission-list',template:/*ion-inline-start:"/home/travis/build/crazyserver/moodlemobile2/src/addon/mod/assign/pages/submission-list/submission-list.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title><core-format-text [text]="title"></core-format-text></ion-title>\n\n        <ion-buttons end></ion-buttons>\n    </ion-navbar>\n</ion-header>\n<core-split-view>\n    <ion-content>\n        <ion-refresher [enabled]="loaded" (ionRefresh)="refreshList($event)">\n            <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n        </ion-refresher>\n        <core-loading [hideUntil]="loaded">\n            <core-empty-box *ngIf="!submissions || submissions.length == 0" icon="paper" [message]="\'addon.mod_assign.submissionstatus_\' | translate">\n            </core-empty-box>\n\n            <ion-list>\n                <!-- List of submissions. -->\n                <ng-container *ngFor="let submission of submissions">\n                    <a ion-item text-wrap (click)="loadSubmission(submission)" [class.core-split-item-selected]="submission.id == selectedSubmissionId">\n                        <ion-avatar item-start *ngIf="submission.userprofileimageurl">\n                            <img [src]="submission.userprofileimageurl" [alt]="\'core.pictureof\' | translate:{$a: submission.userfullname}" core-external-content role="presentation" onError="this.src=\'assets/img/user-avatar.png\'">\n                        </ion-avatar>\n                        <h2 *ngIf="submission.userfullname">{{submission.userfullname}}</h2>\n                        <h2 *ngIf="!submission.userfullname">{{ \'addon.mod_assign.hiddenuser\' | translate }}{{submission.blindid}}</h2>\n                        <p *ngIf="assign.teamsubmission">\n                            <span *ngIf="submission.groupname">{{submission.groupname}}</span>\n                            <span *ngIf="assign.preventsubmissionnotingroup && !submission.groupname && !submission.manyGroups && !submission.blindid">{{ \'addon.mod_assign.noteam\' | translate }}</span>\n                            <span *ngIf="assign.preventsubmissionnotingroup && !submission.groupname && submission.manyGroups && !submission.blindid">{{ \'addon.mod_assign.multipleteams\' | translate }}</span>\n                            <span *ngIf="!assign.preventsubmissionnotingroup && !submission.groupname">{{ \'addon.mod_assign.defaultteam\' | translate }}</span>\n                        </p>\n                        <ion-badge text-center [color]="submission.statusColor" *ngIf="submission.statusTranslated">\n                            {{ submission.statusTranslated }}\n                        </ion-badge>\n                        <ion-badge text-center [color]="submission.gradingColor" *ngIf="submission.gradingStatusTranslationId">\n                            {{ submission.gradingStatusTranslationId | translate }}\n                        </ion-badge>\n                    </a>\n                </ng-container>\n\n                <ion-item text-wrap class="core-warning-card" *ngIf="!haveAllParticipants" icon-start>\n                    <ion-icon name="warning"></ion-icon>\n                    {{ \'addon.mod_assign.notallparticipantsareshown\' | translate }}\n                </ion-item>\n            </ion-list>\n        </core-loading>\n    </ion-content>\n</core-split-view>\n'/*ion-inline-end:"/home/travis/build/crazyserver/moodlemobile2/src/addon/mod/assign/pages/submission-list/submission-list.html"*/,
+            selector: 'page-addon-mod-chat-chat',template:/*ion-inline-start:"/home/travis/build/moodlehq/moodlemobile2/src/addon/mod/chat/pages/chat/chat.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title><core-format-text [text]="title"></core-format-text></ion-title>\n        <ion-buttons end>\n            <button *ngIf="loaded" ion-button icon-only (click)="showChatUsers()">\n                <ion-icon name="people"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content  class="has-footer">\n    <core-loading [hideUntil]="loaded">\n        <div aria-live="polite">\n            <div *ngFor="let message of messages; index as index; last as last">\n\n                <div text-center *ngIf="showDate(messages[index], messages[index - 1])" class="addon-mod-chat-notice">\n                    <ion-badge text-wrap color="light">\n                        <span>{{ message.timestamp * 1000 | coreFormatDate:"strftimedayshort" }}</span>\n                    </ion-badge>\n                </div>\n\n                <div text-center *ngIf="message.system && message.message == \'enter\'" class="addon-mod-chat-notice">\n                    <ion-badge text-wrap color="light">\n                        <span>{{ message.timestamp * 1000 | coreFormatDate:"strftimetime" }} {{ \'addon.mod_chat.messageenter\' | translate:{$a: message.userfullname} }}</span>\n                    </ion-badge>\n                </div>\n\n                <div text-center *ngIf="message.system && message.message == \'exit\'" class="addon-mod-chat-notice">\n                    <ion-badge text-wrap color="light">\n                        <span>{{ message.timestamp * 1000 | coreFormatDate:"strftimetime" }} {{ \'addon.mod_chat.messageexit\' | translate:{$a: message.userfullname} }}</span>\n                    </ion-badge>\n                </div>\n\n                <div text-center *ngIf="message.message == currentUserBeep" class="addon-mod-chat-notice">\n                    <ion-badge text-wrap color="light">\n                        <span>{{ \'addon.mod_chat.messagebeepsyou\' | translate:{$a: message.userfullname} }}</span>\n                    </ion-badge>\n                </div>\n\n                <ion-item text-wrap *ngIf="!message.system && message.message.substr(0, 4) != \'beep\'" class="addon-mod-chat-message">\n                    <ion-avatar core-user-avatar [user]="message" item-start></ion-avatar>\n                    <h2>\n                        <p float-end>{{ message.timestamp * 1000 | coreFormatDate:"strftimetime" }}</p>\n                        <core-format-text [text]="message.userfullname"></core-format-text>\n                    </h2>\n                    <core-format-text [text]="message.message" (afterRender)="last && scrollToBottom()"></core-format-text>\n                </ion-item>\n            </div>\n\n            <div text-center margin *ngIf="!messages || messages.length <= 0">\n                <p>{{ \'addon.mod_chat.nomessages\' | translate}}</p>\n            </div>\n        </div>\n    </core-loading>\n</ion-content>\n<ion-footer color="light" class="footer-adjustable">\n    <ion-toolbar color="light" position="bottom">\n        <p text-center *ngIf="!isOnline">{{ \'addon.mod_chat.mustbeonlinetosendmessages\' | translate }}</p>\n        <core-send-message-form *ngIf="isOnline && polling && loaded" [message]="newMessage" (onSubmit)="sendMessage($event)" [showKeyboard]="showKeyboard" [placeholder]="\'addon.messages.newmessage\' | translate" (onResize)="resizeContent()"></core-send-message-form>\n        <button *ngIf="isOnline && !polling && loaded" (click)="reconnect()" ion-button block color="light">{{ \'core.login.reconnect\' | translate }}</button>\n    </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/home/travis/build/moodlehq/moodlemobile2/src/addon/mod/chat/pages/chat/chat.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */], __WEBPACK_IMPORTED_MODULE_4__providers_sites__["a" /* CoreSitesProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_events__["a" /* CoreEventsProvider */],
-            __WEBPACK_IMPORTED_MODULE_5__providers_utils_dom__["a" /* CoreDomUtilsProvider */], __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */],
-            __WEBPACK_IMPORTED_MODULE_6__providers_assign__["a" /* AddonModAssignProvider */], __WEBPACK_IMPORTED_MODULE_7__providers_assign_offline__["a" /* AddonModAssignOfflineProvider */],
-            __WEBPACK_IMPORTED_MODULE_8__providers_helper__["a" /* AddonModAssignHelperProvider */]])
-    ], AddonModAssignSubmissionListPage);
-    return AddonModAssignSubmissionListPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_4__providers_logger__["a" /* CoreLoggerProvider */], __WEBPACK_IMPORTED_MODULE_9__ionic_native_network__["a" /* Network */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgZone */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_8__providers_chat__["a" /* AddonModChatProvider */], __WEBPACK_IMPORTED_MODULE_2__providers_app__["a" /* CoreAppProvider */], __WEBPACK_IMPORTED_MODULE_5__providers_sites__["a" /* CoreSitesProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* ModalController */], __WEBPACK_IMPORTED_MODULE_6__providers_utils_dom__["a" /* CoreDomUtilsProvider */], __WEBPACK_IMPORTED_MODULE_7__providers_utils_text__["a" /* CoreTextUtilsProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_events__["a" /* CoreEventsProvider */]])
+    ], AddonModChatChatPage);
+    return AddonModChatChatPage;
 }());
 
-//# sourceMappingURL=submission-list.js.map
+//# sourceMappingURL=chat.js.map
 
 /***/ })
 

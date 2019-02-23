@@ -1,16 +1,18 @@
 webpackJsonp([52],{
 
-/***/ 1827:
+/***/ 1903:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonNotesAddPageModule", function() { return AddonNotesAddPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreCommentsViewerPageModule", function() { return CoreCommentsViewerPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__add__ = __webpack_require__(1951);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__viewer__ = __webpack_require__(2036);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_components_module__ = __webpack_require__(393);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -35,38 +37,44 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AddonNotesAddPageModule = /** @class */ (function () {
-    function AddonNotesAddPageModule() {
+
+
+var CoreCommentsViewerPageModule = /** @class */ (function () {
+    function CoreCommentsViewerPageModule() {
     }
-    AddonNotesAddPageModule = __decorate([
+    CoreCommentsViewerPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__add__["a" /* AddonNotesAddPage */]
+                __WEBPACK_IMPORTED_MODULE_3__viewer__["a" /* CoreCommentsViewerPage */]
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__add__["a" /* AddonNotesAddPage */]),
-                __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["b" /* TranslateModule */].forChild()
-            ]
+                __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* CoreComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__["a" /* CoreDirectivesModule */],
+                __WEBPACK_IMPORTED_MODULE_6__components_components_module__["a" /* CoreCommentsComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__viewer__["a" /* CoreCommentsViewerPage */]),
+                __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
+            ],
         })
-    ], AddonNotesAddPageModule);
-    return AddonNotesAddPageModule;
+    ], CoreCommentsViewerPageModule);
+    return CoreCommentsViewerPageModule;
 }());
 
-//# sourceMappingURL=add.module.js.map
+//# sourceMappingURL=viewer.module.js.map
 
 /***/ }),
 
-/***/ 1951:
+/***/ 2036:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonNotesAddPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreCommentsViewerPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_app__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_utils_dom__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_notes__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_sites__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_utils_dom__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_user_providers_user__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_comments__ = __webpack_require__(142);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -94,59 +102,93 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 /**
- * Component that displays a text area for composing a note.
+ * Page that displays comments.
  */
-var AddonNotesAddPage = /** @class */ (function () {
-    function AddonNotesAddPage(params, viewCtrl, appProvider, domUtils, notesProvider) {
-        this.viewCtrl = viewCtrl;
-        this.appProvider = appProvider;
+var CoreCommentsViewerPage = /** @class */ (function () {
+    function CoreCommentsViewerPage(navParams, sitesProvider, userProvider, domUtils, translate, commentsProvider) {
+        this.userProvider = userProvider;
         this.domUtils = domUtils;
-        this.notesProvider = notesProvider;
-        this.publishState = 'personal';
-        this.text = '';
-        this.processing = false;
-        this.userId = params.get('userId');
-        this.courseId = params.get('courseId');
+        this.translate = translate;
+        this.commentsProvider = commentsProvider;
+        this.comments = [];
+        this.commentsLoaded = false;
+        this.contextLevel = navParams.get('contextLevel');
+        this.instanceId = navParams.get('instanceId');
+        this.component = navParams.get('component');
+        this.itemId = navParams.get('itemId');
+        this.area = navParams.get('area') || '';
+        this.page = navParams.get('page') || 0;
+        this.title = navParams.get('title') || this.translate.instant('core.comments');
     }
     /**
-     * Send the note or store it offline.
+     * View loaded.
      */
-    AddonNotesAddPage.prototype.addNote = function () {
+    CoreCommentsViewerPage.prototype.ionViewDidLoad = function () {
         var _this = this;
-        this.appProvider.closeKeyboard();
-        var loadingModal = this.domUtils.showModalLoading('core.sending', true);
-        // Freeze the add note button.
-        this.processing = true;
-        this.notesProvider.addNote(this.userId, this.courseId, this.publishState, this.text).then(function (sent) {
-            _this.viewCtrl.dismiss().finally(function () {
-                var message = sent ? 'addon.notes.eventnotecreated' : 'core.datastoredoffline';
-                _this.domUtils.showAlertTranslated('core.success', message);
-            });
-        }).catch(function (error) {
-            _this.domUtils.showErrorModal(error);
-            _this.processing = false;
-        }).finally(function () {
-            loadingModal.dismiss();
+        this.fetchComments().finally(function () {
+            _this.commentsLoaded = true;
         });
     };
     /**
-     * Close modal.
+     * Fetches the comments.
+     *
+     * @return {Promise<any>} Resolved when done.
      */
-    AddonNotesAddPage.prototype.closeModal = function () {
-        this.viewCtrl.dismiss();
+    CoreCommentsViewerPage.prototype.fetchComments = function () {
+        var _this = this;
+        // Get comments data.
+        return this.commentsProvider.getComments(this.contextLevel, this.instanceId, this.component, this.itemId, this.area, this.page).then(function (comments) {
+            _this.comments = comments;
+            _this.comments.sort(function (a, b) { return b.timecreated - a.timecreated; });
+            _this.comments.forEach(function (comment) {
+                // Get the user profile image.
+                _this.userProvider.getProfile(comment.userid, undefined, true).then(function (user) {
+                    comment.profileimageurl = user.profileimageurl;
+                }).catch(function () {
+                    // Ignore errors.
+                });
+            });
+        }).catch(function (error) {
+            if (error && _this.component == 'assignsubmission_comments') {
+                _this.domUtils.showAlertTranslated('core.notice', 'core.commentsnotworking');
+            }
+            else {
+                _this.domUtils.showErrorModalDefault(error, _this.translate.instant('core.error') + ': get_comments');
+            }
+        });
     };
-    AddonNotesAddPage = __decorate([
+    /**
+     * Refresh the comments.
+     *
+     * @param {any} refresher Refresher.
+     */
+    CoreCommentsViewerPage.prototype.refreshComments = function (refresher) {
+        var _this = this;
+        this.commentsProvider.invalidateCommentsData(this.contextLevel, this.instanceId, this.component, this.itemId, this.area, this.page).finally(function () {
+            return _this.fetchComments().finally(function () {
+                refresher.complete();
+            });
+        });
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */])
+    ], CoreCommentsViewerPage.prototype, "content", void 0);
+    CoreCommentsViewerPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-addon-notes-add',template:/*ion-inline-start:"/home/travis/build/crazyserver/moodlemobile2/src/addon/notes/pages/add/add.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ \'addon.notes.addnewnote\' | translate }}</ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only (click)="closeModal()" [attr.aria-label]="\'core.close\' | translate">\n                <ion-icon name="close"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content padding>\n    <form name="itemEdit" (ngSubmit)="addNote()">\n        <ion-item>\n            <ion-label>{{ \'addon.notes.publishstate\' | translate }}</ion-label>\n            <ion-select [(ngModel)]="publishState" name="publishState" interface="popover">\n                <ion-option value="personal">{{ \'addon.notes.personalnotes\' | translate }}</ion-option>\n                <ion-option value="course">{{ \'addon.notes.coursenotes\' | translate }}</ion-option>\n                <ion-option value="site">{{ \'addon.notes.sitenotes\' | translate }}</ion-option>\n            </ion-select>\n        </ion-item>\n        <ion-item>\n            <ion-textarea placeholder="{{ \'addon.notes.note\' | translate }}" rows="5" [(ngModel)]="text" name="text" required="required"></ion-textarea>\n        </ion-item>\n        <button ion-button block margin-vertical type="submit" [disabled]="processing || text.length < 2">\n            {{ \'addon.notes.addnewnote\' | translate }}\n        </button>\n    </form>\n</ion-content>\n'/*ion-inline-end:"/home/travis/build/crazyserver/moodlemobile2/src/addon/notes/pages/add/add.html"*/,
+            selector: 'page-core-comments-viewer',template:/*ion-inline-start:"/home/travis/build/moodlehq/moodlemobile2/src/core/comments/pages/viewer/viewer.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title><core-format-text [text]="title"></core-format-text></ion-title>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <ion-refresher [enabled]="commentsLoaded" (ionRefresh)="refreshComments($event)">\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n    </ion-refresher>\n    <core-loading [hideUntil]="commentsLoaded">\n        <core-empty-box *ngIf="!comments || !comments.length" icon="chatbubbles" [message]="\'core.nocomments\' | translate"></core-empty-box>\n\n        <ion-card *ngFor="let comment of comments">\n            <ion-item text-wrap>\n                <ion-avatar core-user-avatar [user]="comment" item-start></ion-avatar>\n                <h2>{{ comment.fullname }}</h2>\n                <p>{{ comment.time }}</p>\n            </ion-item>\n            <ion-item text-wrap>\n                <core-format-text clean="true" [text]="comment.content"></core-format-text>\n            </ion-item>\n        </ion-card>\n    </core-loading>\n</ion-content>\n'/*ion-inline-end:"/home/travis/build/moodlehq/moodlemobile2/src/core/comments/pages/viewer/viewer.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["D" /* ViewController */], __WEBPACK_IMPORTED_MODULE_2__providers_app__["a" /* CoreAppProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_utils_dom__["a" /* CoreDomUtilsProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_notes__["a" /* AddonNotesProvider */]])
-    ], AddonNotesAddPage);
-    return AddonNotesAddPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_sites__["a" /* CoreSitesProvider */], __WEBPACK_IMPORTED_MODULE_5__core_user_providers_user__["a" /* CoreUserProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_utils_dom__["a" /* CoreDomUtilsProvider */], __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */],
+            __WEBPACK_IMPORTED_MODULE_6__providers_comments__["a" /* CoreCommentsProvider */]])
+    ], CoreCommentsViewerPage);
+    return CoreCommentsViewerPage;
 }());
 
-//# sourceMappingURL=add.js.map
+//# sourceMappingURL=viewer.js.map
 
 /***/ })
 

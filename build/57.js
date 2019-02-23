@@ -1,17 +1,17 @@
 webpackJsonp([57],{
 
-/***/ 1821:
+/***/ 1896:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonModWikiIndexPageModule", function() { return AddonModWikiIndexPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonModWorkshopIndexPageModule", function() { return AddonModWorkshopIndexPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(954);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__index__ = __webpack_require__(1944);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(395);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__index__ = __webpack_require__(2026);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -37,37 +37,37 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AddonModWikiIndexPageModule = /** @class */ (function () {
-    function AddonModWikiIndexPageModule() {
+var AddonModWorkshopIndexPageModule = /** @class */ (function () {
+    function AddonModWorkshopIndexPageModule() {
     }
-    AddonModWikiIndexPageModule = __decorate([
+    AddonModWorkshopIndexPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_5__index__["a" /* AddonModWikiIndexPage */],
+                __WEBPACK_IMPORTED_MODULE_5__index__["a" /* AddonModWorkshopIndexPage */],
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* AddonModWikiComponentsModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_5__index__["a" /* AddonModWikiIndexPage */]),
+                __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* AddonModWorkshopComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_5__index__["a" /* AddonModWorkshopIndexPage */]),
                 __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ],
         })
-    ], AddonModWikiIndexPageModule);
-    return AddonModWikiIndexPageModule;
+    ], AddonModWorkshopIndexPageModule);
+    return AddonModWorkshopIndexPageModule;
 }());
 
 //# sourceMappingURL=index.module.js.map
 
 /***/ }),
 
-/***/ 1944:
+/***/ 2026:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModWikiIndexPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModWorkshopIndexPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_index_index__ = __webpack_require__(414);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_index_index__ = __webpack_require__(427);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -94,59 +94,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Page that displays a wiki page.
+ * Page that displays a workshop.
  */
-var AddonModWikiIndexPage = /** @class */ (function () {
-    function AddonModWikiIndexPage(navParams) {
+var AddonModWorkshopIndexPage = /** @class */ (function () {
+    function AddonModWorkshopIndexPage(navParams) {
         this.module = navParams.get('module') || {};
         this.courseId = navParams.get('courseId');
-        this.action = navParams.get('action') || 'page';
-        this.pageId = navParams.get('pageId');
-        this.pageTitle = navParams.get('pageTitle');
-        this.wikiId = navParams.get('wikiId');
-        this.subwikiId = navParams.get('subwikiId');
-        this.userId = navParams.get('userId');
-        this.groupId = navParams.get('groupId');
-        this.title = this.pageTitle || this.module.name;
+        this.selectedGroup = navParams.get('group') || 0;
+        this.title = this.module.name;
     }
     /**
-     * Update some data based on the data received.
+     * Update some data based on the workshop instance.
      *
-     * @param {any} data The data received.
+     * @param {any} workshop Workshop instance.
      */
-    AddonModWikiIndexPage.prototype.updateData = function (data) {
-        if (typeof data == 'string') {
-            // We received the title to display.
-            this.title = data;
-        }
-        else {
-            // We received a wiki instance.
-            this.title = this.pageTitle || data.title || this.title;
-        }
-    };
-    /**
-     * User entered the page.
-     */
-    AddonModWikiIndexPage.prototype.ionViewDidEnter = function () {
-        this.wikiComponent.ionViewDidEnter();
-    };
-    /**
-     * User left the page.
-     */
-    AddonModWikiIndexPage.prototype.ionViewDidLeave = function () {
-        this.wikiComponent.ionViewDidLeave();
+    AddonModWorkshopIndexPage.prototype.updateData = function (workshop) {
+        this.title = workshop.name || this.title;
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__components_index_index__["a" /* AddonModWikiIndexComponent */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__components_index_index__["a" /* AddonModWikiIndexComponent */])
-    ], AddonModWikiIndexPage.prototype, "wikiComponent", void 0);
-    AddonModWikiIndexPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__components_index_index__["a" /* AddonModWorkshopIndexComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__components_index_index__["a" /* AddonModWorkshopIndexComponent */])
+    ], AddonModWorkshopIndexPage.prototype, "workshopComponent", void 0);
+    AddonModWorkshopIndexPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-addon-mod-wiki-index',template:/*ion-inline-start:"/home/travis/build/crazyserver/moodlemobile2/src/addon/mod/wiki/pages/index/index.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title><core-format-text [text]="title"></core-format-text></ion-title>\n\n        <ion-buttons end>\n            <!-- The buttons defined by the component will be added in here. -->\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <ion-refresher [enabled]="wikiComponent.loaded" (ionRefresh)="wikiComponent.doRefresh($event)">\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n    </ion-refresher>\n\n    <addon-mod-wiki-index [module]="module" [courseId]="courseId" [action]="action" [pageId]="pageId" [pageTitle]="pageTitle" [wikiId]="wikiId" [subwikiId]="subwikiId" [userId]="userId" [groupId]="groupId" (dataRetrieved)="updateData($event)"></addon-mod-wiki-index>\n</ion-content>\n'/*ion-inline-end:"/home/travis/build/crazyserver/moodlemobile2/src/addon/mod/wiki/pages/index/index.html"*/,
+            selector: 'page-addon-mod-workshop-index',template:/*ion-inline-start:"/home/travis/build/moodlehq/moodlemobile2/src/addon/mod/workshop/pages/index/index.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title><core-format-text [text]="title"></core-format-text></ion-title>\n\n        <ion-buttons end>\n            <!-- The buttons defined by the component will be added in here. -->\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <ion-refresher [enabled]="workshopComponent.loaded" (ionRefresh)="workshopComponent.doRefresh($event)">\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n    </ion-refresher>\n\n    <addon-mod-workshop-index [module]="module" [courseId]="courseId" [group]="selectedGroup" (dataRetrieved)="updateData($event)"></addon-mod-workshop-index>\n</ion-content>\n'/*ion-inline-end:"/home/travis/build/moodlehq/moodlemobile2/src/addon/mod/workshop/pages/index/index.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */]])
-    ], AddonModWikiIndexPage);
-    return AddonModWikiIndexPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */]])
+    ], AddonModWorkshopIndexPage);
+    return AddonModWorkshopIndexPage;
 }());
 
 //# sourceMappingURL=index.js.map

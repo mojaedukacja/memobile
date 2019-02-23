@@ -1,17 +1,18 @@
 webpackJsonp([37],{
 
-/***/ 1844:
+/***/ 1919:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreGradesCoursePageModule", function() { return CoreGradesCoursePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreGradesCourseSplitPageModule", function() { return CoreGradesCourseSplitPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__course__ = __webpack_require__(1969);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_components_module__ = __webpack_require__(920);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__coursesplit__ = __webpack_require__(2051);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_components_module__ = __webpack_require__(939);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -37,36 +38,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var CoreGradesCoursePageModule = /** @class */ (function () {
-    function CoreGradesCoursePageModule() {
+
+var CoreGradesCourseSplitPageModule = /** @class */ (function () {
+    function CoreGradesCourseSplitPageModule() {
     }
-    CoreGradesCoursePageModule = __decorate([
+    CoreGradesCourseSplitPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_4__course__["a" /* CoreGradesCoursePage */]
+                __WEBPACK_IMPORTED_MODULE_3__coursesplit__["a" /* CoreGradesCourseSplitPage */]
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_5__components_components_module__["a" /* CoreGradesComponentsModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_4__course__["a" /* CoreGradesCoursePage */]),
+                __WEBPACK_IMPORTED_MODULE_6__components_components_module__["a" /* CoreGradesComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* CoreComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__["a" /* CoreDirectivesModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__coursesplit__["a" /* CoreGradesCourseSplitPage */]),
                 __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ],
         })
-    ], CoreGradesCoursePageModule);
-    return CoreGradesCoursePageModule;
+    ], CoreGradesCourseSplitPageModule);
+    return CoreGradesCourseSplitPageModule;
 }());
 
-//# sourceMappingURL=course.module.js.map
+//# sourceMappingURL=coursesplit.module.js.map
 
 /***/ }),
 
-/***/ 1969:
+/***/ 2051:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreGradesCoursePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreGradesCourseSplitPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_sites__ = __webpack_require__(2);
 // (C) Copyright 2015 Martin Dougiamas
 //
@@ -96,21 +99,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 /**
  * Page that displays a course grades.
  */
-var CoreGradesCoursePage = /** @class */ (function () {
-    function CoreGradesCoursePage(navParams, sitesProvider) {
+var CoreGradesCourseSplitPage = /** @class */ (function () {
+    function CoreGradesCourseSplitPage(navParams, sitesProvider) {
         this.courseId = navParams.get('courseId');
         this.userId = navParams.get('userId') || sitesProvider.getCurrentSiteUserId();
+        this.gradeId = navParams.get('gradeId');
     }
-    CoreGradesCoursePage = __decorate([
+    CoreGradesCourseSplitPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-core-grades-course',template:/*ion-inline-start:"/home/travis/build/crazyserver/moodlemobile2/src/core/grades/pages/course/course.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ \'core.grades.grades\' | translate }}</ion-title>\n    </ion-navbar>\n</ion-header>\n<core-grades-course class="core-avoid-header" [courseId]="courseId" [userId]="userId"></core-grades-course>\n'/*ion-inline-end:"/home/travis/build/crazyserver/moodlemobile2/src/core/grades/pages/course/course.html"*/,
+            selector: 'page-core-grades-course-split',template:/*ion-inline-start:"/home/travis/build/moodlehq/moodlemobile2/src/core/grades/pages/coursesplit/coursesplit.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ \'core.grades.grades\' | translate }}</ion-title>\n    </ion-navbar>\n</ion-header>\n<core-split-view>\n    <core-grades-course class="core-avoid-header" [courseId]="courseId" [userId]="userId" [gradeId]="gradeId"></core-grades-course>\n</core-split-view>\n\n\n'/*ion-inline-end:"/home/travis/build/moodlehq/moodlemobile2/src/core/grades/pages/coursesplit/coursesplit.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_sites__["a" /* CoreSitesProvider */]])
-    ], CoreGradesCoursePage);
-    return CoreGradesCoursePage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_sites__["a" /* CoreSitesProvider */]])
+    ], CoreGradesCourseSplitPage);
+    return CoreGradesCourseSplitPage;
 }());
 
-//# sourceMappingURL=course.js.map
+//# sourceMappingURL=coursesplit.js.map
 
 /***/ })
 

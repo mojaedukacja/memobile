@@ -1,17 +1,17 @@
 webpackJsonp([75],{
 
-/***/ 1801:
+/***/ 1876:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonModImscpIndexPageModule", function() { return AddonModImscpIndexPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonModLessonPasswordModalPageModule", function() { return AddonModLessonPasswordModalPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(943);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__index__ = __webpack_require__(1922);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__password_modal__ = __webpack_require__(2004);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__ = __webpack_require__(14);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -37,37 +37,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AddonModImscpIndexPageModule = /** @class */ (function () {
-    function AddonModImscpIndexPageModule() {
+var AddonModLessonPasswordModalPageModule = /** @class */ (function () {
+    function AddonModLessonPasswordModalPageModule() {
     }
-    AddonModImscpIndexPageModule = __decorate([
+    AddonModLessonPasswordModalPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_5__index__["a" /* AddonModImscpIndexPage */],
+                __WEBPACK_IMPORTED_MODULE_2__password_modal__["a" /* AddonModLessonPasswordModalPage */]
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* AddonModImscpComponentsModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_5__index__["a" /* AddonModImscpIndexPage */]),
-                __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
-            ],
+                __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* CoreComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__["a" /* CoreDirectivesModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__password_modal__["a" /* AddonModLessonPasswordModalPage */]),
+                __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["b" /* TranslateModule */].forChild()
+            ]
         })
-    ], AddonModImscpIndexPageModule);
-    return AddonModImscpIndexPageModule;
+    ], AddonModLessonPasswordModalPageModule);
+    return AddonModLessonPasswordModalPageModule;
 }());
 
-//# sourceMappingURL=index.module.js.map
+//# sourceMappingURL=password-modal.module.js.map
 
 /***/ }),
 
-/***/ 1922:
+/***/ 2004:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModImscpIndexPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModLessonPasswordModalPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_index_index__ = __webpack_require__(404);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -92,38 +91,40 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
 /**
- * Imscp that displays a IMSCP.
+ * Modal that asks the password for a lesson.
  */
-var AddonModImscpIndexPage = /** @class */ (function () {
-    function AddonModImscpIndexPage(navParams) {
-        this.module = navParams.get('module') || {};
-        this.courseId = navParams.get('courseId');
-        this.title = this.module.name;
+var AddonModLessonPasswordModalPage = /** @class */ (function () {
+    function AddonModLessonPasswordModalPage(viewCtrl) {
+        this.viewCtrl = viewCtrl;
     }
     /**
-     * Update some data based on the imscp instance.
+     * Send the password back.
      *
-     * @param {any} imscp Imscp instance.
+     * @param {Event} e Event.
+     * @param {HTMLInputElement} password The input element.
      */
-    AddonModImscpIndexPage.prototype.updateData = function (imscp) {
-        this.title = imscp.name || this.title;
+    AddonModLessonPasswordModalPage.prototype.submitPassword = function (e, password) {
+        e.preventDefault();
+        e.stopPropagation();
+        this.viewCtrl.dismiss(password.value);
     };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__components_index_index__["a" /* AddonModImscpIndexComponent */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__components_index_index__["a" /* AddonModImscpIndexComponent */])
-    ], AddonModImscpIndexPage.prototype, "imscpComponent", void 0);
-    AddonModImscpIndexPage = __decorate([
+    /**
+     * Close modal.
+     */
+    AddonModLessonPasswordModalPage.prototype.closeModal = function () {
+        this.viewCtrl.dismiss();
+    };
+    AddonModLessonPasswordModalPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-addon-mod-imscp-index',template:/*ion-inline-start:"/home/travis/build/crazyserver/moodlemobile2/src/addon/mod/imscp/pages/index/index.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title><core-format-text [text]="title"></core-format-text></ion-title>\n\n        <ion-buttons end>\n            <!-- The buttons defined by the component will be added in here. -->\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <addon-mod-imscp-index [module]="module" [courseId]="courseId" (dataRetrieved)="updateData($event)"></addon-mod-imscp-index>\n</ion-content>\n'/*ion-inline-end:"/home/travis/build/crazyserver/moodlemobile2/src/addon/mod/imscp/pages/index/index.html"*/,
+            selector: 'page-addon-mod-lesson-password-modal',template:/*ion-inline-start:"/home/travis/build/moodlehq/moodlemobile2/src/addon/mod/lesson/pages/password-modal/password-modal.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ \'core.login.password\' | translate }}</ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only (click)="closeModal()" [attr.aria-label]="\'core.close\' | translate">\n                <ion-icon name="close"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content padding class="addon-mod_lesson-password-modal">\n    <form ion-list (ngSubmit)="submitPassword($event, passwordinput)">\n        <ion-item>\n            <core-show-password item-content [name]="\'password\'">\n                <ion-label>{{ \'addon.mod_lesson.enterpassword\' | translate }}</ion-label>\n                <ion-input name="password" type="password" placeholder="{{ \'core.login.password\' | translate }}" [core-auto-focus] #passwordinput [clearOnEdit]="false"></ion-input>\n            </core-show-password>\n        </ion-item>\n        <ion-item>\n            <button ion-button block type="submit" icon-end>\n                {{ \'addon.mod_lesson.continue\' | translate }}\n                <ion-icon name="arrow-forward" md="ios-arrow-forward"></ion-icon>\n            </button>\n        </ion-item>\n    </form>\n</ion-content>\n'/*ion-inline-end:"/home/travis/build/moodlehq/moodlemobile2/src/addon/mod/lesson/pages/password-modal/password-modal.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */]])
-    ], AddonModImscpIndexPage);
-    return AddonModImscpIndexPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["E" /* ViewController */]])
+    ], AddonModLessonPasswordModalPage);
+    return AddonModLessonPasswordModalPage;
 }());
 
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=password-modal.js.map
 
 /***/ })
 

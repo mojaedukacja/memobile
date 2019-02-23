@@ -1,16 +1,16 @@
 webpackJsonp([25],{
 
-/***/ 1856:
+/***/ 1931:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreLoginSitePageModule", function() { return CoreLoginSitePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreMainMenuPageModule", function() { return CoreMainMenuPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__site__ = __webpack_require__(1981);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__menu__ = __webpack_require__(2063);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -35,41 +35,40 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var CoreLoginSitePageModule = /** @class */ (function () {
-    function CoreLoginSitePageModule() {
+var CoreMainMenuPageModule = /** @class */ (function () {
+    function CoreMainMenuPageModule() {
     }
-    CoreLoginSitePageModule = __decorate([
+    CoreMainMenuPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__site__["a" /* CoreLoginSitePage */]
+                __WEBPACK_IMPORTED_MODULE_4__menu__["a" /* CoreMainMenuPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__site__["a" /* CoreLoginSitePage */]),
-                __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["b" /* TranslateModule */].forChild()
-            ]
+                __WEBPACK_IMPORTED_MODULE_3__components_components_module__["a" /* CoreComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_4__menu__["a" /* CoreMainMenuPage */]),
+                __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
+            ],
         })
-    ], CoreLoginSitePageModule);
-    return CoreLoginSitePageModule;
+    ], CoreMainMenuPageModule);
+    return CoreMainMenuPageModule;
 }());
 
-//# sourceMappingURL=site.module.js.map
+//# sourceMappingURL=menu.module.js.map
 
 /***/ }),
 
-/***/ 1981:
+/***/ 2063:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreLoginSitePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreMainMenuPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_app__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_sites__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_utils_dom__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__configconstants__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_helper__ = __webpack_require__(79);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_forms__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_sites__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_events__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_ion_tabs_ion_tabs__ = __webpack_require__(397);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_mainmenu__ = __webpack_require__(940);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_delegate__ = __webpack_require__(114);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -99,110 +98,133 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 /**
- * Page to enter or select the site URL to connect to.
+ * Page that displays the main menu of the app.
  */
-var CoreLoginSitePage = /** @class */ (function () {
-    function CoreLoginSitePage(navParams, navCtrl, fb, appProvider, sitesProvider, loginHelper, modalCtrl, domUtils) {
-        this.navCtrl = navCtrl;
-        this.appProvider = appProvider;
+var CoreMainMenuPage = /** @class */ (function () {
+    function CoreMainMenuPage(menuDelegate, sitesProvider, navParams, navCtrl, eventsProvider, cdr) {
+        this.menuDelegate = menuDelegate;
         this.sitesProvider = sitesProvider;
-        this.loginHelper = loginHelper;
-        this.modalCtrl = modalCtrl;
-        this.domUtils = domUtils;
-        this.displayAsButtons = false;
-        this.showKeyboard = false;
-        this.showKeyboard = !!navParams.get('showKeyboard');
-        var url = '';
-        // Load fixed sites if they're set.
-        if (this.loginHelper.hasSeveralFixedSites()) {
-            this.fixedSites = this.loginHelper.getFixedSites();
-            this.displayAsButtons = __WEBPACK_IMPORTED_MODULE_5__configconstants__["a" /* CoreConfigConstants */].multisitesdisplay == 'buttons';
-            url = this.fixedSites[0].url;
+        this.navCtrl = navCtrl;
+        this.eventsProvider = eventsProvider;
+        this.cdr = cdr;
+        this.tabs = [];
+        this.loaded = false;
+        this.showTabs = false;
+        // Check if the menu was loaded with a redirect.
+        var redirectPage = navParams.get('redirectPage');
+        if (redirectPage) {
+            this.pendingRedirect = {
+                redirectPage: redirectPage,
+                redirectParams: navParams.get('redirectParams')
+            };
         }
-        this.siteForm = fb.group({
-            siteUrl: [url, __WEBPACK_IMPORTED_MODULE_7__angular_forms__["h" /* Validators */].required]
-        });
     }
     /**
-     * Try to connect to a site.
+     * View loaded.
      */
-    CoreLoginSitePage.prototype.connect = function (url) {
+    CoreMainMenuPage.prototype.ionViewDidLoad = function () {
         var _this = this;
-        this.appProvider.closeKeyboard();
-        if (!url) {
-            this.domUtils.showErrorModal('core.login.siteurlrequired', true);
+        if (!this.sitesProvider.isLoggedIn()) {
+            this.navCtrl.setRoot('CoreLoginInitPage');
             return;
         }
-        if (!this.appProvider.isOnline()) {
-            this.domUtils.showErrorModal('core.networkerrormsg', true);
-            return;
-        }
-        var modal = this.domUtils.showModalLoading(), siteData = this.sitesProvider.getDemoSiteData(url);
-        if (siteData) {
-            // It's a demo site.
-            this.sitesProvider.getUserToken(siteData.url, siteData.username, siteData.password).then(function (data) {
-                return _this.sitesProvider.newSite(data.siteUrl, data.token, data.privateToken).then(function () {
-                    return _this.loginHelper.goToSiteInitialPage();
-                }, function (error) {
-                    _this.domUtils.showErrorModal(error);
-                });
-            }, function (error) {
-                _this.loginHelper.treatUserTokenError(siteData.url, error);
-            }).finally(function () {
-                modal.dismiss();
+        this.showTabs = true;
+        this.redirectObs = this.eventsProvider.on(__WEBPACK_IMPORTED_MODULE_3__providers_events__["a" /* CoreEventsProvider */].LOAD_PAGE_MAIN_MENU, function (data) {
+            if (!_this.loaded) {
+                // View isn't ready yet, wait for it to be ready.
+                _this.pendingRedirect = data;
+            }
+            else {
+                delete _this.pendingRedirect;
+                _this.handleRedirect(data);
+            }
+        });
+        this.subscription = this.menuDelegate.getHandlers().subscribe(function (handlers) {
+            // Remove the handlers that should only appear in the More menu.
+            handlers = handlers.filter(function (handler) {
+                return !handler.onlyInMore;
             });
+            handlers = handlers.slice(0, __WEBPACK_IMPORTED_MODULE_5__providers_mainmenu__["a" /* CoreMainMenuProvider */].NUM_MAIN_HANDLERS); // Get main handlers.
+            // Re-build the list of tabs. If a handler is already in the list, use existing object to prevent re-creating the tab.
+            var newTabs = [];
+            var _loop_1 = function (i) {
+                var handler = handlers[i];
+                // Check if the handler is already in the tabs list. If so, use it.
+                var tab = _this.tabs.find(function (tab) {
+                    return tab.title == handler.title && tab.icon == handler.icon;
+                });
+                newTabs.push(tab || handler);
+            };
+            for (var i = 0; i < handlers.length; i++) {
+                _loop_1(i);
+            }
+            _this.tabs = newTabs;
+            // Sort them by priority so new handlers are in the right position.
+            _this.tabs.sort(function (a, b) {
+                return b.priority - a.priority;
+            });
+            _this.loaded = _this.menuDelegate.areHandlersLoaded();
+            if (_this.loaded && _this.pendingRedirect) {
+                // Wait for tabs to be initialized and then handle the redirect.
+                setTimeout(function () {
+                    if (_this.pendingRedirect) {
+                        _this.handleRedirect(_this.pendingRedirect);
+                        delete _this.pendingRedirect;
+                    }
+                });
+            }
+        });
+    };
+    /**
+     * Handle a redirect.
+     *
+     * @param {any} data Data received.
+     */
+    CoreMainMenuPage.prototype.handleRedirect = function (data) {
+        var _this = this;
+        // Check if the redirect page is the root page of any of the tabs.
+        var i = this.tabs.findIndex(function (tab, i) {
+            return tab.page == data.redirectPage;
+        });
+        if (i >= 0) {
+            // Tab found. Set the params.
+            this.tabs[i].pageParams = Object.assign({}, data.redirectParams);
         }
         else {
-            // Not a demo site.
-            this.sitesProvider.checkSite(url).then(function (result) {
-                if (result.warning) {
-                    _this.domUtils.showErrorModal(result.warning, true, 4000);
-                }
-                if (_this.loginHelper.isSSOLoginNeeded(result.code)) {
-                    // SSO. User needs to authenticate in a browser.
-                    _this.loginHelper.confirmAndOpenBrowserForSSOLogin(result.siteUrl, result.code, result.service, result.config && result.config.launchurl);
-                }
-                else {
-                    _this.navCtrl.push('CoreLoginCredentialsPage', { siteUrl: result.siteUrl, siteConfig: result.config });
-                }
-            }, function (error) {
-                _this.showLoginIssue(url, error);
-            }).finally(function () {
-                modal.dismiss();
-            });
+            // Tab not found, use a phantom tab.
+            this.redirectPage = data.redirectPage;
+            this.redirectParams = data.redirectParams;
         }
+        // Force change detection, otherwise sometimes the tab was selected before the params were applied.
+        this.cdr.detectChanges();
+        setTimeout(function () {
+            // Let the tab load the params before navigating.
+            _this.mainTabs.selectTabRootByIndex(i + 1);
+        });
     };
     /**
-     * Show a help modal.
+     * Page destroyed.
      */
-    CoreLoginSitePage.prototype.showHelp = function () {
-        var modal = this.modalCtrl.create('CoreLoginSiteHelpPage');
-        modal.present();
+    CoreMainMenuPage.prototype.ngOnDestroy = function () {
+        this.subscription && this.subscription.unsubscribe();
+        this.redirectObs && this.redirectObs.off();
     };
-    /**
-     * Show an error that aims people to solve the issue.
-     *
-     * @param {string} url The URL the user was trying to connect to.
-     * @param {string} error Error to display.
-     */
-    CoreLoginSitePage.prototype.showLoginIssue = function (url, error) {
-        var modal = this.modalCtrl.create('CoreLoginSiteErrorPage', { siteUrl: url, issue: error });
-        modal.present();
-    };
-    CoreLoginSitePage = __decorate([
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('mainTabs'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_4__components_ion_tabs_ion_tabs__["a" /* CoreIonTabsComponent */])
+    ], CoreMainMenuPage.prototype, "mainTabs", void 0);
+    CoreMainMenuPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-core-login-site',template:/*ion-inline-start:"/home/travis/build/crazyserver/moodlemobile2/src/core/login/pages/site/site.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ \'core.login.connecttomoodle\' | translate }}</ion-title>\n\n        <ion-buttons end>\n            <button ion-button icon-only (click)="showHelp()" [attr.aria-label]="\'core.help\' | translate">\n                <ion-icon name="help-circle"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content class="core-center-view">\n    <div class="box">\n        <div text-center padding>\n            <img src="assets/img/login_logo.png" class="avatar-full login-logo" role="presentation">\n        </div>\n        <form ion-list [formGroup]="siteForm" (ngSubmit)="connect(siteForm.value.siteUrl)">\n            <!-- Form to input the site URL if there are no fixed sites. -->\n            <div *ngIf="!fixedSites">\n                <p padding>{{ \'core.login.newsitedescription\' | translate }}</p>\n                <ion-item>\n                    <ion-input type="url" name="url" placeholder="{{ \'core.login.siteaddress\' | translate }}" formControlName="siteUrl" [core-auto-focus]="showKeyboard"></ion-input>\n                </ion-item>\n            </div>\n\n            <!-- Pick the site from a list of fixed sites. -->\n            <div *ngIf="fixedSites" text-wrap>\n                <!-- Display them using a select. -->\n                <ion-item *ngIf="!displayAsButtons" margin-vertical>\n                    <ion-label stacked for="siteSelect">{{ \'core.login.selectsite\' | translate }}</ion-label>\n                    <ion-select formControlName="siteUrl" name="url" placeholder="{{ \'core.login.siteaddress\' | translate }}" interface="popover">\n                        <ion-option *ngFor="let site of fixedSites" [value]="site.url">{{site.name}}</ion-option>\n                    </ion-select>\n                </ion-item>\n\n                <!-- Display them using buttons. -->\n                <div *ngIf="displayAsButtons">\n                    <p class="padding no-padding-bottom">{{ \'core.login.selectsite\' | translate }}</p>\n                    <a *ngFor="let site of fixedSites" ion-button block (click)="connect(site.url)" title="{{site.name}}" margin-bottom>{{site.name}}</a>\n                </div>\n            </div>\n\n            <button *ngIf="!fixedSites || !displayAsButtons" ion-button block [disabled]="!siteForm.valid">{{ \'core.login.connect\' | translate }}</button>\n        </form>\n    </div>\n</ion-content>\n'/*ion-inline-end:"/home/travis/build/crazyserver/moodlemobile2/src/core/login/pages/site/site.html"*/,
+            selector: 'page-core-mainmenu',template:/*ion-inline-start:"/home/travis/build/moodlehq/moodlemobile2/src/core/mainmenu/pages/menu/menu.html"*/'<core-ion-tabs #mainTabs [hidden]="!showTabs" [loaded]="loaded" tabsPlacement="bottom" tabsLayout="title-hide">\n    <core-ion-tab [enabled]="false" [show]="false" [root]="redirectPage" [rootParams]="redirectParams"></core-ion-tab>\n    <core-ion-tab *ngFor="let tab of tabs" [root]="tab.page" [rootParams]="tab.pageParams" [tabTitle]="tab.title | translate" [tabIcon]="tab.icon" [tabBadge]="tab.badge" class="{{tab.class}}"></core-ion-tab>\n    <core-ion-tab root="CoreMainMenuMorePage" [tabTitle]="\'core.more\' | translate" tabIcon="more"></core-ion-tab>\n</core-ion-tabs>\n'/*ion-inline-end:"/home/travis/build/moodlehq/moodlemobile2/src/core/mainmenu/pages/menu/menu.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */], __WEBPACK_IMPORTED_MODULE_7__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_2__providers_app__["a" /* CoreAppProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_sites__["a" /* CoreSitesProvider */], __WEBPACK_IMPORTED_MODULE_6__providers_helper__["a" /* CoreLoginHelperProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ModalController */], __WEBPACK_IMPORTED_MODULE_4__providers_utils_dom__["a" /* CoreDomUtilsProvider */]])
-    ], CoreLoginSitePage);
-    return CoreLoginSitePage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_6__providers_delegate__["a" /* CoreMainMenuDelegate */], __WEBPACK_IMPORTED_MODULE_2__providers_sites__["a" /* CoreSitesProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavController */], __WEBPACK_IMPORTED_MODULE_3__providers_events__["a" /* CoreEventsProvider */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* ChangeDetectorRef */]])
+    ], CoreMainMenuPage);
+    return CoreMainMenuPage;
 }());
 
-//# sourceMappingURL=site.js.map
+//# sourceMappingURL=menu.js.map
 
 /***/ })
 

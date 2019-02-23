@@ -1,17 +1,18 @@
 webpackJsonp([48],{
 
-/***/ 1832:
+/***/ 1908:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreContentLinksChooseSitePageModule", function() { return CoreContentLinksChooseSitePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreCourseUnsupportedModulePageModule", function() { return CoreCourseUnsupportedModulePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__choose_site__ = __webpack_require__(1958);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__unsupported_module__ = __webpack_require__(2040);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_components_module__ = __webpack_require__(38);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -37,40 +38,40 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var CoreContentLinksChooseSitePageModule = /** @class */ (function () {
-    function CoreContentLinksChooseSitePageModule() {
+
+var CoreCourseUnsupportedModulePageModule = /** @class */ (function () {
+    function CoreCourseUnsupportedModulePageModule() {
     }
-    CoreContentLinksChooseSitePageModule = __decorate([
+    CoreCourseUnsupportedModulePageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__choose_site__["a" /* CoreContentLinksChooseSitePage */]
+                __WEBPACK_IMPORTED_MODULE_3__unsupported_module__["a" /* CoreCourseUnsupportedModulePage */],
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* CoreComponentsModule */],
                 __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__choose_site__["a" /* CoreContentLinksChooseSitePage */]),
-                __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["b" /* TranslateModule */].forChild()
-            ]
+                __WEBPACK_IMPORTED_MODULE_6__components_components_module__["a" /* CoreCourseComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__unsupported_module__["a" /* CoreCourseUnsupportedModulePage */]),
+                __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
+            ],
         })
-    ], CoreContentLinksChooseSitePageModule);
-    return CoreContentLinksChooseSitePageModule;
+    ], CoreCourseUnsupportedModulePageModule);
+    return CoreCourseUnsupportedModulePageModule;
 }());
 
-//# sourceMappingURL=choose-site.module.js.map
+//# sourceMappingURL=unsupported-module.module.js.map
 
 /***/ }),
 
-/***/ 1958:
+/***/ 2040:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreContentLinksChooseSitePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreCourseUnsupportedModulePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_sites__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_utils_dom__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_delegate__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_helper__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_utils_text__ = __webpack_require__(11);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -97,80 +98,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
 /**
- * Page to display the list of sites to choose one to perform a content link action.
+ * Page that displays info about an unsupported module.
  */
-var CoreContentLinksChooseSitePage = /** @class */ (function () {
-    function CoreContentLinksChooseSitePage(navCtrl, navParams, contentLinksDelegate, sitesProvider, domUtils, contentLinksHelper) {
-        this.navCtrl = navCtrl;
-        this.contentLinksDelegate = contentLinksDelegate;
-        this.sitesProvider = sitesProvider;
-        this.domUtils = domUtils;
-        this.contentLinksHelper = contentLinksHelper;
-        this.url = navParams.get('url');
+var CoreCourseUnsupportedModulePage = /** @class */ (function () {
+    function CoreCourseUnsupportedModulePage(navParams, translate, textUtils) {
+        this.translate = translate;
+        this.textUtils = textUtils;
+        this.module = navParams.get('module') || {};
     }
     /**
-     * Component being initialized.
+     * Expand the description.
      */
-    CoreContentLinksChooseSitePage.prototype.ngOnInit = function () {
-        var _this = this;
-        if (!this.url) {
-            return this.leaveView();
-        }
-        // Get the action to perform.
-        this.contentLinksDelegate.getActionsFor(this.url).then(function (actions) {
-            _this.action = _this.contentLinksHelper.getFirstValidAction(actions);
-            if (!_this.action) {
-                return Promise.reject(null);
-            }
-            // Get the sites that can perform the action.
-            return _this.sitesProvider.getSites(_this.action.sites).then(function (sites) {
-                _this.sites = sites;
-            });
-        }).catch(function () {
-            _this.domUtils.showErrorModal('core.contentlinks.errornosites', true);
-            _this.leaveView();
-        }).finally(function () {
-            _this.loaded = true;
-        });
+    CoreCourseUnsupportedModulePage.prototype.expandDescription = function () {
+        this.textUtils.expandText(this.translate.instant('core.description'), this.module.description);
     };
-    /**
-     * Cancel.
-     */
-    CoreContentLinksChooseSitePage.prototype.cancel = function () {
-        this.leaveView();
-    };
-    /**
-     * Perform the action on a certain site.
-     *
-     * @param {string} siteId Site ID.
-     */
-    CoreContentLinksChooseSitePage.prototype.siteClicked = function (siteId) {
-        this.action.action(siteId, this.navCtrl);
-    };
-    /**
-     * Cancel and leave the view.
-     */
-    CoreContentLinksChooseSitePage.prototype.leaveView = function () {
-        var _this = this;
-        this.sitesProvider.logout().finally(function () {
-            _this.navCtrl.setRoot('CoreLoginSitesPage');
-        });
-    };
-    CoreContentLinksChooseSitePage = __decorate([
+    CoreCourseUnsupportedModulePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-core-content-links-choose-site',template:/*ion-inline-start:"/home/travis/build/crazyserver/moodlemobile2/src/core/contentlinks/pages/choose-site/choose-site.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ \'core.contentlinks.chooseaccount\' | translate }}</ion-title>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <core-loading [hideUntil]="loaded">\n        <ion-list>\n            <ion-item text-wrap>\n                <p class="item-heading">{{ \'core.contentlinks.chooseaccounttoopenlink\' | translate }}</p>\n                <p>{{ url }}</p>\n            </ion-item>\n            <a ion-item *ngFor="let site of sites" (click)="siteClicked(site.id)">\n                <img [src]="site.avatar" item-start>\n                <h2>{{site.fullName}}</h2>\n                <p><core-format-text clean="true" [text]="site.siteName"></core-format-text></p>\n                <p>{{site.siteUrl}}</p>\n            </a>\n            <ion-item>\n                <button ion-button block (click)="cancel()">{{ \'core.login.cancel\' | translate }}</button>\n            </ion-item>\n        </ion-list>\n    </core-loading>\n</ion-content>\n'/*ion-inline-end:"/home/travis/build/crazyserver/moodlemobile2/src/core/contentlinks/pages/choose-site/choose-site.html"*/,
+            selector: 'page-core-course-unsupported-module',template:/*ion-inline-start:"/home/travis/build/moodlehq/moodlemobile2/src/core/course/pages/unsupported-module/unsupported-module.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title><core-format-text [text]="module.name"></core-format-text></ion-title>\n\n        <ion-buttons end>\n            <core-context-menu>\n                <core-context-menu-item [priority]="900" *ngIf="module.url" [href]="module.url" [content]="\'core.openinbrowser\' | translate" [iconAction]="\'open\'"></core-context-menu-item>\n                <core-context-menu-item [priority]="800" *ngIf="module.description" [content]="\'core.moduleintro\' | translate" (action)="expandDescription()" [iconAction]="\'arrow-forward\'"></core-context-menu-item>\n            </core-context-menu>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <core-course-unsupported-module [module]="module"></core-course-unsupported-module>\n</ion-content>\n'/*ion-inline-end:"/home/travis/build/moodlehq/moodlemobile2/src/core/course/pages/unsupported-module/unsupported-module.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */], __WEBPACK_IMPORTED_MODULE_4__providers_delegate__["a" /* CoreContentLinksDelegate */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_sites__["a" /* CoreSitesProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_utils_dom__["a" /* CoreDomUtilsProvider */],
-            __WEBPACK_IMPORTED_MODULE_5__providers_helper__["a" /* CoreContentLinksHelperProvider */]])
-    ], CoreContentLinksChooseSitePage);
-    return CoreContentLinksChooseSitePage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */], __WEBPACK_IMPORTED_MODULE_3__providers_utils_text__["a" /* CoreTextUtilsProvider */]])
+    ], CoreCourseUnsupportedModulePage);
+    return CoreCourseUnsupportedModulePage;
 }());
 
-//# sourceMappingURL=choose-site.js.map
+//# sourceMappingURL=unsupported-module.js.map
 
 /***/ })
 

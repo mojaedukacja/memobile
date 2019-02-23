@@ -1,18 +1,20 @@
 webpackJsonp([93],{
 
-/***/ 1783:
+/***/ 1858:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonModChatUsersPageModule", function() { return AddonModChatUsersPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonModDataEntryPageModule", function() { return AddonModDataEntryPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pipes_pipes_module__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__users__ = __webpack_require__(1904);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_comments_components_components_module__ = __webpack_require__(393);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_compile_components_compile_html_compile_html_module__ = __webpack_require__(391);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_components_module__ = __webpack_require__(390);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__entry__ = __webpack_require__(1986);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -39,42 +41,53 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AddonModChatUsersPageModule = /** @class */ (function () {
-    function AddonModChatUsersPageModule() {
+
+
+var AddonModDataEntryPageModule = /** @class */ (function () {
+    function AddonModDataEntryPageModule() {
     }
-    AddonModChatUsersPageModule = __decorate([
+    AddonModDataEntryPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_6__users__["a" /* AddonModChatUsersPage */],
+                __WEBPACK_IMPORTED_MODULE_8__entry__["a" /* AddonModDataEntryPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_3__components_components_module__["a" /* CoreComponentsModule */],
-                __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_5__pipes_pipes_module__["a" /* CorePipesModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_6__users__["a" /* AddonModChatUsersPage */]),
+                __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__["a" /* CoreDirectivesModule */],
+                __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* CoreComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_7__components_components_module__["a" /* AddonModDataComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_6__core_compile_components_compile_html_compile_html_module__["a" /* CoreCompileHtmlComponentModule */],
+                __WEBPACK_IMPORTED_MODULE_5__core_comments_components_components_module__["a" /* CoreCommentsComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_8__entry__["a" /* AddonModDataEntryPage */]),
                 __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ],
         })
-    ], AddonModChatUsersPageModule);
-    return AddonModChatUsersPageModule;
+    ], AddonModDataEntryPageModule);
+    return AddonModDataEntryPageModule;
 }());
 
-//# sourceMappingURL=users.module.js.map
+//# sourceMappingURL=entry.module.js.map
 
 /***/ }),
 
-/***/ 1904:
+/***/ 1986:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModChatUsersPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModDataEntryPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_app__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_sites__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_utils_dom__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_chat__ = __webpack_require__(387);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_network__ = __webpack_require__(133);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_utils_utils__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_utils_dom__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_sites__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_groups__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_events__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_course_providers_course__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_data__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_helper__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_offline__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_sync__ = __webpack_require__(265);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_fields_delegate__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_components_module__ = __webpack_require__(390);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -104,82 +117,257 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
+
+
+
+
 /**
- * Page that displays the chat session users.
+ * Page that displays the view entry page.
  */
-var AddonModChatUsersPage = /** @class */ (function () {
-    function AddonModChatUsersPage(navParams, network, zone, appProvider, sitesProvider, viewCtrl, domUtils, chatProvider) {
-        var _this = this;
-        this.appProvider = appProvider;
-        this.sitesProvider = sitesProvider;
-        this.viewCtrl = viewCtrl;
+var AddonModDataEntryPage = /** @class */ (function () {
+    function AddonModDataEntryPage(params, utils, groupsProvider, domUtils, fieldsDelegate, courseProvider, dataProvider, dataOffline, dataHelper, sitesProvider, navCtrl, eventsProvider) {
+        this.utils = utils;
+        this.groupsProvider = groupsProvider;
         this.domUtils = domUtils;
-        this.chatProvider = chatProvider;
-        this.users = [];
-        this.usersLoaded = false;
-        this.sessionId = navParams.get('sessionId');
-        this.isOnline = this.appProvider.isOnline();
-        this.currentUserId = this.sitesProvider.getCurrentSiteUserId();
-        this.onlineObserver = network.onchange().subscribe(function (online) {
-            // Execute the callback in the Angular zone, so change detection doesn't stop working.
-            zone.run(function () {
-                _this.isOnline = _this.appProvider.isOnline();
-            });
-        });
+        this.fieldsDelegate = fieldsDelegate;
+        this.courseProvider = courseProvider;
+        this.dataProvider = dataProvider;
+        this.dataOffline = dataOffline;
+        this.dataHelper = dataHelper;
+        this.navCtrl = navCtrl;
+        this.eventsProvider = eventsProvider;
+        this.fields = {};
+        this.title = '';
+        this.moduleName = 'data';
+        this.component = __WEBPACK_IMPORTED_MODULE_8__providers_data__["a" /* AddonModDataProvider */].COMPONENT;
+        this.entryLoaded = false;
+        this.selectedGroup = 0;
+        this.offlineActions = [];
+        this.hasOffline = false;
+        this.cssTemplate = '';
+        this.entryRendered = '';
+        this.cssClass = '';
+        this.extraImports = [__WEBPACK_IMPORTED_MODULE_13__components_components_module__["a" /* AddonModDataComponentsModule */]];
+        this.module = params.get('module') || {};
+        this.entryId = params.get('entryId') || null;
+        this.courseId = params.get('courseId');
+        this.selectedGroup = params.get('group') || 0;
+        this.page = params.get('page') || null;
+        this.siteId = sitesProvider.getCurrentSiteId();
+        this.title = this.module.name;
+        this.moduleName = this.courseProvider.translateModuleName('data');
     }
     /**
      * View loaded.
      */
-    AddonModChatUsersPage.prototype.ionViewDidLoad = function () {
+    AddonModDataEntryPage.prototype.ionViewDidLoad = function () {
         var _this = this;
-        this.chatProvider.getChatUsers(this.sessionId).then(function (data) {
-            _this.users = data.users;
-        }).catch(function (error) {
-            _this.domUtils.showErrorModalDefault(error, 'addon.mod_chat.errorwhilegettingchatusers', true);
+        this.fetchEntryData();
+        // Refresh data if this discussion is synchronized automatically.
+        this.syncObserver = this.eventsProvider.on(__WEBPACK_IMPORTED_MODULE_11__providers_sync__["a" /* AddonModDataSyncProvider */].AUTO_SYNCED, function (data) {
+            if ((data.entryId == _this.entryId || data.offlineEntryId == _this.entryId) && _this.data.id == data.dataId) {
+                if (data.deleted) {
+                    // If deleted, go back.
+                    _this.navCtrl.pop();
+                }
+                else {
+                    _this.entryId = data.entryid;
+                    _this.entryLoaded = false;
+                    _this.fetchEntryData(true);
+                }
+            }
+        }, this.siteId);
+        // Refresh entry on change.
+        this.entryChangedObserver = this.eventsProvider.on(__WEBPACK_IMPORTED_MODULE_8__providers_data__["a" /* AddonModDataProvider */].ENTRY_CHANGED, function (data) {
+            if (data.entryId == _this.entryId && _this.data.id == data.dataId) {
+                if (data.deleted) {
+                    // If deleted, go back.
+                    _this.navCtrl.pop();
+                }
+                else {
+                    _this.entryLoaded = false;
+                    _this.fetchEntryData(true);
+                }
+            }
+        }, this.siteId);
+    };
+    /**
+     * Fetch the entry data.
+     *
+     * @param  {boolean}      refresh If refresh the current data or not.
+     * @return {Promise<any>}         Resolved when done.
+     */
+    AddonModDataEntryPage.prototype.fetchEntryData = function (refresh) {
+        var _this = this;
+        var fieldsArray;
+        return this.dataProvider.getDatabase(this.courseId, this.module.id).then(function (data) {
+            _this.title = data.name || _this.title;
+            _this.data = data;
+            _this.cssClass = 'addon-data-entries-' + data.id;
+            return _this.setEntryIdFromPage(data.id, _this.page, _this.selectedGroup).then(function () {
+                return _this.dataProvider.getDatabaseAccessInformation(data.id);
+            });
+        }).then(function (accessData) {
+            _this.access = accessData;
+            return _this.groupsProvider.getActivityGroupInfo(_this.data.coursemodule, accessData.canmanageentries)
+                .then(function (groupInfo) {
+                _this.groupInfo = groupInfo;
+                // Check selected group is accessible.
+                if (groupInfo && groupInfo.groups && groupInfo.groups.length > 0) {
+                    if (!groupInfo.groups.some(function (group) { return _this.selectedGroup == group.id; })) {
+                        _this.selectedGroup = groupInfo.groups[0].id;
+                    }
+                }
+                return _this.dataOffline.getEntryActions(_this.data.id, _this.entryId);
+            });
+        }).then(function (actions) {
+            _this.offlineActions = actions;
+            _this.hasOffline = !!actions.length;
+            return _this.dataProvider.getFields(_this.data.id).then(function (fieldsData) {
+                _this.fields = _this.utils.arrayToObject(fieldsData, 'id');
+                return _this.dataHelper.getEntry(_this.data, _this.entryId, _this.offlineActions);
+            });
+        }).then(function (entry) {
+            entry = entry.entry;
+            _this.cssTemplate = _this.dataHelper.prefixCSS(_this.data.csstemplate, '.' + _this.cssClass);
+            // Index contents by fieldid.
+            entry.contents = _this.utils.arrayToObject(entry.contents, 'fieldid');
+            fieldsArray = _this.utils.objectToArray(_this.fields);
+            return _this.dataHelper.applyOfflineActions(entry, _this.offlineActions, fieldsArray);
+        }).then(function (entryData) {
+            _this.entry = entryData;
+            var actions = _this.dataHelper.getActions(_this.data, _this.access, _this.entry);
+            var templte = _this.data.singletemplate || _this.dataHelper.getDefaultTemplate('single', fieldsArray);
+            _this.entryRendered = _this.dataHelper.displayShowFields(templte, fieldsArray, _this.entry, 'show', actions);
+            _this.showComments = actions.comments;
+            var entries = {};
+            entries[_this.entryId] = _this.entry;
+            // Pass the input data to the component.
+            _this.jsData = {
+                fields: _this.fields,
+                entries: entries,
+                data: _this.data
+            };
+            return _this.dataHelper.getPageInfoByEntry(_this.data.id, _this.entryId, _this.selectedGroup).then(function (result) {
+                _this.previousId = result.previousId;
+                _this.nextId = result.nextId;
+            });
+        }).catch(function (message) {
+            if (!refresh) {
+                // Some call failed, retry without using cache since it might be a new activity.
+                return _this.refreshAllData();
+            }
+            _this.domUtils.showErrorModalDefault(message, 'core.course.errorgetmodule', true);
         }).finally(function () {
-            _this.usersLoaded = true;
+            _this.domUtils.scrollToTop(_this.content);
+            _this.entryLoaded = true;
         });
     };
     /**
-     * Close the chat users modal.
-     */
-    AddonModChatUsersPage.prototype.closeModal = function () {
-        this.viewCtrl.dismiss();
-    };
-    /**
-     * Add "To user:".
+     * Go to selected entry without changing state.
      *
-     * @param {any} user User object.
+     * @param  {number}       entry Entry Id where to go.
+     * @return {Promise<any>}       Resolved when done.
      */
-    AddonModChatUsersPage.prototype.talkTo = function (user) {
-        this.viewCtrl.dismiss({ talkTo: user.fullname });
+    AddonModDataEntryPage.prototype.gotoEntry = function (entry) {
+        this.entryId = entry;
+        this.entry = null;
+        this.page = null;
+        this.entryLoaded = false;
+        return this.fetchEntryData();
     };
     /**
-     * Beep a user.
+     * Refresh all the data.
      *
-     * @param {any} user User object.
+     * @return {Promise<any>} Promise resolved when done.
      */
-    AddonModChatUsersPage.prototype.beepTo = function (user) {
-        this.viewCtrl.dismiss({ beepTo: user.id });
+    AddonModDataEntryPage.prototype.refreshAllData = function () {
+        var _this = this;
+        var promises = [];
+        promises.push(this.dataProvider.invalidateDatabaseData(this.courseId));
+        if (this.data) {
+            promises.push(this.dataProvider.invalidateEntryData(this.data.id, this.entryId));
+            promises.push(this.groupsProvider.invalidateActivityGroupInfo(this.data.coursemodule));
+            promises.push(this.dataProvider.invalidateEntriesData(this.data.id));
+        }
+        return Promise.all(promises).finally(function () {
+            return _this.fetchEntryData(true);
+        });
     };
     /**
-     * Page destroyed.
+     * Refresh the data.
+     *
+     * @param {any} [refresher] Refresher.
+     * @return {Promise<any>} Promise resolved when done.
      */
-    AddonModChatUsersPage.prototype.ngOnDestroy = function () {
-        this.onlineObserver && this.onlineObserver.unsubscribe();
+    AddonModDataEntryPage.prototype.refreshDatabase = function (refresher) {
+        if (this.entryLoaded) {
+            return this.refreshAllData().finally(function () {
+                refresher && refresher.complete();
+            });
+        }
     };
-    AddonModChatUsersPage = __decorate([
+    /**
+     * Set group to see the database.
+     *
+     * @param  {number}       groupId Group identifier to set.
+     * @return {Promise<any>}         Resolved when done.
+     */
+    AddonModDataEntryPage.prototype.setGroup = function (groupId) {
+        var _this = this;
+        this.selectedGroup = groupId;
+        this.entryLoaded = false;
+        return this.setEntryIdFromPage(this.data.id, 0, this.selectedGroup).then(function () {
+            return _this.fetchEntryData();
+        });
+    };
+    /**
+     * Convenience function to translate page number to entry identifier.
+     *
+     * @param  {number}       dataId       Data Id.
+     * @param  {number}       [pageNumber] Page number where to go
+     * @param  {number}       group        Group Id to get the entry.
+     * @return {Promise<any>}              Resolved when done.
+     */
+    AddonModDataEntryPage.prototype.setEntryIdFromPage = function (dataId, pageNumber, group) {
+        var _this = this;
+        if (typeof pageNumber == 'number') {
+            return this.dataHelper.getPageInfoByPage(dataId, pageNumber, group).then(function (result) {
+                _this.entryId = result.entryId;
+                _this.page = null;
+            });
+        }
+        return Promise.resolve();
+    };
+    /**
+     * Component being destroyed.
+     */
+    AddonModDataEntryPage.prototype.ngOnDestroy = function () {
+        this.syncObserver && this.syncObserver.off();
+        this.entryChangedObserver && this.entryChangedObserver.off();
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */])
+    ], AddonModDataEntryPage.prototype, "content", void 0);
+    AddonModDataEntryPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-addon-mod-chat-users',template:/*ion-inline-start:"/home/travis/build/crazyserver/moodlemobile2/src/addon/mod/chat/pages/users/users.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ \'addon.mod_chat.currentusers\' | translate }}</ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only (click)="closeModal()" [attr.aria-label]="\'core.close\' | translate">\n                <ion-icon name="close"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <core-loading [hideUntil]="usersLoaded">\n        <ion-item text-wrap *ngFor="let user of users" [class.addon-mod-chat-user]="currentUserId != user.id && isOnline">\n            <ion-avatar item-start>\n                <img [src]="user.profileimageurl" onError="this.src=\'assets/img/user-avatar.png\'" core-external-content [alt]="\'core.pictureof\' | translate:{$a: user.fullname}" role="presentation">\n            </ion-avatar>\n            <h2><core-format-text [text]="user.fullname"></core-format-text></h2>\n            <ng-container *ngIf="currentUserId != user.id && isOnline">\n                <button ion-button clear icon-left (click)="talkTo(user)">\n                    <ion-icon name="chatboxes"></ion-icon>\n                    {{ \'addon.mod_chat.talk\' | translate }}\n                </button>\n                <button ion-button clear icon-left (click)="beepTo(user)">\n                    <ion-icon name="notifications"></ion-icon>\n                    {{ \'addon.mod_chat.beep\' | translate }}\n                </button>\n            </ng-container>\n        </ion-item>\n    </core-loading>\n</ion-content>\n'/*ion-inline-end:"/home/travis/build/crazyserver/moodlemobile2/src/addon/mod/chat/pages/users/users.html"*/,
+            selector: 'page-addon-mod-data-entry',template:/*ion-inline-start:"/home/travis/build/moodlehq/moodlemobile2/src/addon/mod/data/pages/entry/entry.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title><core-format-text [text]="title"></core-format-text></ion-title>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <ion-refresher [enabled]="entryLoaded" (ionRefresh)="refreshDatabase($event)">\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n    </ion-refresher>\n    <core-loading [hideUntil]="entryLoaded">\n        <!-- Database entries found to be synchronized -->\n        <div class="core-warning-card" icon-start *ngIf="hasOffline">\n            <ion-icon name="warning"></ion-icon>\n            {{ \'core.hasdatatosync\' | translate: {$a: moduleName} }}\n        </div>\n\n        <ion-item text-wrap *ngIf="groupInfo && (groupInfo.separateGroups || groupInfo.visibleGroups)">\n            <ion-label id="addon-data-groupslabel" *ngIf="groupInfo.separateGroups">{{ \'core.groupsseparate\' | translate }}</ion-label>\n            <ion-label id="addon-data-groupslabel" *ngIf="groupInfo.visibleGroups">{{ \'core.groupsvisible\' | translate }}</ion-label>\n            <ion-select [(ngModel)]="selectedGroup" (ionChange)="setGroup(selectedGroup)" aria-labelledby="addon-data-groupslabel" interface="action-sheet">\n                <ion-option *ngFor="let groupOpt of groupInfo.groups" [value]="groupOpt.id">{{groupOpt.name}}</ion-option>\n            </ion-select>\n        </ion-item>\n\n        <div class="addon-data-contents {{cssClass}}" *ngIf="entry">\n            <style *ngIf="cssTemplate">\n                {{ cssTemplate }}\n            </style>\n\n            <core-compile-html [text]="entryRendered" [jsData]="jsData" [extraImports]="extraImports"></core-compile-html>\n        </div>\n\n        <ion-item *ngIf="data && entry">\n            <core-comments contextLevel="module" [instanceId]="data.coursemodule" component="mod_data" [itemId]="entry.id" area="database_entry"></core-comments>\n        </ion-item>\n\n        <ion-grid *ngIf="previousId || nextId">\n            <ion-row align-items-center>\n                <ion-col *ngIf="previousId">\n                    <button ion-button block outline icon-start (click)="gotoEntry(previousId)">\n                        <ion-icon name="arrow-back" md="ios-arrow-back"></ion-icon>\n                        {{ \'core.previous\' | translate }}\n                    </button>\n                </ion-col>\n                <ion-col *ngIf="nextId">\n                    <button ion-button block icon-end (click)="gotoEntry(nextId)">\n                        {{ \'core.next\' | translate }}\n                        <ion-icon name="arrow-forward" md="ios-arrow-forward"></ion-icon>\n                    </button>\n                </ion-col>\n            </ion-row>\n        </ion-grid>\n    </core-loading>\n</ion-content>\n'/*ion-inline-end:"/home/travis/build/moodlehq/moodlemobile2/src/addon/mod/data/pages/entry/entry.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */], __WEBPACK_IMPORTED_MODULE_6__ionic_native_network__["a" /* Network */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgZone */], __WEBPACK_IMPORTED_MODULE_2__providers_app__["a" /* CoreAppProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_sites__["a" /* CoreSitesProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["D" /* ViewController */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_utils_dom__["a" /* CoreDomUtilsProvider */], __WEBPACK_IMPORTED_MODULE_5__providers_chat__["a" /* AddonModChatProvider */]])
-    ], AddonModChatUsersPage);
-    return AddonModChatUsersPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_utils_utils__["a" /* CoreUtilsProvider */], __WEBPACK_IMPORTED_MODULE_5__providers_groups__["a" /* CoreGroupsProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_utils_dom__["a" /* CoreDomUtilsProvider */], __WEBPACK_IMPORTED_MODULE_12__providers_fields_delegate__["a" /* AddonModDataFieldsDelegate */],
+            __WEBPACK_IMPORTED_MODULE_7__core_course_providers_course__["a" /* CoreCourseProvider */], __WEBPACK_IMPORTED_MODULE_8__providers_data__["a" /* AddonModDataProvider */],
+            __WEBPACK_IMPORTED_MODULE_10__providers_offline__["a" /* AddonModDataOfflineProvider */], __WEBPACK_IMPORTED_MODULE_9__providers_helper__["a" /* AddonModDataHelperProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_sites__["a" /* CoreSitesProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_6__providers_events__["a" /* CoreEventsProvider */]])
+    ], AddonModDataEntryPage);
+    return AddonModDataEntryPage;
 }());
 
-//# sourceMappingURL=users.js.map
+//# sourceMappingURL=entry.js.map
 
 /***/ })
 

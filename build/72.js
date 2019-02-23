@@ -1,17 +1,17 @@
 webpackJsonp([72],{
 
-/***/ 1804:
+/***/ 1879:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonModLessonPasswordModalPageModule", function() { return AddonModLessonPasswordModalPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonModLtiIndexPageModule", function() { return AddonModLtiIndexPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__password_modal__ = __webpack_require__(1925);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(964);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__index__ = __webpack_require__(2007);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -37,36 +37,37 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AddonModLessonPasswordModalPageModule = /** @class */ (function () {
-    function AddonModLessonPasswordModalPageModule() {
+var AddonModLtiIndexPageModule = /** @class */ (function () {
+    function AddonModLtiIndexPageModule() {
     }
-    AddonModLessonPasswordModalPageModule = __decorate([
+    AddonModLtiIndexPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__password_modal__["a" /* AddonModLessonPasswordModalPage */]
+                __WEBPACK_IMPORTED_MODULE_5__index__["a" /* AddonModLtiIndexPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* CoreComponentsModule */],
-                __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__password_modal__["a" /* AddonModLessonPasswordModalPage */]),
-                __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["b" /* TranslateModule */].forChild()
-            ]
+                __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__["a" /* CoreDirectivesModule */],
+                __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* AddonModLtiComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_5__index__["a" /* AddonModLtiIndexPage */]),
+                __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
+            ],
         })
-    ], AddonModLessonPasswordModalPageModule);
-    return AddonModLessonPasswordModalPageModule;
+    ], AddonModLtiIndexPageModule);
+    return AddonModLtiIndexPageModule;
 }());
 
-//# sourceMappingURL=password-modal.module.js.map
+//# sourceMappingURL=index.module.js.map
 
 /***/ }),
 
-/***/ 1925:
+/***/ 2007:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModLessonPasswordModalPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModLtiIndexPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_index_index__ = __webpack_require__(418);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -91,35 +92,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 /**
- * Modal that asks the password for a lesson.
+ * Page that displays an LTI.
  */
-var AddonModLessonPasswordModalPage = /** @class */ (function () {
-    function AddonModLessonPasswordModalPage(viewCtrl) {
-        this.viewCtrl = viewCtrl;
+var AddonModLtiIndexPage = /** @class */ (function () {
+    function AddonModLtiIndexPage(navParams) {
+        this.module = navParams.get('module') || {};
+        this.courseId = navParams.get('courseId');
+        this.title = this.module.name;
     }
     /**
-     * Send the password back.
+     * Update some data based on the LTI instance.
+     *
+     * @param {any} lti LTI instance.
      */
-    AddonModLessonPasswordModalPage.prototype.submitPassword = function (password) {
-        this.viewCtrl.dismiss(password.value);
+    AddonModLtiIndexPage.prototype.updateData = function (lti) {
+        this.title = lti.name || this.title;
     };
-    /**
-     * Close modal.
-     */
-    AddonModLessonPasswordModalPage.prototype.closeModal = function () {
-        this.viewCtrl.dismiss();
-    };
-    AddonModLessonPasswordModalPage = __decorate([
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__components_index_index__["a" /* AddonModLtiIndexComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__components_index_index__["a" /* AddonModLtiIndexComponent */])
+    ], AddonModLtiIndexPage.prototype, "ltiComponent", void 0);
+    AddonModLtiIndexPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-addon-mod-lesson-password-modal',template:/*ion-inline-start:"/home/travis/build/crazyserver/moodlemobile2/src/addon/mod/lesson/pages/password-modal/password-modal.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ \'core.login.password\' | translate }}</ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only (click)="closeModal()" [attr.aria-label]="\'core.close\' | translate">\n                <ion-icon name="close"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content padding class="addon-mod_lesson-password-modal">\n    <form ion-list (ngSubmit)="submitPassword(passwordinput)">\n        <ion-item>\n            <core-show-password item-content [name]="\'password\'">\n                <ion-label>{{ \'addon.mod_lesson.enterpassword\' | translate }}</ion-label>\n                <ion-input name="password" type="password" placeholder="{{ \'core.login.password\' | translate }}" [core-auto-focus] #passwordinput [clearOnEdit]="false"></ion-input>\n            </core-show-password>\n        </ion-item>\n        <ion-item>\n            <button ion-button block type="submit" icon-end>\n                {{ \'addon.mod_lesson.continue\' | translate }}\n                <ion-icon name="arrow-forward" md="ios-arrow-forward"></ion-icon>\n            </button>\n        </ion-item>\n    </form>\n</ion-content>\n'/*ion-inline-end:"/home/travis/build/crazyserver/moodlemobile2/src/addon/mod/lesson/pages/password-modal/password-modal.html"*/,
+            selector: 'page-addon-mod-lti-index',template:/*ion-inline-start:"/home/travis/build/moodlehq/moodlemobile2/src/addon/mod/lti/pages/index/index.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title><core-format-text [text]="title"></core-format-text></ion-title>\n\n        <ion-buttons end>\n            <!-- The buttons defined by the component will be added in here. -->\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <ion-refresher [enabled]="ltiComponent.loaded" (ionRefresh)="ltiComponent.doRefresh($event)">\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n    </ion-refresher>\n\n    <addon-mod-lti-index [module]="module" [courseId]="courseId" (dataRetrieved)="updateData($event)"></addon-mod-lti-index>\n</ion-content>\n'/*ion-inline-end:"/home/travis/build/moodlehq/moodlemobile2/src/addon/mod/lti/pages/index/index.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["D" /* ViewController */]])
-    ], AddonModLessonPasswordModalPage);
-    return AddonModLessonPasswordModalPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */]])
+    ], AddonModLtiIndexPage);
+    return AddonModLtiIndexPage;
 }());
 
-//# sourceMappingURL=password-modal.js.map
+//# sourceMappingURL=index.js.map
 
 /***/ })
 

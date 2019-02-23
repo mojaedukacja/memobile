@@ -1,18 +1,17 @@
 webpackJsonp([17],{
 
-/***/ 1864:
+/***/ 1939:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreSettingsSynchronizationPageModule", function() { return CoreSettingsSynchronizationPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreSharedFilesListPageModule", function() { return CoreSharedFilesListPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__synchronization__ = __webpack_require__(1989);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__list__ = __webpack_require__(2071);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pipes_pipes_module__ = __webpack_require__(67);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -38,43 +37,42 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-var CoreSettingsSynchronizationPageModule = /** @class */ (function () {
-    function CoreSettingsSynchronizationPageModule() {
+var CoreSharedFilesListPageModule = /** @class */ (function () {
+    function CoreSharedFilesListPageModule() {
     }
-    CoreSettingsSynchronizationPageModule = __decorate([
+    CoreSharedFilesListPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_3__synchronization__["a" /* CoreSettingsSynchronizationPage */]
+                __WEBPACK_IMPORTED_MODULE_2__list__["a" /* CoreSharedFilesListPage */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* CoreComponentsModule */],
                 __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_6__pipes_pipes_module__["a" /* CorePipesModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__synchronization__["a" /* CoreSettingsSynchronizationPage */]),
-                __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
-            ],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__list__["a" /* CoreSharedFilesListPage */]),
+                __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["b" /* TranslateModule */].forChild()
+            ]
         })
-    ], CoreSettingsSynchronizationPageModule);
-    return CoreSettingsSynchronizationPageModule;
+    ], CoreSharedFilesListPageModule);
+    return CoreSharedFilesListPageModule;
 }());
 
-//# sourceMappingURL=synchronization.module.js.map
+//# sourceMappingURL=list.module.js.map
 
 /***/ }),
 
-/***/ 1989:
+/***/ 2071:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreSettingsSynchronizationPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreSharedFilesListPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__core_constants__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_events__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_sites__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_utils_dom__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_config__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_settings_providers_helper__ = __webpack_require__(928);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_events__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_file__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_sites__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_utils_text__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_sharedfiles__ = __webpack_require__(407);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -104,97 +102,159 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
- * Page that displays the synchronization settings.
+ * Modal to display the list of shared files.
  */
-var CoreSettingsSynchronizationPage = /** @class */ (function () {
-    function CoreSettingsSynchronizationPage(configProvider, eventsProvider, sitesProvider, domUtils, settingsHelper) {
-        var _this = this;
-        this.configProvider = configProvider;
-        this.eventsProvider = eventsProvider;
+var CoreSharedFilesListPage = /** @class */ (function () {
+    function CoreSharedFilesListPage(viewCtrl, navParams, sharedFilesProvider, sitesProvider, textUtils, translate, fileProvider, eventsProvider, navCtrl) {
+        this.viewCtrl = viewCtrl;
+        this.sharedFilesProvider = sharedFilesProvider;
         this.sitesProvider = sitesProvider;
-        this.domUtils = domUtils;
-        this.settingsHelper = settingsHelper;
-        this.sites = [];
-        this.sitesLoaded = false;
-        this.currentSiteId = '';
-        this.syncOnlyOnWifi = false;
-        this.isDestroyed = false;
-        this.currentSiteId = this.sitesProvider.getCurrentSiteId();
-        this.sitesObserver = this.eventsProvider.on(__WEBPACK_IMPORTED_MODULE_2__providers_events__["a" /* CoreEventsProvider */].SITE_UPDATED, function (data) {
-            _this.sitesProvider.getSite(data.siteId).then(function (site) {
-                var siteInfo = site.getInfo();
-                var siteEntry = _this.sites.find(function (siteEntry) { return siteEntry.id == site.id; });
-                if (siteEntry) {
-                    siteEntry.siteUrl = siteInfo.siteurl;
-                    siteEntry.siteName = siteInfo.sitename;
-                    siteEntry.fullName = siteInfo.fullname;
-                }
-            });
-        });
+        this.textUtils = textUtils;
+        this.translate = translate;
+        this.fileProvider = fileProvider;
+        this.eventsProvider = eventsProvider;
+        this.navCtrl = navCtrl;
+        this.path = '';
+        this.siteId = navParams.get('siteId') || this.sitesProvider.getCurrentSiteId();
+        this.mimetypes = navParams.get('mimetypes');
+        this.isModal = !!navParams.get('isModal');
+        this.manage = !!navParams.get('manage');
+        this.pick = !!navParams.get('pick');
+        this.path = navParams.get('path') || '';
     }
     /**
-     * View loaded.
+     * Component being initialized.
      */
-    CoreSettingsSynchronizationPage.prototype.ionViewDidLoad = function () {
+    CoreSharedFilesListPage.prototype.ngOnInit = function () {
         var _this = this;
-        this.sitesProvider.getSortedSites().then(function (sites) {
-            _this.sites = sites;
-        }).finally(function () {
-            _this.sitesLoaded = true;
-        });
-        this.configProvider.get(__WEBPACK_IMPORTED_MODULE_1__core_constants__["a" /* CoreConstants */].SETTINGS_SYNC_ONLY_ON_WIFI, true).then(function (syncOnlyOnWifi) {
-            _this.syncOnlyOnWifi = !!syncOnlyOnWifi;
-        });
-    };
-    /**
-     * Called when sync only on wifi setting is enabled or disabled.
-     */
-    CoreSettingsSynchronizationPage.prototype.syncOnlyOnWifiChanged = function () {
-        this.configProvider.set(__WEBPACK_IMPORTED_MODULE_1__core_constants__["a" /* CoreConstants */].SETTINGS_SYNC_ONLY_ON_WIFI, this.syncOnlyOnWifi ? 1 : 0);
-    };
-    /**
-     * Syncrhonizes a site.
-     *
-     * @param {string} siteId Site ID.
-     */
-    CoreSettingsSynchronizationPage.prototype.synchronize = function (siteId) {
-        var _this = this;
-        this.settingsHelper.synchronizeSite(this.syncOnlyOnWifi, siteId).catch(function (error) {
-            if (_this.isDestroyed) {
-                return;
+        this.loadFiles();
+        // Listen for new files shared with the app.
+        this.shareObserver = this.eventsProvider.on(__WEBPACK_IMPORTED_MODULE_3__providers_events__["a" /* CoreEventsProvider */].FILE_SHARED, function (data) {
+            if (data.siteId == _this.siteId) {
+                // File was stored in current site, refresh the list.
+                _this.filesLoaded = false;
+                _this.loadFiles().finally(function () {
+                    _this.filesLoaded = true;
+                });
             }
-            _this.domUtils.showErrorModalDefault(error, 'core.settings.errorsyncsite', true);
         });
     };
     /**
-     * Returns true if site is beeing synchronized.
+     * Load the files.
      *
-     * @param {string} siteId Site ID.
-     * @return {boolean} True if site is beeing synchronized, false otherwise.
+     * @return {Promise<any>} Promise resolved when done.
      */
-    CoreSettingsSynchronizationPage.prototype.isSynchronizing = function (siteId) {
-        return !!this.settingsHelper.getSiteSyncPromise(siteId);
+    CoreSharedFilesListPage.prototype.loadFiles = function () {
+        var _this = this;
+        if (this.path) {
+            this.title = this.fileProvider.getFileAndDirectoryFromPath(this.path).name;
+        }
+        else {
+            this.title = this.translate.instant('core.sharedfiles.sharedfiles');
+        }
+        return this.sharedFilesProvider.getSiteSharedFiles(this.siteId, this.path, this.mimetypes).then(function (files) {
+            _this.files = files;
+            _this.filesLoaded = true;
+        });
     };
     /**
-     * Page destroyed.
+     * Close modal.
      */
-    CoreSettingsSynchronizationPage.prototype.ngOnDestroy = function () {
-        this.isDestroyed = true;
-        this.sitesObserver && this.sitesObserver.off();
+    CoreSharedFilesListPage.prototype.closeModal = function () {
+        this.viewCtrl.dismiss();
     };
-    CoreSettingsSynchronizationPage = __decorate([
+    /**
+     * Refresh the list of files.
+     *
+     * @param {any} refresher Refresher.
+     */
+    CoreSharedFilesListPage.prototype.refreshFiles = function (refresher) {
+        this.loadFiles().finally(function () {
+            refresher.complete();
+        });
+    };
+    /**
+     * Called when a file is deleted. Remove the file from the list.
+     *
+     * @param {number} index Position of the file.
+     */
+    CoreSharedFilesListPage.prototype.fileDeleted = function (index) {
+        this.files.splice(index, 1);
+    };
+    /**
+     * Called when a file is renamed. Update the list.
+     *
+     * @param {number} index Position of the file.
+     * @param {any} data Data containing the new FileEntry.
+     */
+    CoreSharedFilesListPage.prototype.fileRenamed = function (index, data) {
+        this.files[index] = data.file;
+    };
+    /**
+     * Open a subfolder.
+     *
+     * @param {any} folder The folder to open.
+     */
+    CoreSharedFilesListPage.prototype.openFolder = function (folder) {
+        var path = this.textUtils.concatenatePaths(this.path, folder.name);
+        if (this.isModal) {
+            // In Modal we don't want to open a new page because we cannot dismiss the modal from the new page.
+            this.path = path;
+            this.filesLoaded = false;
+            this.loadFiles();
+        }
+        else {
+            this.navCtrl.push('CoreSharedFilesListPage', {
+                path: path,
+                manage: this.manage,
+                pick: this.pick,
+                siteId: this.siteId,
+                mimetypes: this.mimetypes,
+                isModal: this.isModal
+            });
+        }
+    };
+    /**
+     * Change site loaded.
+     *
+     * @param {string} id Site to load.
+     */
+    CoreSharedFilesListPage.prototype.changeSite = function (id) {
+        this.siteId = id;
+        this.path = '';
+        this.filesLoaded = false;
+        this.loadFiles();
+    };
+    /**
+     * A file was picked.
+     *
+     * @param {any} file Picked file.
+     */
+    CoreSharedFilesListPage.prototype.filePicked = function (file) {
+        this.viewCtrl.dismiss(file);
+    };
+    /**
+     * Component destroyed.
+     */
+    CoreSharedFilesListPage.prototype.ngOnDestroy = function () {
+        if (this.shareObserver) {
+            this.shareObserver.off();
+        }
+    };
+    CoreSharedFilesListPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-core-settings-synchronization',template:/*ion-inline-start:"/home/travis/build/crazyserver/moodlemobile2/src/core/settings/pages/synchronization/synchronization.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ \'core.settings.synchronization\' | translate }}</ion-title>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <core-loading [hideUntil]="sitesLoaded">\n        <ion-item-divider color="light">\n            <p>{{ \'core.settings.syncsettings\' | translate }}</p>\n        </ion-item-divider>\n        <ion-item text-wrap>\n            <ion-label>{{ \'core.settings.enablesyncwifi\' | translate }}</ion-label>\n            <ion-toggle item-end [(ngModel)]="syncOnlyOnWifi" (ngModelChange)="syncOnlyOnWifiChanged()">\n            </ion-toggle>\n        </ion-item>\n        <ion-item-divider color="light">\n            <p>{{ \'core.settings.sites\' | translate }}</p>\n        </ion-item-divider>\n        <ion-item *ngFor="let site of sites" [class.core-primary-item]="site.id == currentSiteId" text-wrap>\n            <h2><core-format-text [text]="site.siteName"></core-format-text></h2>\n            <p>{{ site.fullName }}</p>\n            <p>{{ site.siteUrl }}</p>\n            <button ion-button icon-only clear item-end *ngIf="!isSynchronizing(site.id)" (click)="synchronize(site.id)" [title]="site.siteName" [attr.aria-label]="\'core.settings.synchronizenow\' | translate">\n                <ion-icon name="sync"></ion-icon>\n            </button>\n            <ion-spinner item-end *ngIf="isSynchronizing(site.id)"></ion-spinner>\n        </ion-item>\n    </core-loading>\n</ion-content>\n'/*ion-inline-end:"/home/travis/build/crazyserver/moodlemobile2/src/core/settings/pages/synchronization/synchronization.html"*/,
+            selector: 'page-core-shared-files-list',template:/*ion-inline-start:"/home/travis/build/moodlehq/moodlemobile2/src/core/sharedfiles/pages/list/list.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title><core-format-text [text]="title"></core-format-text></ion-title>\n\n        <ion-buttons end *ngIf="isModal">\n            <button ion-button icon-only (click)="closeModal()" [attr.aria-label]="\'core.close\' | translate">\n                <ion-icon name="close"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <ion-refresher [enabled]="filesLoaded" (ionRefresh)="refreshFiles($event)">\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n    </ion-refresher>\n    <!-- Allow selecting the site to view. -->\n    <core-site-picker [hidden]="!filesLoaded" [initialSite]="siteId" (siteSelected)="changeSite($event)"></core-site-picker>\n    <core-loading [hideUntil]="filesLoaded">\n        <ion-list *ngIf="files && files.length > 0">\n            <ng-container *ngFor="let file of files; let idx = index">\n                <core-local-file *ngIf="file.isFile" [file]="file" [manage]="manage" [overrideClick]="pick" (onClick)="filePicked(file)" (onDelete)="fileDeleted(idx)" (onRename)="fileRenamed(idx, $event)"></core-local-file>\n                <a ion-item text-wrap class="item-media" *ngIf="!file.isFile" (click)="openFolder(file)">\n                    <img src="assets/img/files/folder-64.png" alt="{{ \'core.folder\' | translate }}" role="presentation" item-start>\n                    <p>{{ file.name }}</p>\n                </a>\n            </ng-container>\n        </ion-list>\n        <core-empty-box *ngIf="files && !files.length && manage" icon="folder" [message]="\'core.sharedfiles.nosharedfiles\' | translate"></core-empty-box>\n        <core-empty-box *ngIf="files && !files.length && !manage" icon="folder" [message]="\'core.sharedfiles.nosharedfilestoupload\' | translate"></core-empty-box>\n    </core-loading>\n</ion-content>\n'/*ion-inline-end:"/home/travis/build/moodlehq/moodlemobile2/src/core/sharedfiles/pages/list/list.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5__providers_config__["a" /* CoreConfigProvider */], __WEBPACK_IMPORTED_MODULE_2__providers_events__["a" /* CoreEventsProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_sites__["a" /* CoreSitesProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_utils_dom__["a" /* CoreDomUtilsProvider */],
-            __WEBPACK_IMPORTED_MODULE_6__core_settings_providers_helper__["a" /* CoreSettingsHelper */]])
-    ], CoreSettingsSynchronizationPage);
-    return CoreSettingsSynchronizationPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["E" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_7__providers_sharedfiles__["a" /* CoreSharedFilesProvider */],
+            __WEBPACK_IMPORTED_MODULE_5__providers_sites__["a" /* CoreSitesProvider */], __WEBPACK_IMPORTED_MODULE_6__providers_utils_text__["a" /* CoreTextUtilsProvider */], __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_file__["a" /* CoreFileProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_events__["a" /* CoreEventsProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavController */]])
+    ], CoreSharedFilesListPage);
+    return CoreSharedFilesListPage;
 }());
 
-//# sourceMappingURL=synchronization.js.map
+//# sourceMappingURL=list.js.map
 
 /***/ })
 

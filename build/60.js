@@ -1,17 +1,17 @@
 webpackJsonp([60],{
 
-/***/ 1818:
+/***/ 1893:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonModSurveyIndexPageModule", function() { return AddonModSurveyIndexPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonModWikiIndexPageModule", function() { return AddonModWikiIndexPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(952);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__index__ = __webpack_require__(1941);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(973);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__index__ = __webpack_require__(2023);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -37,37 +37,37 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AddonModSurveyIndexPageModule = /** @class */ (function () {
-    function AddonModSurveyIndexPageModule() {
+var AddonModWikiIndexPageModule = /** @class */ (function () {
+    function AddonModWikiIndexPageModule() {
     }
-    AddonModSurveyIndexPageModule = __decorate([
+    AddonModWikiIndexPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_5__index__["a" /* AddonModSurveyIndexPage */],
+                __WEBPACK_IMPORTED_MODULE_5__index__["a" /* AddonModWikiIndexPage */],
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* AddonModSurveyComponentsModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_5__index__["a" /* AddonModSurveyIndexPage */]),
+                __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* AddonModWikiComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_5__index__["a" /* AddonModWikiIndexPage */]),
                 __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ],
         })
-    ], AddonModSurveyIndexPageModule);
-    return AddonModSurveyIndexPageModule;
+    ], AddonModWikiIndexPageModule);
+    return AddonModWikiIndexPageModule;
 }());
 
 //# sourceMappingURL=index.module.js.map
 
 /***/ }),
 
-/***/ 1941:
+/***/ 2023:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModSurveyIndexPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModWikiIndexPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_index_index__ = __webpack_require__(412);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_index_index__ = __webpack_require__(426);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -94,33 +94,59 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Page that displays a survey.
+ * Page that displays a wiki page.
  */
-var AddonModSurveyIndexPage = /** @class */ (function () {
-    function AddonModSurveyIndexPage(navParams) {
+var AddonModWikiIndexPage = /** @class */ (function () {
+    function AddonModWikiIndexPage(navParams) {
         this.module = navParams.get('module') || {};
         this.courseId = navParams.get('courseId');
-        this.title = this.module.name;
+        this.action = navParams.get('action') || 'page';
+        this.pageId = navParams.get('pageId');
+        this.pageTitle = navParams.get('pageTitle');
+        this.wikiId = navParams.get('wikiId');
+        this.subwikiId = navParams.get('subwikiId');
+        this.userId = navParams.get('userId');
+        this.groupId = navParams.get('groupId');
+        this.title = this.pageTitle || this.module.name;
     }
     /**
-     * Update some data based on the survey instance.
+     * Update some data based on the data received.
      *
-     * @param {any} survey Survey instance.
+     * @param {any} data The data received.
      */
-    AddonModSurveyIndexPage.prototype.updateData = function (survey) {
-        this.title = survey.name || this.title;
+    AddonModWikiIndexPage.prototype.updateData = function (data) {
+        if (typeof data == 'string') {
+            // We received the title to display.
+            this.title = data;
+        }
+        else {
+            // We received a wiki instance.
+            this.title = this.pageTitle || data.title || this.title;
+        }
+    };
+    /**
+     * User entered the page.
+     */
+    AddonModWikiIndexPage.prototype.ionViewDidEnter = function () {
+        this.wikiComponent.ionViewDidEnter();
+    };
+    /**
+     * User left the page.
+     */
+    AddonModWikiIndexPage.prototype.ionViewDidLeave = function () {
+        this.wikiComponent.ionViewDidLeave();
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__components_index_index__["a" /* AddonModSurveyIndexComponent */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__components_index_index__["a" /* AddonModSurveyIndexComponent */])
-    ], AddonModSurveyIndexPage.prototype, "surveyComponent", void 0);
-    AddonModSurveyIndexPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__components_index_index__["a" /* AddonModWikiIndexComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__components_index_index__["a" /* AddonModWikiIndexComponent */])
+    ], AddonModWikiIndexPage.prototype, "wikiComponent", void 0);
+    AddonModWikiIndexPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-addon-mod-survey-index',template:/*ion-inline-start:"/home/travis/build/crazyserver/moodlemobile2/src/addon/mod/survey/pages/index/index.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title><core-format-text [text]="title"></core-format-text></ion-title>\n\n        <ion-buttons end>\n            <!-- The buttons defined by the component will be added in here. -->\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <ion-refresher [enabled]="surveyComponent.loaded" (ionRefresh)="surveyComponent.doRefresh($event)">\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n    </ion-refresher>\n\n    <addon-mod-survey-index [module]="module" [courseId]="courseId" (dataRetrieved)="updateData($event)"></addon-mod-survey-index>\n</ion-content>\n'/*ion-inline-end:"/home/travis/build/crazyserver/moodlemobile2/src/addon/mod/survey/pages/index/index.html"*/,
+            selector: 'page-addon-mod-wiki-index',template:/*ion-inline-start:"/home/travis/build/moodlehq/moodlemobile2/src/addon/mod/wiki/pages/index/index.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title><core-format-text [text]="title"></core-format-text></ion-title>\n\n        <ion-buttons end>\n            <!-- The buttons defined by the component will be added in here. -->\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <ion-refresher [enabled]="wikiComponent.loaded" (ionRefresh)="wikiComponent.doRefresh($event)">\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n    </ion-refresher>\n\n    <addon-mod-wiki-index [module]="module" [courseId]="courseId" [action]="action" [pageId]="pageId" [pageTitle]="pageTitle" [wikiId]="wikiId" [subwikiId]="subwikiId" [userId]="userId" [groupId]="groupId" (dataRetrieved)="updateData($event)"></addon-mod-wiki-index>\n</ion-content>\n'/*ion-inline-end:"/home/travis/build/moodlehq/moodlemobile2/src/addon/mod/wiki/pages/index/index.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */]])
-    ], AddonModSurveyIndexPage);
-    return AddonModSurveyIndexPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */]])
+    ], AddonModWikiIndexPage);
+    return AddonModWikiIndexPage;
 }());
 
 //# sourceMappingURL=index.js.map
