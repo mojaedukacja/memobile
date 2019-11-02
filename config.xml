@@ -2,18 +2,18 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         xmlns:android = "http://schemas.android.com/apk/res/android"
-        id        = "com.moodle.moodlemobile"
+        id        = "pl.mojaedukacja.memobile"
         versionCode = "37100"
         android-versionCode="37100"
         version   = "3.7.1">
-    <name>Moodle</name>
+    <name>Moja Edukacja</name>
 
     <description>
-        Moodle official app
+        Oficjalna aplikacja serwisu edukacyjnego Moja Edukacja
     </description>
 
-    <author href="http://moodle.com" email="mobile@moodle.com">
-        Moodle Mobile team
+    <author href="https://mojaedukacja.pl" email="biuro@mojaedukacja.pl">
+        Moja Edukacja
     </author>
 
     <edit-config target="CFBundleShortVersionString" file="*-Info.plist" mode="merge">
@@ -142,7 +142,7 @@
     <gap:plugin name="cordova-plugin-badge" source="npm" spec="0.8.8" />
     <gap:plugin name="cordova-plugin-camera" source="npm" spec="4.1.0" />
     <gap:plugin name="cordova-plugin-customurlscheme" source="npm" spec="4.4.0">
-        <param name="URL_SCHEME" value="moodlemobile" />
+        <param name="URL_SCHEME" value="memobile" />
     </gap:plugin>
     <gap:plugin name="cordova-plugin-device" source="npm" spec="2.0.3" />
     <gap:plugin name="cordova-plugin-file" source="npm" spec="6.0.2" />
@@ -167,7 +167,7 @@
     </gap:plugin>
 
     <edit-config file="AndroidManifest.xml" target="/manifest/application/activity[@android:launchMode='singleTop']" mode="merge">
-        <activity android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|screenLayout|smallestScreenSize" android:debuggable="true"></activity>
+        <activity android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|screenLayout|smallestScreenSize" android:debuggable="false"></activity>
     </edit-config>
     <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application">
         <application android:usesCleartextTraffic="true" />
