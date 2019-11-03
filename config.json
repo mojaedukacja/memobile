@@ -70,13 +70,13 @@
         }
     },
     "font_sizes": [
-        62.5,
+        60.5,
         75.89,
         93.75
     ],
     "customurlscheme": "memobile",
-    "siteurl": "",
-    "sitename": "",
+    "siteurl": ""https:\/\/mojaedukacja.pl",
+    "sitename": "Moja Edukacja",
     "multisitesdisplay": "",
     "skipssoconfirmation": false,
     "forcedefaultlanguage": false,
